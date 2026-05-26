@@ -1,193 +1,80 @@
 ---
-title: Python Fundamentals
-teaching: 20
-exercises: 10
+title: Introductions
+teaching: 30
+exercises: 0
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Become familiar with mathematical operators and built-in functions.
-- Become more confident using Jupyter notebooks (e.g., writing and running cells).
-- Understand the order of operations.
+- Establish a shared baseline of understanding regarding the current hype versus the reality of AI in healthcare.
+- Uncover the audience’s existing biases, fears, or enthusiasm about machine learning.
+- Set expectations that this workshop is about bridging the gap between data science and clinical utility.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do we process mathematical operations in Python?
-- What happens if we make a mistake?
+- "What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them—optimism, skepticism, or anxiety?"
+- "Where do you think AI can make the biggest impact in your day-to-day workflow: reducing paperwork or assisting in patient diagnosis?"
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Simple calculation 
+Part 1: Welcome & Roadmap (5 Minutes)
+Speaker Script
 
-Any Python interpreter can be used as a calculator:
+    "Welcome, everyone, to today’s workshop. Whether your background is in medicine, data science, administration, or research, you are in the right room.
 
+    I want to set a core expectation right out of the gate: this is a bilingual space. If you are a clinician, you speak the language of patient care, workflows, and clinical utility. If you are a data scientist, you speak the language of math, matrices, and optimization.
 
-### Subtraction
- 
-```python
-10 - 5 #(subtraction) 
-```
+    The magic—and the massive frustration—of AI in healthcare happens right in the middle. Our goal today isn't to make clinicians write code, nor is it to turn data scientists into medical doctors. Our goal is to learn how to translate a complex medical reality into a structured data problem, and then translate that model’s output back into something safe and useful at the patient's bedside."
 
+Key Visuals/Slides to Show
 
-```output
-5
-```
-### Addition
-```python
-10 + 5 #(addition) 
-```
+    A slide showing a "Bridge" connecting a Stethoscope (Clinical Practice) to a Matrix of 1s and 0s (Data Science).
 
-```output
-15
-```
-### Multiplication
+    A clear, high-level map of the 4 sessions so attendees know exactly where they are headed.
+    
+Part 2: The "Why Now?" Hook (10 Minutes)
 
-```python
-10 * 5 #(multiplication) 
-```
+Use this section to ground the workshop in reality. AI isn't exploding today because the math is brand new; most of the underlying math has existed for decades. It is exploding because three critical forces have finally collided.
+The Three Drivers of the Healthcare AI Explosion
 
-```output
-50
-```
+    1. Total Digitization of Health Data:
 
-### Division
+        The Talking Point: Twenty years ago, patient data was trapped in paper charts, physical film folders, and fax machines. Today, Electronic Health Records (EHRs) have digitised patient history. We finally have digital repositories of vitals, lab results, and medications that algorithms can actually read.
 
-```python
-10 / 5 #(division) 
-```
+    2. The Imaging and Genomic Deluge:
 
-```output
-2.0
-```
+        The Talking Point: A single high-resolution 3D CT scan or a whole-genome sequencing file contains gigabytes of data. Human brains are spectacular at synthesis, but we physically do not have enough hours in the day to parse the sheer volume of data being generated. We built the sensors to collect the data; now we need the computational "eyes" to help us look at it.
 
-### Exponentiation
+    3. Cheap, Cloud-Scale Compute Power:
 
-```python
-5 ** 2 #(exponentiation) 
-```
+        The Talking Point: Training a deep learning neural network requires billions of mathematical calculations per second. The rise of specialized hardware (like GPUs) and cloud computing means a model that would have taken a university supercomputer weeks to train ten years ago can now be trained in a few hours for the cost of a few cups of coffee.
+        
+Part 3: Group Discussion Builder (15 Minutes)
 
-```output
-25
-```
+This discussion shouldn't just be an icebreaker; it is a diagnostic tool for you as the presenter to see where the room stands on the spectrum of fear vs. hype.
+The Prompt to Put on the Screen
 
-### Modulus
+    "What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them—optimism, skepticism, or anxiety?"
 
-```python
-10 % 3 #(modulus)  
-```
+How to Run the Room (Tactical Instructions)
 
-```output
-1
-```
+    The Silent Minute (1 min): Give everyone 60 seconds to write down their thoughts on a sticky note (or a digital tool like Padlet/Slido if remote). This ensures introverts have time to form their thoughts and won't get drowned out by loudest voices.
 
-Note: anything following a '#' is considered a comment. Comments are not read by Python, they are used to help explain the code to other users (and your future self).
+    Pair & Share (5 mins): Have them turn to their immediate neighbor (or split into Zoom breakouts of 3 people) and share their examples and feelings.
 
+    The Whiteboard Harvest (9 mins): Bring the room back together. Draw a massive line down the middle of your physical or digital whiteboard. Label one side Promise and the other Peril. Ask groups to shout out what came up.
+  
 
-### Order of operations
-
-Question: Before you enter the next calculation, take a second to consider what answer you would expect.
-
-```python
-6 + 9 / 3 
-```
-
-```output
-9.0
-```
-
-If the answer was **not** what you were expecting you will need to become clear on order of operations in Python. 
-
- 
-### Remember **BO(DM)(AS)** (BIDMAS or PEMDAS)
-
-* **B**rackets 
-
-* **O**rders 
-
-* **D**ivision/**M**ultiplication\*  
-
-* **A**ddition/**S**ubtraction\*  
-
-Operators with the same precedence are calculated left to right. 
-
- 
-This tells you the order in which mathematical operations will be performed and ensures consistency during evaluation.  
-
-To make this concept clearer, try: 
-
-```python
-(6 + 9) / 3 
-```
-
-
-```output
-5.0
-```
-
-
-Using brackets we have manipulated the order of operations to perform the addition before the division. Be conscious of how you structure your mathematical operations to ensure the desired results but also readability of your code.
-
-### So what happens if we do something wrong? I am worried that I might break something!
-
-If we do something wrong, Python will usually show us an error message. Sometimes, more frustratingly, the code will still run but produce unexpected results. This is a normal part of programming and not usually a sign that you have broken anything. So, how do we get help when things don't work like they should?
-
-## Getting Help
-We are now going to briefly explore how to find help in Python and introduce our first built-in function. The built-in function we will use is `help()`, which displays information about Python objects. We will use it to look up another built-in function, `print()`.
-
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-A function is a named piece of code that performs a task. We will look at functions in more detail later in the module. For now, we will use built-in functions (functions included in base Python) to understand how to use them.
-:::::::::::::::::::::::::::::::::::::::::
-
-
-Every built-in function has extensive [documentation that can also be found online](https://docs.python.org/3/library/index.html).
-
-```python
-help(print)
-```
-
-```output
-Help on built-in function print in module builtins:
-
-print(*args, sep=' ', end='\n', file=None, flush=False)
-    Prints the values to a stream, or to sys.stdout by default.
-
-    sep
-      string inserted between values, default a space.
-    end
-      string appended after the last value, default a newline.
-    file
-      a file-like object (stream); defaults to the current sys.stdout.
-    flush
-      whether to forcibly flush the stream.
-```
-
-This help message (the function's "docstring") includes a usage statement, a list of parameters accepted by the function, and their default values if they have them.
-
-It is normal to encounter error messages while programming, whether you are learning for the first time or have been programming for many years.
-[We will discuss error messages in more detail later](./09-errors.md). 
-For now, let's explore how people use them to get more help when they are stuck with their Python code.
-
-* Search the internet: 
-  paste the last line of your error message or the word "python" and a short description of what you want to do into your favourite search engine 
-  and you will usually find several examples where other people have encountered the same problem and came looking for help.
-    * [Stack Overflow](https://stackoverflow.com/questions) can be particularly helpful for this: answers to questions are presented as a ranked thread ordered according to how useful other users found them to be.
-    * **Take care:** copying and pasting code written by somebody else is risky unless you understand exactly what it is doing!
-* Ask somebody "in the real world". 
-  If you have a colleague or friend with more expertise in Python than you have, show them the problem you are having and ask them for help.
-
-[We will discuss more debugging strategies in greater depth later in the lesson](./11-debugging.md).
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Built-in functions are always available to use (without additional libraries).
-- Use `help(thing)` to view help for something.
-- You may have seen some error messages already, they provide information about what has gone wrong with your code and where.
+- AI in healthcare isn't a futuristic concept; it is already operating in triaging, billing, and radiology.
+- The explosion of healthcare AI is driven by three factors: massive computing power, digitized health records (EHRs), and an explosion of genomic data.
+- Effective healthcare AI requires collaboration—data scientists understand the math, but clinicians understand the patient.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

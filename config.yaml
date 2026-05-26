@@ -11,7 +11,7 @@
 carpentry: 'swc'
 
 # Overall title for pages.
-title: 'Programming with Python'
+title: 'Introduction to machine learning (ML) and artificial intelligence (AI)'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2014-11-25'
@@ -27,7 +27,7 @@ life_cycle: 'stable'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/swcarpentry/python-novice-inflammation'
+source: 'https://github.com/corcor27/HCRW-workshop'
 
 # Default branch of your lesson
 branch: 'main'
@@ -63,13 +63,6 @@ episodes:
 - 02-variables_and_basic_data_types.md
 - 03-lists_and_dictionaries.md
 - 04-libraries_and_imports.md
-- 05-Numpy_and_Pandas.md
-- 06-plotting.md
-- 07-flow_control.md
-- 08-simple_functions.md
-- 09-Pathing_and_workspace.md
-- 10-errors_and_debugging.md
-- 11-Exercises.md
 
 # Information for Learners
 learners: 
