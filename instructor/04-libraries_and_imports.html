@@ -216,12 +216,25 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         4. Limitations &amp; Creating Your Own Model
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#expansion-general-limitations-of-ai">Expansion: General Limitations of AI</a></li>
+<li><a href="#challenge-a-the-dataset-bias-trap">Challenge A: The Dataset Bias Trap</a></li>
+<li><a href="#challenge-b-the-black-box-explainability-xai">Challenge B: The Black Box &amp; Explainability (XAI)</a></li>
+<li><a href="#challenge-c-data-privacy-sovereign-borders">Challenge C: Data Privacy &amp; Sovereign Borders</a></li>
+<li><a href="#summary-wrap-up-for-the-session">Summary Wrap-Up for the Session</a></li>
+<li><a href="#how-to-build-a-model-the-bare-minimum-15-mins">How to Build a Model: The Bare Minimum (15 Mins)</a></li>
+<li><a href="#wrap-up-next-steps-10-mins">Wrap-Up &amp; Next Steps (10 Mins)</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -284,7 +297,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Limitations &amp; Creating Your Own Model</h1>
-        <p>Last updated on 2026-05-26 |
+        <p>Last updated on 2026-06-26 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/04-libraries_and_imports.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -329,6 +342,195 @@ capability.”</li>
 </div>
 </div>
 </div>
+<section><h2 class="section-heading" id="expansion-general-limitations-of-ai">Expansion: General Limitations of AI<a class="anchor" aria-label="anchor" href="#expansion-general-limitations-of-ai"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="core-concept-math-patterns-vs--clinical-context">Core Concept: Math Patterns vs. Clinical Context<a class="anchor" aria-label="anchor" href="#core-concept-math-patterns-vs--clinical-context"></a></h3>
+<p><strong>Expanded Speaker Script</strong></p>
+<p>“When we look at an AI model making a diagnosis, it’s easy to trick
+ourselves into thinking the machine is ‘thinking’ like a doctor. It
+isn’t. An AI model possesses zero common sense and no actual
+understanding of human physiology. If you show a lung model an X-ray
+where the patient accidentally swallowed a coin, it doesn’t understand
+what a stomach is, what choking means, or what a coin is. It only maps
+mathematical correlations across pixel grids. It relies entirely on the
+consistency of statistical patterns. If those patterns change even
+slightly in the real world, or if they were flawed from day one, the
+output will look incredibly confident while being completely wrong.”
+<strong>Key Teaching Point: Correlation <span class="math inline">\(\neq\)</span> Causation</strong></p>
+<p>Machines are pattern-matchers, not logicians. If a dataset shows that
+patients who receive a specific temporary baseline medication happen to
+survive longer due to independent clinical routing, the model may
+conclude the medication is a miraculous cure, completely missing the
+true underlying clinical reason.</p>
+</div>
+<div class="section level3">
+<h3 id="failure-mode-1-garbage-in-garbage-out-gigo">Failure Mode 1: “Garbage In, Garbage Out” (GIGO)<a class="anchor" aria-label="anchor" href="#failure-mode-1-garbage-in-garbage-out-gigo"></a></h3>
+<p>When bad data enters an algorithm, the AI doesn’t break down with an
+error message—it builds a highly polished, dangerous model out of that
+bad data. <strong>Structural Breakdowns in Clinical Data</strong></p>
+<ul><li>Upcoding &amp; Billing Bias: Administrative billing codes (ICD-10)
+are optimized for financial reimbursement, not granular clinical
+research. If an algorithm is trained on EHR records to predict heart
+failure outcomes, but clinicians systematically selected generic
+“unspecified heart failure” codes to ensure insurance approval, the
+model inherits a fundamentally warped understanding of the disease
+progression.</li>
+<li>Missing Data Misinterpretation: In healthcare records, blank spaces
+carry heavy meaning. A missing lab value usually means a clinician
+looked at the patient and decided they were healthy enough not to need
+the test. If a model treats missing fields as an arbitrary “zero” or
+fills them in with naive mathematical averages, it miscalculates risk
+profiles.</li>
+<li>Sloppy Text &amp; Copy-Paste Culture: Clinical documentation is
+filled with historical copy-paste errors. If historical training notes
+constantly carry forward outdated medication lists or conflicting
+symptom notes, an NLP model will mistake this text-clutter for active,
+high-yield clinical signals.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="failure-mode-2-model-brittleness-the-generalization-gap">Failure Mode 2: Model Brittleness &amp; The Generalization Gap<a class="anchor" aria-label="anchor" href="#failure-mode-2-model-brittleness-the-generalization-gap"></a></h3>
+<p>An AI model’s performance can drop sharply when moving between
+hospital environments. This drop is known as Dataset Shift or The
+Generalization Gap.</p>
+<p><strong>The Illusion of Performance: “Shortcut Learning”</strong>
+When we train a deep learning network on images from a single, high-tech
+facility, the model often takes an unhelpful shortcut to maximize its
+accuracy score. It learns to recognize the specific signatures of that
+hospital’s hardware, scan markers, or patient protocols rather than the
+actual medical pathology.</p>
+<p><img src="../fig/xray_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p><strong>A Real-World Diagnostic Failure Case Study</strong> Consider
+an AI model built to spot pneumonia on chest radiographs: - The Training
+Site (London Academic Center): The model is trained on thousands of
+scans from top-tier digital imaging suites. In these suites, stable,
+ambulatory patients stand up for clean, crisp posterior-anterior (PA)
+views. - The Shortcut: The model notices that the highest-quality scans
+almost always belong to stable patients, while low-quality, high-noise
+scans taken by portable bedside units belong to critically ill patients
+in the ICU. The model covertly learns to classify “portable machine
+noise” as an indicator of severe lung disease. - The Deployment Site
+(Rural Clinic): The model is deployed to a community clinic that relies
+entirely on an older, portable X-ray unit for all patients due to space
+constraints. - The Crash: Because every single image coming out of the
+rural clinic contains high noise and lower contrast, the model’s
+performance breaks down completely. It continuously flags healthy
+patients as having severe pneumonia simply because it confuses the older
+machine’s background noise with the markers of a critical ICU case.</p>
+</div>
+<div class="section level3">
+<h3 id="core-concept-the-high-stakes-of-clinical-software">Core Concept: The High Stakes of Clinical Software<a class="anchor" aria-label="anchor" href="#core-concept-the-high-stakes-of-clinical-software"></a></h3>
+<p><strong>Expanded Speaker Script</strong> “If a music streaming app
+has a software bug, you get a bad song recommendation. If a commercial
+text predictor glitched, it typoed a text message. But in healthcare, a
+software bug or a hidden algorithmic flaw is a direct threat to patient
+safety. When we integrate machine learning into patient care, we cannot
+manage it like standard consumer tech. We have to wrestle with deep
+historical biases, navigate complex legal accountability frameworks, and
+protect patient privacy under the strictest data laws on earth.”</p>
+</div>
+</section><section><h2 class="section-heading" id="challenge-a-the-dataset-bias-trap">Challenge A: The Dataset Bias Trap<a class="anchor" aria-label="anchor" href="#challenge-a-the-dataset-bias-trap"></a></h2>
+<hr class="half-width"><p>Algorithms do not have moral compasses; they are historical mirrors.
+If the data used to train an AI model reflects societal or systemic gaps
+in healthcare access, the model will codify and supercharge those
+disparities under the guise of objective mathematics. <strong>The
+Fitzpatrick Scale Disparity in Dermatology</strong> In medical computer
+vision, skin cancer screening tools rely heavily on image pattern
+recognition. A historical problem is that major open-source dermatology
+training repositories (like the ISIC archive) have historically
+consisted of images taken from individuals with lighter skin tones.</p>
+<ul><li>The Systemic Drop: When an algorithm trained primarily on
+Fitzpatrick Types 1–3 (lighter skin) is asked to evaluate a lesion on
+Fitzpatrick Types 5–6 (darker skin), its diagnostic accuracy drops
+precipitously.</li>
+<li>The Clinical Consequence: The model fails to recognize the edge
+boundaries, color variations, or texture changes of a malignant melanoma
+against a darker background melanin index. This leads directly to higher
+false-negative rates and delayed, late-stage cancer diagnoses for
+minority patient groups.</li>
+</ul><p><img src="../fig/skin_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</section><section><h2 class="section-heading" id="challenge-b-the-black-box-explainability-xai">Challenge B: The Black Box &amp; Explainability (XAI)<a class="anchor" aria-label="anchor" href="#challenge-b-the-black-box-explainability-xai"></a></h2>
+<hr class="half-width"><p>Deep learning models operate by routing inputs through millions of
+abstract mathematical connections. This yields a Black Box problem: an
+input goes in, an output comes out, but the exact clinical logic remains
+completely invisible. <strong>Moving Past the Black Box with SHAP &amp;
+LIME</strong> Physicians have an ethical and legal duty of care. You
+cannot prescribe a aggressive treatment protocol or send a patient to
+emergency surgery simply because a model generated a high risk score.
+You need to know why. Medicine solves this using Explainable AI (XAI)
+frameworks. The two industry standards are: - SHAP (SHapley Additive
+exPlanations): Uses cooperative game theory to calculate the exact
+structural contribution of each medical feature to the final prediction.
+- LIME (Local Interpretable Model-agnostic Explanations): Purposely
+perturbs the data around a single patient to see which variables cause
+the prediction to flip. <strong>Reading a SHAP Force Plot</strong> When
+integrated into an Electronic Health Record (EHR), an XAI tool
+transforms a blind risk percentage into an actionable diagnostic
+map.</p>
+<p><img src="../fig/EHR_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>As shown in the force plot visualization above, the model reveals its
+internal decision-making path for individual patients: - The Baseline
+Value: The system starts at a standard population risk baseline. - The
+Dynamic Vectors: Clinical variables act as directional forces. Red bars
+push the patient’s score higher toward a critical alert threshold, while
+blue bars pull the prediction down toward safety. - Clinical
+Verification: A clinician can quickly review the chart and see that a
+high risk score was driven specifically by a high respiratory rate (RR =
+23.0) paired with a compromised oxygenation status (PaO2 = 53.0),
+allowing them to clinically validate the AI’s warning.</p>
+</section><section><h2 class="section-heading" id="challenge-c-data-privacy-sovereign-borders">Challenge C: Data Privacy &amp; Sovereign Borders<a class="anchor" aria-label="anchor" href="#challenge-c-data-privacy-sovereign-borders"></a></h2>
+<hr class="half-width"><p>Tech giants scale their businesses by collecting massive consumer
+data pools into centralized clouds. In medicine, strict privacy
+frameworks like HIPAA (Health Insurance Portability and Accountability
+Act) and GDPR (General Data Protection Regulation) make this central
+gathering approach an operational and legal impossibility. [ Standard
+Data Collection ] [ Medical Federated Learning ] Hospital A Hospital B
+Hospital A Hospital B   / ▲ ▲ ▼ ▼ │ Models │ [ Central Cloud ] ▼ (No
+Data)▼ (Massive Privacy Leak Risk) [ Federated Central Server ]</p>
+<p><strong>The Solution: Federated Learning</strong> To train powerful
+models without moving highly confidential patient files across
+institutional boundaries, medical networks utilize Federated Learning
+architectures.</p>
+<p><img src="../fig/federated_learning.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>Rather than forcing healthcare networks to pool private patient data
+into a vulnerable central repository, federated learning flips the
+pipeline completely: - Local Preservation: The raw data stays safely
+behind local firewall networks at individual facilities (e.g.,
+individual hospitals, research centers, or universities). - Model
+Dissemination: A blank, unconfigured neural network model is sent out
+from a central federated server to each individual site. - Local On-Site
+Training: The model trains locally on each hospital’s local data
+servers. No patient charts, names, or identifiers ever leave the
+building. - Global Aggregation: The sites send only their mathematical
+model adjustments (weight updates) back to the central server. The
+central server blends these updates into a master algorithm that
+benefits from the collective knowledge of multiple hospitals while
+maintaining absolute data confidentiality.</p>
+</section><section><h2 class="section-heading" id="summary-wrap-up-for-the-session">Summary Wrap-Up for the Session<a class="anchor" aria-label="anchor" href="#summary-wrap-up-for-the-session"></a></h2>
+<hr class="half-width"><p>Key Takeaway: Ethical healthcare AI requires moving past the simple
+metric of “accuracy.” We must actively inspect our datasets for
+demographic gaps, use XAI tools like SHAP force plots to keep clinical
+logic transparent, and utilize decentralized frameworks like federated
+learning to respect sovereign data walls.</p>
+</section><section><h2 class="section-heading" id="how-to-build-a-model-the-bare-minimum-15-mins">How to Build a Model: The Bare Minimum (15 Mins)<a class="anchor" aria-label="anchor" href="#how-to-build-a-model-the-bare-minimum-15-mins"></a></h2>
+<hr class="half-width"><p><strong>Core Concept</strong> “If you ever want to launch an AI
+research project or build a tool for your department, you need to
+understand that coding is only about 10% of the timeline. The real work
+is data governance, labeling, and workflow integration. Let’s walk
+through the actual clinical blueprint.”</p>
+<div class="section level3">
+<h3 id="the-multi-phase-clinical-ai-pipeline">The Multi-Phase Clinical AI Pipeline<a class="anchor" aria-label="anchor" href="#the-multi-phase-clinical-ai-pipeline"></a></h3>
+<p><img src="../fig/multi-phase.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
+</section><section><h2 class="section-heading" id="wrap-up-next-steps-10-mins">Wrap-Up &amp; Next Steps (10 Mins)<a class="anchor" aria-label="anchor" href="#wrap-up-next-steps-10-mins"></a></h2>
+<hr class="half-width"><p><strong>Final Closing Thoughts</strong> “As we close out this
+foundational series, remember this fundamental truth: The goal of AI in
+healthcare is not to replace the clinician. The true promise of these
+tools is to automate the repetitive, administrative, and exhausting
+tasks—the endless documentation, the initial sorting of normal scans,
+the manual data tracking. By offloading that cognitive load to machines,
+we can give human clinicians their most valuable asset back: time. Time
+to focus on complex cases, and time to spend at the bedside doing what
+humans do best—caring for patients.”</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -349,10 +551,7 @@ differences in equipment, patient demographics, and charting habits
 </ul></div>
 </div>
 </div>
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter Bottom"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/03-lists_and_dictionaries.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -412,8 +611,8 @@ differences in equipment, patient demographics, and charting habits
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/04-libraries_and_imports.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/04-libraries_and_imports.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-05-26",
-  "datePublished": "2026-06-23"
+  "dateModified": "2026-06-26",
+  "datePublished": "2026-06-26"
 }
 
   </script><script>

@@ -207,12 +207,21 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         3. ML/AI in Healthcare Applications
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#deep-dive-4-clinical-use-cases-55-mins">Deep Dive: 4 Clinical Use Cases (55 Mins)</a></li>
+<li><a href="#group-discussion-builder-the-translation-gap-20-mins">Group Discussion Builder: The Translation Gap (20 Mins)</a></li>
+<li><a href="#summary-wrap-up">Summary wrap-up</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -284,7 +293,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>ML/AI in Healthcare Applications</h1>
-        <p>Last updated on 2026-05-26 |
+        <p>Last updated on 2026-06-26 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/03-lists_and_dictionaries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -328,6 +337,121 @@ models out of the clinic.</li>
 </div>
 </div>
 </div>
+<section><h2 class="section-heading" id="deep-dive-4-clinical-use-cases-55-mins">Deep Dive: 4 Clinical Use Cases (55 Mins)<a class="anchor" aria-label="anchor" href="#deep-dive-4-clinical-use-cases-55-mins"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="case-1-breast-cancer-imaging-computer-vision-15-mins">Case 1: Breast Cancer Imaging &amp; Computer Vision (15 mins)<a class="anchor" aria-label="anchor" href="#case-1-breast-cancer-imaging-computer-vision-15-mins"></a></h3>
+<p><strong>Core Concept</strong></p>
+<p>“Mammography is notoriously difficult. A radiologist might review
+over a hundred scans a day, looking for microcalcifications of tiny
+specks of calcium that can be the earliest sign of breast cancer. They
+are easy to miss on a busy shift, but computer vision models don’t get
+tired.” <strong>The Features &amp; Mechanics</strong></p>
+<ul><li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
+contrast between adjacent pixels that can highlight subtle masses before
+they form distinct borders.</li>
+<li>Edge Sharpening: It traces micro-margins of structural changes,
+evaluating whether an asymmetry matches benign tissue variations or
+malignant architectures.</li>
+<li>Density Variations: It isolates localised dense regions that might
+hide behind or within dense breast tissue, acting as an automated second
+set of eyes to catch what human eyes could miss during fatigue
+periods.</li>
+</ul><p><img src="../fig/mammogram_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
+<div class="section level3">
+<h3 id="case-2-patient-risk-analysis-tabular-prediction-15-mins">Case 2: Patient Risk Analysis &amp; Tabular Prediction (15
+mins)<a class="anchor" aria-label="anchor" href="#case-2-patient-risk-analysis-tabular-prediction-15-mins"></a></h3>
+<p><strong>Core Concept</strong> “In an intensive care setting, sepsis
+doesn’t just hit a patient out of nowhere—it drops clues hours in
+advance. Predictive tabular models pull disparate data points straight
+from the electronic health record to flag a crashing patient before
+clinical decompensation becomes obvious.”</p>
+<p><strong>The Features &amp; Mechanics</strong> - Vital Sign Trend
+Cross-Matching: Rather than setting off an alarm for a single isolated
+parameter, the model looks for complex multi-system trends over time.
+For instance, it flags when a subtle heart rate elevation occurs
+simultaneously with a downward drift in blood pressure. - Lab Value
+Concurrency: It ingests real-time lab updates, tracking indicators like
+steady white blood cell (WBC) count climbs or unexpected lactate level
+increases. - Demographic Context Filters: It weights these real-time
+signals against static risk factors, including age, chronic
+comorbidities, and recent surgical history, to output an updated risk
+score.</p>
+<p><img src="../fig/ECG_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
+<div class="section level3">
+<h3 id="case-3-microbiology-automated-screening-10-mins">Case 3: Microbiology &amp; Automated Screening (10 mins)<a class="anchor" aria-label="anchor" href="#case-3-microbiology-automated-screening-10-mins"></a></h3>
+<p><strong>Core Concept</strong> “Think about the sheer volume of
+negative agar plates a microbiology lab processes daily. Automated
+screening lets models take over the routine triage of plates, freeing
+path-lab scientists to focus their energy entirely on complex, atypical
+growth patterns.”</p>
+<p><strong>The Features &amp; Mechanics</strong> - Colour Segmentation:
+The model isolates hue ranges to distinguish bacterial types or
+hemolytic reactions against agar backgrounds. - Colony Architecture
+Mapping: It evaluates geometric attributes such as circularity,
+elevation, and border characteristics to classify sample morphology. -
+Kinetic Growth Metrics: By analysing time-lapse imagery, the system
+tracks growth velocity over specific hourly intervals, recognising
+specific bacterial strains by how quickly they colonise the plate.</p>
+</div>
+<div class="section level3">
+<h3 id="case-4-sequence-genomic-data-via-transformers-15-mins">Case 4: Sequence &amp; Genomic Data via Transformers (15 mins)<a class="anchor" aria-label="anchor" href="#case-4-sequence-genomic-data-via-transformers-15-mins"></a></h3>
+<p><strong>Core Concept</strong> “We’ve all heard how Large Language
+Models analyze sentences to guess the next word. In genomics, we apply
+that exact same logic. We treat human DNA bases—A, T, C, and G—as
+letters, and long gene sequences as paragraphs to catch mutations that
+cause rare diseases.”</p>
+<p><strong>The Features &amp; Mechanics</strong> - Long-Range Dependency
+Tracking: Traditional tools can only look at small genetic sections at a
+time. Transformer architectures use self-attention to link a base
+mutation at one end of a chromosome directly to structural changes at
+the far end. - Protein Folding Alterations: The model analyzes how these
+far-apart sequence shifts interact to change final 3D protein
+structures, predicting whether a variant will disrupt normal cell
+function.</p>
+</div>
+</section><section><h2 class="section-heading" id="group-discussion-builder-the-translation-gap-20-mins">Group Discussion Builder: The Translation Gap (20 Mins)<a class="anchor" aria-label="anchor" href="#group-discussion-builder-the-translation-gap-20-mins"></a></h2>
+<hr class="half-width"><p><strong>The Core Question to Present</strong> “What do you think is
+currently holding back these incredibly powerful models from being used
+in every single hospital tomorrow?”</p>
+<p><strong>Facilitator Framework &amp; Navigation Prompts</strong> If
+the audience hesitates or focuses solely on a single aspect, use the
+structured guidance categories below to steer the conversation:</p>
+<p><img src="../fig/the_translation_gap.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div class="section level3">
+<h3 id="technical-barriers-data-silos-interoperability">Technical Barriers (Data Silos &amp; Interoperability)<a class="anchor" aria-label="anchor" href="#technical-barriers-data-silos-interoperability"></a></h3>
+<ul><li>The Problem: Hospital systems rarely talk to each other seamlessly.
+A model trained to perfection on an Epic EHR platform at a major
+academic center often fails completely when deployed on a Cerner
+platform at a rural community hospital.</li>
+<li>Prompt to use: “If a model relies on structured lab inputs, what
+happens when it encounters a hospital where those specific labs are
+written as free-text notes?” ### Cultural Barriers (Clinician Distrust
+&amp; Alarm Fatigue)</li>
+<li>The Problem: Clinicians face constant alert fatigue. If an AI model
+flags a sepsis risk with a high false-positive rate, doctors will
+quickly turn off or ignore the system entirely. Additionally, a lack of
+explainability leads to a “black box” issue where physicians don’t trust
+a recommendation they can’t verify.</li>
+<li>Prompt to use: “Would you feel comfortable altering a patient’s care
+plan based on an AI alert if the model couldn’t show you the data
+reasoning behind its decision?” ### Legal &amp; Regulatory Barriers
+(Liability &amp; Accountability)</li>
+<li>The Problem: The legal landscape remains undefined. If an algorithm
+misses a tumor on a mammogram, liability lines blur between the
+radiologist who signed off, the hospital that bought the tool, and the
+software company that engineered the model.</li>
+<li>Prompt to use: “If a tool is labeled as a ‘clinical decision support
+aid,’ who is ultimately accountable when a missed finding causes patient
+harm?”</li>
+</ul></div>
+</section><section><h2 class="section-heading" id="summary-wrap-up">Summary wrap-up<a class="anchor" aria-label="anchor" href="#summary-wrap-up"></a></h2>
+<hr class="half-width"><p>Key Takeaway: Moving ML/AI out of a research lab and into a live
+clinical workflow isn’t just a coding challenge. Success requires
+matching data types to the right model architectures, ensuring our
+technical systems can actually share data, and building clear interfaces
+that earn the trust of clinical teams.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -348,10 +472,7 @@ diseases.</li>
 </ul></div>
 </div>
 </div>
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter Bottom"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-variables_and_basic_data_types.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/04-libraries_and_imports.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -411,8 +532,8 @@ diseases.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/03-lists_and_dictionaries.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/03-lists_and_dictionaries.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-05-26",
-  "datePublished": "2026-06-23"
+  "dateModified": "2026-06-26",
+  "datePublished": "2026-06-26"
 }
 
   </script><script>
