@@ -330,7 +330,7 @@
         
 <section id="aio-01-intro"><p>Content from <a href="01-intro.html">Introductions</a></p>
 <hr>
-<p>Last updated on 2026-05-26 |
+<p>Last updated on 2026-07-03 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/01-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -371,65 +371,72 @@ between data science and clinical utility.</li>
 </div>
 </div>
 </div>
-<p>Part 1: Welcome &amp; Roadmap (5 Minutes) Speaker Script</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="st">"Welcome, everyone, to today’s workshop. Whether your background is in medicine, data science, administration, or research, you are in the right room.</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1" aria-label="code-block-1-3"></a><span class="st">I want to set a core expectation right out of the gate: this is a bilingual space. If you are a clinician, you speak the language of patient care, workflows, and clinical utility. If you are a data scientist, you speak the language of math, matrices, and optimization.</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1" aria-label="code-block-1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1" aria-label="code-block-1-5"></a><span class="st">The magic—and the massive frustration—of AI in healthcare happens right in the middle. Our goal today isn't to make clinicians write code, nor is it to turn data scientists into medical doctors. Our goal is to learn how to translate a complex medical reality into a structured data problem, and then translate that model’s output back into something safe and useful at the patient's bedside."</span></span></code></pre>
-</div>
-<p>Key Visuals/Slides to Show</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="ex">A</span> slide showing a <span class="st">"Bridge"</span> connecting a Stethoscope <span class="er">(</span><span class="ex">Clinical</span> Practice<span class="kw">)</span> <span class="ex">to</span> a Matrix of 1s and 0s <span class="er">(</span><span class="ex">Data</span> Science<span class="kw">)</span><span class="bu">.</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="ex">A</span> clear, high-level map of the 4 sessions so attendees know exactly where they are headed.</span></code></pre>
-</div>
-<p>Part 2: The “Why Now?” Hook (10 Minutes)</p>
-<p>Use this section to ground the workshop in reality. AI isn’t
-exploding today because the math is brand new; most of the underlying
-math has existed for decades. It is exploding because three critical
-forces have finally collided. The Three Drivers of the Healthcare AI
-Explosion</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">1.</span> Total Digitization of Health Data:</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1" aria-label="code-block-3-3"></a>    <span class="ex">The</span> Talking Point: Twenty years ago, patient data was trapped in paper charts, physical film folders, and fax machines. Today, Electronic Health Records <span class="er">(</span><span class="ex">EHRs</span><span class="kw">)</span> <span class="ex">have</span> digitised patient history. We finally have digital repositories of vitals, lab results, and medications that algorithms can actually read.</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1" aria-label="code-block-3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1" aria-label="code-block-3-5"></a><span class="ex">2.</span> The Imaging and Genomic Deluge:</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1" aria-label="code-block-3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1" aria-label="code-block-3-7"></a>    <span class="ex">The</span> Talking Point: A single high-resolution 3D CT scan or a whole-genome sequencing file contains gigabytes of data. Human brains are spectacular at synthesis, but we physically do not have enough hours in the day to parse the sheer volume of data being generated. We built the sensors to collect the data<span class="kw">;</span> <span class="ex">now</span> we need the computational <span class="st">"eyes"</span> to help us look at it.</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1" aria-label="code-block-3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1" aria-label="code-block-3-9"></a><span class="ex">3.</span> Cheap, Cloud-Scale Compute Power:</span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1" aria-label="code-block-3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1" aria-label="code-block-3-11"></a>    <span class="ex">The</span> Talking Point: Training a deep learning neural network requires billions of mathematical calculations per second. The rise of specialized hardware <span class="er">(</span><span class="ex">like</span> GPUs<span class="kw">)</span> <span class="ex">and</span> cloud computing means a model that would have taken a university supercomputer weeks to train ten years ago can now be trained in a few hours for the cost of a few cups of coffee.</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1" aria-label="code-block-3-12"></a>    </span></code></pre>
-</div>
-<p>Part 3: Group Discussion Builder (15 Minutes)</p>
-<p>This discussion shouldn’t just be an icebreaker; it is a diagnostic
-tool for you as the presenter to see where the room stands on the
-spectrum of fear vs. hype. The Prompt to Put on the Screen</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="st">"What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them—optimism, skepticism, or anxiety?"</span></span></code></pre>
-</div>
-<p>How to Run the Room (Tactical Instructions)</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">The</span> Silent Minute <span class="er">(</span><span class="ex">1</span> min<span class="kw">)</span><span class="bu">:</span> Give everyone 60 seconds to write down their thoughts on a sticky note <span class="er">(</span><span class="ex">or</span> a digital tool like Padlet/Slido if remote<span class="kw">)</span><span class="bu">.</span> This ensures introverts have time to form their thoughts and won<span class="st">'t get drowned out by loudest voices.</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1" aria-label="code-block-5-3"></a><span class="st">Pair &amp; Share (5 mins): Have them turn to their immediate neighbor (or split into Zoom breakouts of 3 people) and share their examples and feelings.</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1" aria-label="code-block-5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1" aria-label="code-block-5-5"></a><span class="st">The Whiteboard Harvest (9 mins): Bring the room back together. Draw a massive line down the middle of your physical or digital whiteboard. Label one side Promise and the other Peril. Ask groups to shout out what came up.</span></span></code></pre>
-</div>
+<section><h2 class="section-heading" id="welcome">Welcome<a class="anchor" aria-label="anchor" href="#welcome"></a>
+</h2>
+<hr class="half-width">
+<p>Welcome, everyone, to today’s workshop. Whether your background is in
+medicine, data science, administration, or research, you are in the
+right teams meeting. So the core expectation of today is that this will
+be a bilingual space. As we all have a different set of experiences and
+have varying prospective when it comes to what we expect from ML/AI For
+example: - If you are a clinician, you speak the language of patient
+care, workflows, and clinical utility. - If you are a data scientist,
+you speak the language of math, matrices, and optimization. - If you
+machine learning engineers, you speak the language of quantifying
+hallucination.</p>
+<p>The magic—and the massive frustration—of AI in healthcare happens
+right in the middle. Our goal today isn’t to make clinicians write code,
+nor is it to turn data scientists into medical doctors. Our goal is to
+learn how to translate a complex medical reality into a structured data
+problem, and then translate that model’s output back into something safe
+and useful at the patient’s bedside.” We will do this by exploring how
+these algorithms work, some case studies and exploring the draws backs
+and how to implemented these models.</p>
+</section><section><h2 class="section-heading" id="roadmap">RoadMap<a class="anchor" aria-label="anchor" href="#roadmap"></a>
+</h2>
+<hr class="half-width">
+<p><img src="fig/roadmap.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</section><section><h2 class="section-heading" id="why-now">Why Now?<a class="anchor" aria-label="anchor" href="#why-now"></a>
+</h2>
+<hr class="half-width">
+<p>AI isn’t exploding today because the math is brand new; most of the
+underlying math has existed for decades. It is exploding because three
+critical forces have finally collided. The Three Drivers of the
+Healthcare AI Explosion</p>
+<p><strong>Total Digitization of Health Data:</strong></p>
+<ul>
+<li>Twenty years ago, patient data was trapped in paper charts, physical
+film folders, and fax machines. Today, Electronic Health Records (EHRs)
+have digitised patient history. We finally have digital repositories of
+vitals, lab results, and medications that algorithms can actually
+read.</li>
+</ul>
+<p><strong>The Imaging and Genomic Deluge:</strong></p>
+<ul>
+<li>A single high-resolution 3D CT scan or a whole-genome sequencing
+file contains gigabytes of data. Human brains are spectacular at
+synthesis, but we physically do not have enough hours in the day to
+parse the sheer volume of data being generated. We built the sensors to
+collect the data; now we need the computational “eyes” to help us look
+at it.</li>
+</ul>
+<p><strong>Cheap, Cloud-Scale Compute Power:</strong></p>
+<ul>
+<li>The Talking Point: Training a deep learning neural network requires
+billions of mathematical calculations per second. The rise of
+specialized hardware (like GPUs) and cloud computing means a model that
+would have taken a university supercomputer weeks to train ten years ago
+can now be trained in a few hours for the cost of a few cups of
+coffee.</li>
+</ul></section><section><h2 class="section-heading" id="group-discussion-builder">Group Discussion Builder<a class="anchor" aria-label="anchor" href="#group-discussion-builder"></a>
+</h2>
+<hr class="half-width">
+<p><strong>Question</strong></p>
+<ul>
+<li>What ML/AI tools are you already aware of in healthcare, and what is
+your immediate gut reaction to them—optimism, skepticism, or
+anxiety?</li>
+</ul>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -448,7 +455,8 @@ understand the math, but clinicians understand the patient.</li>
 </ul>
 </div>
 </div>
-</div></section><section id="aio-02-variables_and_basic_data_types"><p>Content from <a href="02-variables_and_basic_data_types.html">How ML/AI Works—A Foundation</a></p>
+</div>
+</section></section><section id="aio-02-variables_and_basic_data_types"><p>Content from <a href="02-variables_and_basic_data_types.html">How ML/AI Works—A Foundation</a></p>
 <hr>
 <p>Last updated on 2026-06-26 |
 
@@ -1114,7 +1122,7 @@ texture on a pathology slide without being told what to look for).</li>
 </div>
 </section></section><section id="aio-03-lists_and_dictionaries"><p>Content from <a href="03-lists_and_dictionaries.html">ML/AI in Healthcare Applications</a></p>
 <hr>
-<p>Last updated on 2026-06-26 |
+<p>Last updated on 2026-07-03 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/03-lists_and_dictionaries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1165,7 +1173,8 @@ models out of the clinic.</li>
 over a hundred scans a day, looking for microcalcifications of tiny
 specks of calcium that can be the earliest sign of breast cancer. They
 are easy to miss on a busy shift, but computer vision models don’t get
-tired.” <strong>The Features &amp; Mechanics</strong></p>
+tired.”</p>
+<p><strong>The Features &amp; Mechanics</strong></p>
 <ul>
 <li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
 contrast between adjacent pixels that can highlight subtle masses before
@@ -1179,6 +1188,7 @@ set of eyes to catch what human eyes could miss during fatigue
 periods.</li>
 </ul>
 <p><img src="fig/mammogram_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(<a href="https://www.nature.com/articles/d41586-023-02526-4" class="external-link uri">https://www.nature.com/articles/d41586-023-02526-4</a>) (<a href="https://www.nature.com/articles/s43018-026-01126-1" class="external-link uri">https://www.nature.com/articles/s43018-026-01126-1</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-2-patient-risk-analysis-tabular-prediction-15-mins">Case 2: Patient Risk Analysis &amp; Tabular Prediction (15
@@ -1201,23 +1211,29 @@ signals against static risk factors, including age, chronic
 comorbidities, and recent surgical history, to output an updated risk
 score.</p>
 <p><img src="fig/ECG_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(<a href="https://www.nature.com/articles/s41598-025-99719-w" class="external-link uri">https://www.nature.com/articles/s41598-025-99719-w</a>) (<a href="https://www.sciencedirect.com/science/article/pii/S2666520424000791" class="external-link uri">https://www.sciencedirect.com/science/article/pii/S2666520424000791</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-3-microbiology-automated-screening-10-mins">Case 3: Microbiology &amp; Automated Screening (10 mins)<a class="anchor" aria-label="anchor" href="#case-3-microbiology-automated-screening-10-mins"></a>
 </h3>
-<p><strong>Core Concept</strong> “Think about the sheer volume of
-negative agar plates a microbiology lab processes daily. Automated
-screening lets models take over the routine triage of plates, freeing
-path-lab scientists to focus their energy entirely on complex, atypical
-growth patterns.”</p>
-<p><strong>The Features &amp; Mechanics</strong> - Colour Segmentation:
-The model isolates hue ranges to distinguish bacterial types or
-hemolytic reactions against agar backgrounds. - Colony Architecture
-Mapping: It evaluates geometric attributes such as circularity,
-elevation, and border characteristics to classify sample morphology. -
-Kinetic Growth Metrics: By analysing time-lapse imagery, the system
+<p><strong>Core Concept</strong></p>
+<p>“Think about the sheer volume of negative agar plates a microbiology
+lab processes daily. Automated screening lets models take over the
+routine triage of plates, freeing path-lab scientists to focus their
+energy entirely on complex, atypical growth patterns.”</p>
+<p><strong>The Features &amp; Mechanics</strong></p>
+<ul>
+<li>Colour Segmentation: The model isolates hue ranges to distinguish
+bacterial types or hemolytic reactions against agar backgrounds.</li>
+<li>Colony Architecture Mapping: It evaluates geometric attributes such
+as circularity, elevation, and border characteristics to classify sample
+morphology.</li>
+<li>Kinetic Growth Metrics: By analysing time-lapse imagery, the system
 tracks growth velocity over specific hourly intervals, recognising
-specific bacterial strains by how quickly they colonise the plate.</p>
+specific bacterial strains by how quickly they colonise the plate.</li>
+</ul>
+<p>(<a href="https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2026.1766429/full" class="external-link uri">https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2026.1766429/full</a>)
+(<a href="https://www.nature.com/articles/s41587-023-01674-2" class="external-link uri">https://www.nature.com/articles/s41587-023-01674-2</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-4-sequence-genomic-data-via-transformers-15-mins">Case 4: Sequence &amp; Genomic Data via Transformers (15 mins)<a class="anchor" aria-label="anchor" href="#case-4-sequence-genomic-data-via-transformers-15-mins"></a>
@@ -1235,6 +1251,7 @@ the far end. - Protein Folding Alterations: The model analyzes how these
 far-apart sequence shifts interact to change final 3D protein
 structures, predicting whether a variant will disrupt normal cell
 function.</p>
+<p>(<a href="https://www.nature.com/articles/s42256-025-01007-9" class="external-link uri">https://www.nature.com/articles/s42256-025-01007-9</a>) (<a href="https://www.nature.com/articles/s41592-025-02918-6" class="external-link uri">https://www.nature.com/articles/s41592-025-02918-6</a>)</p>
 </div>
 </section><section><h2 class="section-heading" id="group-discussion-builder-the-translation-gap-20-mins">Group Discussion Builder: The Translation Gap (20 Mins)<a class="anchor" aria-label="anchor" href="#group-discussion-builder-the-translation-gap-20-mins"></a>
 </h2>
@@ -1633,8 +1650,8 @@ differences in equipment, patient demographics, and charting habits
   "url": "https://swcarpentry.github.io/python-novice-inflammation/aio.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/aio.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-06-30",
-  "datePublished": "2026-06-30"
+  "dateModified": "2026-07-03",
+  "datePublished": "2026-07-03"
 }
 
   </script><script>

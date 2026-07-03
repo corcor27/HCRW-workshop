@@ -293,7 +293,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>ML/AI in Healthcare Applications</h1>
-        <p>Last updated on 2026-06-26 |
+        <p>Last updated on 2026-07-03 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/03-lists_and_dictionaries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -343,7 +343,8 @@ models out of the clinic.</li>
 over a hundred scans a day, looking for microcalcifications of tiny
 specks of calcium that can be the earliest sign of breast cancer. They
 are easy to miss on a busy shift, but computer vision models don’t get
-tired.” <strong>The Features &amp; Mechanics</strong></p>
+tired.”</p>
+<p><strong>The Features &amp; Mechanics</strong></p>
 <ul><li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
 contrast between adjacent pixels that can highlight subtle masses before
 they form distinct borders.</li>
@@ -355,6 +356,7 @@ hide behind or within dense breast tissue, acting as an automated second
 set of eyes to catch what human eyes could miss during fatigue
 periods.</li>
 </ul><p><img src="fig/mammogram_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(<a href="https://www.nature.com/articles/d41586-023-02526-4" class="external-link uri">https://www.nature.com/articles/d41586-023-02526-4</a>) (<a href="https://www.nature.com/articles/s43018-026-01126-1" class="external-link uri">https://www.nature.com/articles/s43018-026-01126-1</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-2-patient-risk-analysis-tabular-prediction-15-mins">Case 2: Patient Risk Analysis &amp; Tabular Prediction (15
@@ -376,22 +378,26 @@ signals against static risk factors, including age, chronic
 comorbidities, and recent surgical history, to output an updated risk
 score.</p>
 <p><img src="fig/ECG_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(<a href="https://www.nature.com/articles/s41598-025-99719-w" class="external-link uri">https://www.nature.com/articles/s41598-025-99719-w</a>) (<a href="https://www.sciencedirect.com/science/article/pii/S2666520424000791" class="external-link uri">https://www.sciencedirect.com/science/article/pii/S2666520424000791</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-3-microbiology-automated-screening-10-mins">Case 3: Microbiology &amp; Automated Screening (10 mins)<a class="anchor" aria-label="anchor" href="#case-3-microbiology-automated-screening-10-mins"></a></h3>
-<p><strong>Core Concept</strong> “Think about the sheer volume of
-negative agar plates a microbiology lab processes daily. Automated
-screening lets models take over the routine triage of plates, freeing
-path-lab scientists to focus their energy entirely on complex, atypical
-growth patterns.”</p>
-<p><strong>The Features &amp; Mechanics</strong> - Colour Segmentation:
-The model isolates hue ranges to distinguish bacterial types or
-hemolytic reactions against agar backgrounds. - Colony Architecture
-Mapping: It evaluates geometric attributes such as circularity,
-elevation, and border characteristics to classify sample morphology. -
-Kinetic Growth Metrics: By analysing time-lapse imagery, the system
+<p><strong>Core Concept</strong></p>
+<p>“Think about the sheer volume of negative agar plates a microbiology
+lab processes daily. Automated screening lets models take over the
+routine triage of plates, freeing path-lab scientists to focus their
+energy entirely on complex, atypical growth patterns.”</p>
+<p><strong>The Features &amp; Mechanics</strong></p>
+<ul><li>Colour Segmentation: The model isolates hue ranges to distinguish
+bacterial types or hemolytic reactions against agar backgrounds.</li>
+<li>Colony Architecture Mapping: It evaluates geometric attributes such
+as circularity, elevation, and border characteristics to classify sample
+morphology.</li>
+<li>Kinetic Growth Metrics: By analysing time-lapse imagery, the system
 tracks growth velocity over specific hourly intervals, recognising
-specific bacterial strains by how quickly they colonise the plate.</p>
+specific bacterial strains by how quickly they colonise the plate.</li>
+</ul><p>(<a href="https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2026.1766429/full" class="external-link uri">https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2026.1766429/full</a>)
+(<a href="https://www.nature.com/articles/s41587-023-01674-2" class="external-link uri">https://www.nature.com/articles/s41587-023-01674-2</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-4-sequence-genomic-data-via-transformers-15-mins">Case 4: Sequence &amp; Genomic Data via Transformers (15 mins)<a class="anchor" aria-label="anchor" href="#case-4-sequence-genomic-data-via-transformers-15-mins"></a></h3>
@@ -408,6 +414,7 @@ the far end. - Protein Folding Alterations: The model analyzes how these
 far-apart sequence shifts interact to change final 3D protein
 structures, predicting whether a variant will disrupt normal cell
 function.</p>
+<p>(<a href="https://www.nature.com/articles/s42256-025-01007-9" class="external-link uri">https://www.nature.com/articles/s42256-025-01007-9</a>) (<a href="https://www.nature.com/articles/s41592-025-02918-6" class="external-link uri">https://www.nature.com/articles/s41592-025-02918-6</a>)</p>
 </div>
 </section><section><h2 class="section-heading" id="group-discussion-builder-the-translation-gap-20-mins">Group Discussion Builder: The Translation Gap (20 Mins)<a class="anchor" aria-label="anchor" href="#group-discussion-builder-the-translation-gap-20-mins"></a></h2>
 <hr class="half-width"><p><strong>The Core Question to Present</strong> “What do you think is
@@ -530,8 +537,8 @@ diseases.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/03-lists_and_dictionaries.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/03-lists_and_dictionaries.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-06-26",
-  "datePublished": "2026-06-30"
+  "dateModified": "2026-07-03",
+  "datePublished": "2026-07-03"
 }
 
   </script><script>
