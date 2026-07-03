@@ -1188,12 +1188,12 @@ of medical data (e.g images, continuous data and DNA/RNA sequence.</p>
 </h3>
 <p><strong>Core Concept</strong></p>
 <p>Mammography interpretation is notoriously challenging. A radiologist
-may review over a hundred scans a day, searching for microscopic
-indicators such as microcalcifications—tiny calcium deposits that often
-represent the earliest signs of breast cancer. Beyond identifying
-clearly defined regions, radiologists must detect subtle structural
-anomalies; for instance, an obscured lesion might only be betrayed by
-the architectural distortion it causes in surrounding ligaments.</p>
+may review over a hundred scans a day, searching for indicators such as
+microcalcifications—tiny calcium deposits that often represent the
+earliest signs of breast cancer. Beyond identifying clearly defined
+regions, radiologists must detect subtle structural anomalies; for
+instance, an obscured lesion might only be betrayed by the architectural
+distortion it causes in surrounding ligaments.</p>
 <p>Furthermore, breast cancer detection is inherently complicated by
 anatomical variations, such as dense breast tissue, which can easily
 conceal a tumor. Consequently, clinical screening protocols typically
@@ -1209,7 +1209,8 @@ suggest that ML/AI models are flawless; they are subject to their own
 limitations and biases, and unmonitored deployment could lead to
 catastrophic diagnostic errors.</p>
 <p>Therefore, its a trade off.</p>
-<p><strong>The Features &amp; Mechanics</strong></p>
+<p><strong>ML/AI Features &amp; Mechanics for breats
+imaging</strong></p>
 <ul>
 <li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
 contrast between adjacent pixels that can highlight subtle masses before
@@ -1224,7 +1225,61 @@ periods.</li>
 </ul>
 <p><img src="../fig/OMI_benign.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 <p><img src="../fig/OMI-maglignant.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p>(<a href="https://www.nature.com/articles/d41586-023-02526-4" class="external-link uri">https://www.nature.com/articles/d41586-023-02526-4</a>) (<a href="https://www.nature.com/articles/s43018-026-01126-1" class="external-link uri">https://www.nature.com/articles/s43018-026-01126-1</a>)</p>
+<p><strong>Clinical studies</strong></p>
+<p>In this section, we examine two pivotal studies. The first is the
+GEMINI project (Grampian’s Evaluation of Mia in an Innovative National
+Breast Screening Initiative), which evaluated the integration of the
+ML/AI software ‘Mia’ into the NHS Grampian screening programme. The
+second is the MASAI trial (Mammography Screening with Artificial
+Intelligence) conducted in Sweden, which investigated the impact of
+incorporating ML/AI directly into the mammogram reading workflow.</p>
+<p><strong>GEMINI</strong></p>
+<p>The GEMINI study evaluated the prospective integration of an AI
+software tool, ‘Mia’, into the NHS breast screening workflow. Analyzing
+data from 10,889 women, the researchers utilized a combination of live
+integration and simulation modeling to assess 17 distinct operational
+workflows. It is worth noting that these 17 pathways did not rely on 17
+different AI models; rather, they represented minor procedural
+variations of the same underlying tool, tested individually or in
+combination to identify the most efficient implementation strategy.</p>
+<p>Broadly, these workflows can be categorized into two primary
+strategies: automated triage and supplemental reading (augmenting the
+standard double-reading protocol). The study concluded that an
+AI-supported workflow significantly optimized clinical outcomes,
+increasing cancer detection by approximately 10.4% (equating to an
+additional 1 cancer detected per 1,000 women screened). Remarkably, this
+improvement was achieved while maintaining a stable recall rate and
+reducing the overall reader workload by 31%.</p>
+<p>Additional findings:</p>
+<ul>
+<li>Shift in Diagnostic Metrics: The Cancer Detection Rate (CDR) was
+notably higher during the GEMINI study period compared to the historical
+baseline (9.7 vs. 8.0 per 1,000), while the final recall rate was lower
+(4.5% vs. 5.0%). These shifts may be attributed to baseline population
+changes during the COVID-19 pandemic or heightened clinical awareness
+among the human readers.</li>
+<li>Hardware and Software Controls: All modifications to the mammography
+imaging systems (both hardware upgrades and software patches) were
+strictly paused for the duration of the study, as prior research
+indicates that changing the imaging acquisition environment can
+significantly impact AI performance.</li>
+<li>Standalone AI Recall Variability: At the designated operational
+point (OP2), the AI’s standalone recall rate was higher in this
+prospective cohort than in preceding retrospective evaluations (14.6%
+vs. 13.0%). This variance likely stems from natural cohort variability
+or an interim software update applied to the mammography machines just
+prior to the study’s commencement.</li>
+<li>Workflow Trade-offs and Arbitration: Different workflow
+configurations introduced distinct sensitivity and specificity
+trade-offs. Certain setups yielded a high volume of cases flagged for
+additional clinical arbitration. However, senior readers successfully
+dismissed over half of these AI-generated arbitration flags by reviewing
+historical screenings, thereby maintaining strict clinical standards
+without inflating the final recall rate.</li>
+</ul>
+<p><strong>MASAI</strong></p>
+<p>(<a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/fulltext" class="external-link uri">https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/fulltext</a>)
+(<a href="https://www.nature.com/articles/s43018-026-01126-1" class="external-link uri">https://www.nature.com/articles/s43018-026-01126-1</a>)</p>
 </div>
 <div class="section level3">
 <h3 id="case-2-patient-risk-analysis-tabular-prediction-15-mins">Case 2: Patient Risk Analysis &amp; Tabular Prediction (15
