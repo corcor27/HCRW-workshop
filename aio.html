@@ -1165,15 +1165,41 @@ models out of the clinic.</li>
 <section><h2 class="section-heading" id="deep-dive-4-clinical-use-cases-55-mins">Deep Dive: 4 Clinical Use Cases (55 Mins)<a class="anchor" aria-label="anchor" href="#deep-dive-4-clinical-use-cases-55-mins"></a>
 </h2>
 <hr class="half-width">
+<p>Next, we will look at how ML/AI is applied in clinical settings.
+Deploying experimental technologies in healthcare is incredibly
+difficult, and applications vary widely because regulatory processes
+differ by country. To guide you through this, we have broken the section
+down into four distinct case studies. Each case study features two
+research papers detailing the technology’s application and results. Keep
+in mind that this is just a snapshot of the field; we chose these
+specific examples to highlight how ML/AI can handle many different types
+of medical data (e.g images, continuous data and DNA/RNA sequence.</p>
 <div class="section level3">
 <h3 id="case-1-breast-cancer-imaging-computer-vision-15-mins">Case 1: Breast Cancer Imaging &amp; Computer Vision (15 mins)<a class="anchor" aria-label="anchor" href="#case-1-breast-cancer-imaging-computer-vision-15-mins"></a>
 </h3>
 <p><strong>Core Concept</strong></p>
-<p>“Mammography is notoriously difficult. A radiologist might review
-over a hundred scans a day, looking for microcalcifications of tiny
-specks of calcium that can be the earliest sign of breast cancer. They
-are easy to miss on a busy shift, but computer vision models don’t get
-tired.”</p>
+<p>Mammography interpretation is notoriously challenging. A radiologist
+may review over a hundred scans a day, searching for microscopic
+indicators such as microcalcifications—tiny calcium deposits that often
+represent the earliest signs of breast cancer. Beyond identifying
+clearly defined regions, radiologists must detect subtle structural
+anomalies; for instance, an obscured lesion might only be betrayed by
+the architectural distortion it causes in surrounding ligaments.</p>
+<p>Furthermore, breast cancer detection is inherently complicated by
+anatomical variations, such as dense breast tissue, which can easily
+conceal a tumor. Consequently, clinical screening protocols typically
+rely on a multimodal approach—combining various imaging techniques,
+blood tests, and biopsies. For the purposes of this case study, however,
+we will focus exclusively on the mammographic component.</p>
+<p>Machine learning and AI offer valuable clinical assistance in this
+domain due to their proven capacity for detecting highly subtle tissue
+changes that the human eye might overlook. Additionally, unlike
+radiologists who face the cognitive fatigue of a demanding shift,
+computer vision models maintain consistent performance. This is not to
+suggest that ML/AI models are flawless; they are subject to their own
+limitations and biases, and unmonitored deployment could lead to
+catastrophic diagnostic errors.</p>
+<p>Therefore, its a trade off.</p>
 <p><strong>The Features &amp; Mechanics</strong></p>
 <ul>
 <li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
@@ -1187,7 +1213,8 @@ hide behind or within dense breast tissue, acting as an automated second
 set of eyes to catch what human eyes could miss during fatigue
 periods.</li>
 </ul>
-<p><img src="fig/mammogram_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p><img src="fig/OMI_benign.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p><img src="fig/OMI-maglignant.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 <p>(<a href="https://www.nature.com/articles/d41586-023-02526-4" class="external-link uri">https://www.nature.com/articles/d41586-023-02526-4</a>) (<a href="https://www.nature.com/articles/s43018-026-01126-1" class="external-link uri">https://www.nature.com/articles/s43018-026-01126-1</a>)</p>
 </div>
 <div class="section level3">
