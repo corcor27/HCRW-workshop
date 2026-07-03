@@ -22,9 +22,11 @@ exercises: 15
 
 ## Deep Dive: 4 Clinical Use Cases (55 Mins)
 ### Case 1: Breast Cancer Imaging & Computer Vision (15 mins)
+
 **Core Concept**
 
 "Mammography is notoriously difficult. A radiologist might review over a hundred scans a day, looking for microcalcifications of tiny specks of calcium that can be the earliest sign of breast cancer. They are easy to miss on a busy shift, but computer vision models don't get tired."
+
 **The Features & Mechanics**
 
 - Pixel-Level Texture Gradients: The model calculates sudden shifts in contrast between adjacent pixels that can highlight subtle masses before they form distinct borders.
@@ -34,6 +36,10 @@ exercises: 15
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/mammogram_example.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+(https://www.nature.com/articles/d41586-023-02526-4)
+(https://www.nature.com/articles/s43018-026-01126-1)
+
 
 
 ### Case 2: Patient Risk Analysis & Tabular Prediction (15 mins)
@@ -48,14 +54,22 @@ learning?"](fig/mammogram_example.png){alt="Flow Diagram for determining supverv
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/ECG_example.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
+(https://www.nature.com/articles/s41598-025-99719-w)
+(https://www.sciencedirect.com/science/article/pii/S2666520424000791)
+
 ### Case 3: Microbiology & Automated Screening (10 mins)
 **Core Concept**
+
 "Think about the sheer volume of negative agar plates a microbiology lab processes daily. Automated screening lets models take over the routine triage of plates, freeing path-lab scientists to focus their energy entirely on complex, atypical growth patterns."
 
 **The Features & Mechanics**
+
 - Colour Segmentation: The model isolates hue ranges to distinguish bacterial types or hemolytic reactions against agar backgrounds.
 - Colony Architecture Mapping: It evaluates geometric attributes such as circularity, elevation, and border characteristics to classify sample morphology.
 - Kinetic Growth Metrics: By analysing time-lapse imagery, the system tracks growth velocity over specific hourly intervals, recognising specific bacterial strains by how quickly they colonise the plate.
+
+(https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2026.1766429/full)
+(https://www.nature.com/articles/s41587-023-01674-2)
 
 ### Case 4: Sequence & Genomic Data via Transformers (15 mins)
 **Core Concept**
@@ -65,6 +79,8 @@ learning?"](fig/ECG_example.png){alt="Flow Diagram for determining supvervised v
 - Long-Range Dependency Tracking: Traditional tools can only look at small genetic sections at a time. Transformer architectures use self-attention to link a base mutation at one end of a chromosome directly to structural changes at the far end.
 - Protein Folding Alterations: The model analyzes how these far-apart sequence shifts interact to change final 3D protein structures, predicting whether a variant will disrupt normal cell function.
 
+(https://www.nature.com/articles/s42256-025-01007-9)
+(https://www.nature.com/articles/s41592-025-02918-6)
 
 ## Group Discussion Builder: The Translation Gap (20 Mins)
 
