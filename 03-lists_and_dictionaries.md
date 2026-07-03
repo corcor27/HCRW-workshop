@@ -21,11 +21,22 @@ exercises: 15
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Deep Dive: 4 Clinical Use Cases (55 Mins)
+
+Next, we will look at how ML/AI is applied in clinical settings. Deploying experimental technologies in healthcare is incredibly difficult, and applications vary widely because regulatory processes differ by country. To guide you through 
+this, we have broken the section down into four distinct case studies. Each case study features two research papers detailing the technology's application and results. Keep in mind that this is just a snapshot of the field; we chose these 
+specific examples to highlight how ML/AI can handle many different types of medical data (e.g images, continuous data and DNA/RNA sequence. 
+
 ### Case 1: Breast Cancer Imaging & Computer Vision (15 mins)
 
 **Core Concept**
 
-"Mammography is notoriously difficult. A radiologist might review over a hundred scans a day, looking for microcalcifications of tiny specks of calcium that can be the earliest sign of breast cancer. They are easy to miss on a busy shift, but computer vision models don't get tired."
+Mammography interpretation is notoriously challenging. A radiologist may review over a hundred scans a day, searching for microscopic indicators such as microcalcifications—tiny calcium deposits that often represent the earliest signs of breast cancer. Beyond identifying clearly defined regions, radiologists must detect subtle structural anomalies; for instance, an obscured lesion might only be betrayed by the architectural distortion it causes in surrounding ligaments.
+
+Furthermore, breast cancer detection is inherently complicated by anatomical variations, such as dense breast tissue, which can easily conceal a tumor. Consequently, clinical screening protocols typically rely on a multimodal approach—combining various imaging techniques, blood tests, and biopsies. For the purposes of this case study, however, we will focus exclusively on the mammographic component.
+
+Machine learning and AI offer valuable clinical assistance in this domain due to their proven capacity for detecting highly subtle tissue changes that the human eye might overlook. Additionally, unlike radiologists who face the cognitive fatigue of a demanding shift, computer vision models maintain consistent performance. This is not to suggest that ML/AI models are flawless; they are subject to their own limitations and biases, and unmonitored deployment could lead to catastrophic diagnostic errors.
+
+Therefore, its a trade off.
 
 **The Features & Mechanics**
 
@@ -33,9 +44,13 @@ exercises: 15
 - Edge Sharpening: It traces micro-margins of structural changes, evaluating whether an asymmetry matches benign tissue variations or malignant architectures.
 - Density Variations: It isolates localised dense regions that might hide behind or within dense breast tissue, acting as an automated second set of eyes to catch what human eyes could miss during fatigue periods.
 
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/OMI_benign.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
 !["Are we dealing with supervised or unsupervised
-learning?"](fig/mammogram_example.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+learning?"](fig/OMI-maglignant.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+
 
 (https://www.nature.com/articles/d41586-023-02526-4)
 (https://www.nature.com/articles/s43018-026-01126-1)
