@@ -30,7 +30,7 @@ specific examples to highlight how ML/AI can handle many different types of medi
 
 **Core Concept**
 
-Mammography interpretation is notoriously challenging. A radiologist may review over a hundred scans a day, searching for microscopic indicators such as microcalcifications—tiny calcium deposits that often represent the earliest signs of breast cancer. Beyond identifying clearly defined regions, radiologists must detect subtle structural anomalies; for instance, an obscured lesion might only be betrayed by the architectural distortion it causes in surrounding ligaments.
+Mammography interpretation is notoriously challenging. A radiologist may review over a hundred scans a day, searching for indicators such as microcalcifications—tiny calcium deposits that often represent the earliest signs of breast cancer. Beyond identifying clearly defined regions, radiologists must detect subtle structural anomalies; for instance, an obscured lesion might only be betrayed by the architectural distortion it causes in surrounding ligaments.
 
 Furthermore, breast cancer detection is inherently complicated by anatomical variations, such as dense breast tissue, which can easily conceal a tumor. Consequently, clinical screening protocols typically rely on a multimodal approach—combining various imaging techniques, blood tests, and biopsies. For the purposes of this case study, however, we will focus exclusively on the mammographic component.
 
@@ -38,11 +38,12 @@ Machine learning and AI offer valuable clinical assistance in this domain due to
 
 Therefore, its a trade off.
 
-**The Features & Mechanics**
+**ML/AI Features & Mechanics for breats imaging**
 
 - Pixel-Level Texture Gradients: The model calculates sudden shifts in contrast between adjacent pixels that can highlight subtle masses before they form distinct borders.
 - Edge Sharpening: It traces micro-margins of structural changes, evaluating whether an asymmetry matches benign tissue variations or malignant architectures.
 - Density Variations: It isolates localised dense regions that might hide behind or within dense breast tissue, acting as an automated second set of eyes to catch what human eyes could miss during fatigue periods.
+
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/OMI_benign.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
@@ -50,9 +51,29 @@ learning?"](fig/OMI_benign.png){alt="Flow Diagram for determining supvervised vs
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/OMI-maglignant.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
+**Clinical studies**
+
+In this section, we examine two pivotal studies. The first is the GEMINI project (Grampian’s Evaluation of Mia in an Innovative National Breast Screening Initiative), 
+which evaluated the integration of the ML/AI software 'Mia' into the NHS Grampian screening programme. The second is the MASAI trial (Mammography Screening with Artificial 
+Intelligence) conducted in Sweden, which investigated the impact of incorporating ML/AI directly into the mammogram reading workflow.
+
+**GEMINI**
+
+The GEMINI study evaluated the prospective integration of an AI software tool, 'Mia', into the NHS breast screening workflow. Analyzing data from 10,889 women, the researchers utilized a combination of live integration and simulation modeling to assess 17 distinct operational workflows. It is worth noting that these 17 pathways did not rely on 17 different AI models; rather, they represented minor procedural variations of the same underlying tool, tested individually or in combination to identify the most efficient implementation strategy.
+
+Broadly, these workflows can be categorized into two primary strategies: automated triage and supplemental reading (augmenting the standard double-reading protocol). The study concluded that an AI-supported workflow significantly optimized clinical outcomes, increasing cancer detection by approximately 10.4% (equating to an additional 1 cancer detected per 1,000 women screened). Remarkably, this improvement was achieved while maintaining a stable recall rate and reducing the overall reader workload by 31%.
+
+Additional findings:
+
+- Shift in Diagnostic Metrics: The Cancer Detection Rate (CDR) was notably higher during the GEMINI study period compared to the historical baseline (9.7 vs. 8.0 per 1,000), while the final recall rate was lower (4.5% vs. 5.0%). These shifts may be attributed to baseline population changes during the COVID-19 pandemic or heightened clinical awareness among the human readers.
+- Hardware and Software Controls: All modifications to the mammography imaging systems (both hardware upgrades and software patches) were strictly paused for the duration of the study, as prior research indicates that changing the imaging acquisition environment can significantly impact AI performance.
+- Standalone AI Recall Variability: At the designated operational point (OP2), the AI's standalone recall rate was higher in this prospective cohort than in preceding retrospective evaluations (14.6% vs. 13.0%). This variance likely stems from natural cohort variability or an interim software update applied to the mammography machines just prior to the study's commencement.
+- Workflow Trade-offs and Arbitration: Different workflow configurations introduced distinct sensitivity and specificity trade-offs. Certain setups yielded a high volume of cases flagged for additional clinical arbitration. However, senior readers successfully dismissed over half of these AI-generated arbitration flags by reviewing historical screenings, thereby maintaining strict clinical standards without inflating the final recall rate.
 
 
-(https://www.nature.com/articles/d41586-023-02526-4)
+**MASAI**
+
+(https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/fulltext)
 (https://www.nature.com/articles/s43018-026-01126-1)
 
 
