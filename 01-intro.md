@@ -14,7 +14,7 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- "What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them—optimism, skepticism, or anxiety?"
+- "What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them optimism, skepticism, or anxiety?"
 - "Where do you think AI can make the biggest impact in your day-to-day workflow: reducing paperwork or assisting in patient diagnosis?"
 
 
@@ -26,13 +26,15 @@ exercises: 0
 Welcome, everyone, to today’s workshop. Whether your background is in medicine, data science, administration, or research, you are in the right teams meeting. 
 So the core expectation of today is that this will be a bilingual space. As we all have a different set of experiences and have varying prospective when it comes to what we expect from ML/AI 
 For example:
+
 - If you are a clinician, you speak the language of patient care, workflows, and clinical utility. 
 - If you are a data scientist, you speak the language of math, matrices, and optimization.
-- If you machine learning engineers, you speak the language of quantifying hallucination. 
+- If you machine learning engineers, you speak the language of numbers and quantifying hallucination. 
 
-The magic—and the massive frustration—of AI in healthcare happens right in the middle. Our goal today isn't to make clinicians write code, nor is it to turn data scientists into medical doctors. 
-Our goal is to learn how to translate a complex medical reality into a structured data problem, and then translate that model’s output back into something safe and useful at the patient's bedside."
-We will do this by exploring how these algorithms work, some case studies and exploring the draws backs and how to implemented these models.
+The magic and the massive frustration of AI in healthcare happens right in the middle. Our goal today isn't to make clinicians write code, nor is it to turn data scientists into medical doctors. 
+Our goal is to learn how to translate a complex medical reality into a structured data problem, and then translate that model’s output back into something safe and useful at the patient's bedside.
+
+"We will do this by exploring how these algorithms work, some case studies and exploring the draws backs and how to implemented these models.
 
 ## RoadMap
 
@@ -54,20 +56,20 @@ The Three Drivers of the Healthcare AI Explosion
 
 **Cheap, Cloud-Scale Compute Power:**
 
-- The Talking Point: Training a deep learning neural network requires billions of mathematical calculations per second. The rise of specialized hardware (like GPUs) and cloud computing means a model that would have taken a university supercomputer weeks to train ten years ago can now be trained in a few hours for the cost of a few cups of coffee.
+- Training a deep learning neural network requires billions of mathematical calculations per second. The rise of specialized hardware (like GPUs) and cloud computing means a model that would have taken a university supercomputer weeks to train ten years ago can now be trained in a few hours for the cost of a few cups of coffee.
         
 ## Group Discussion Builder
 
 **Question**
 
-- What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them—optimism, skepticism, or anxiety?
+- What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them optimism, skepticism, or anxiety?
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - AI in healthcare isn't a futuristic concept; it is already operating in triaging, billing, and radiology.
 - The explosion of healthcare AI is driven by three factors: massive computing power, digitized health records (EHRs), and an explosion of genomic data.
-- Effective healthcare AI requires collaboration—data scientists understand the math, but clinicians understand the patient.
+- Effective healthcare AI requires collaboration data scientists understand the math, but clinicians understand the patient.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

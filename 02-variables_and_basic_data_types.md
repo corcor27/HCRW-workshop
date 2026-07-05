@@ -40,12 +40,12 @@ To begin, we will examine how computers interpret and process various data modal
 
 When a radiologist views a chest X-ray, they interpret a continuous landscape of varying brightness. These grayscale gradients tell a physiological story: dense structures like bone block X-rays and appear bright white, air-filled lungs allow rays to pass through and appear dark, and soft tissues occupy the gray spaces in between. Humans effortlessly synthesize these shades into an understanding of anatomical structures and potential pathology.
 
-A computer, however, possesses no intrinsic concept of "anatomy," "brightness," or "shadow." To a machine, a chest X-ray is flattened into a two-dimensional grid called a pixel matrix. If it is a standard grayscale medical image, each individual pixel is assigned a numerical value—typically ranging from 0 (pure black) to 255 (pure white) in an 8-bit system, or up to 4095 in higher-resolution 12-bit medical imaging (DICOM format).
+A computer, however, possesses no intrinsic concept of "anatomy," "brightness," or "shadow." To a machine, a chest X-ray is flattened into a two-dimensional grid called a pixel matrix. If it is a standard grayscale medical image, each individual pixel is assigned a numerical value typically ranging from 0 (pure black) to 255 (pure white) in an 8-bit system, or up to 4095 in higher-resolution 12-bit medical imaging (DICOM format).
 
 Therefore, where a human sees a lung nodule, the computer simply registers a localized cluster of higher numerical values relative to the lower numbers surrounding it. The challenge of computer vision in radiology is training algorithms to recognize these mathematical patterns and map them to clinical realities.
 
 !["Are we dealing with supervised or unsupervised
-learning?"](fig/image_in_pixels.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+learning?"](fig/image_explained.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
 Note: This image has been normalised
 
@@ -60,9 +60,9 @@ learning?"](fig/EHR.jpeg){alt="Flow Diagram for determining supvervised vs unsup
 
 #### Signals (Frequencies Over Time)
 
-Continuous bioelectrical signals, such as Electrocardiograms (ECGs) and Electroencephalograms (EEGs), originate as analog waveforms reflecting the heart's electrical conduction or the brain's postsynaptic potentials. To process these signals computationally, they must undergo analog-to-digital conversion (ADC). This process samples the continuous wave at uniform intervals—often thousands of times per second (measured in Hertz)—capturing rapid fluctuations in amplitude and frequency.
+Continuous bioelectrical signals, such as Electrocardiograms (ECGs) and Electroencephalograms (EEGs), originate as analog waveforms reflecting the heart's electrical conduction or the brain's postsynaptic potentials. To process these signals computationally, they must undergo analog-to-digital conversion (ADC). This process samples the continuous wave at uniform intervals—often thousands of times per second (measured in Hertz) capturing rapid fluctuations in amplitude and frequency.
 
-However, a computer possesses no innate understanding of a "waveform" or its physiological significance. To the machine, the entire biological phenomenon is reduced to a one-dimensional array of floating-point numbers representing voltage amplitudes at discrete time steps. The core challenge in biosignal machine learning is developing algorithms that can reconstruct the underlying physiological features—such as an R-peak in an ECG or an alpha wave in an EEG—solely from this raw, sequential numerical data.
+However, a computer possesses no innate understanding of a "waveform" or its physiological significance. To the machine, the entire biological phenomenon is reduced to a one-dimensional array of floating-point numbers representing voltage amplitudes at discrete time steps. The core challenge in bio-signal machine learning is developing algorithms that can reconstruct the underlying physiological features—such as an R-peak in an ECG or an alpha wave in an EEG solely from this raw, sequential numerical data.
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/ECG.jpeg){alt="Flow Diagram for determining supvervised vs unsupervised"}.
@@ -157,6 +157,7 @@ The mathematical engine driving this is usually Gini Impurity or Information Gai
 
 Imagine a dataset of 100 patients. 50 had a heart attack (+) and 50 did not (-). The dataset is currently 50/50, completely "impure."
 The algorithm evaluates two potential options for its very first split (the Root Node):
+
 **Option A: Split by Age (>65)**
 
 - Left branch (>65): 40 patients (30 had a heart attack, 10 did not) (Somewhat cleaner)
@@ -177,6 +178,7 @@ This fatal flaw is called Overfitting. The model memorises the training data per
 **How We Fix It**
 
 To keep a tree accurate and generalizable, data scientists use two primary techniques:
+
 - Pre-Pruning (Setting Max Depth): Limiting how tall the tree can grow. For example, telling the algorithm: "You are only allowed to ask a maximum of 4 nested questions."
 - Post-Pruning: Letting the tree grow completely wild, and then cutting away branches that provide very little statistical value.
 
@@ -186,6 +188,7 @@ It is designed specifically to fix the biggest flaw of individual decision trees
 Here is the exact mechanics of how a Random Forest builds its democratic system.
 
 **The Core Strategy: Ensemble Learning**
+
 Random Forest is an ensemble method—meaning it combines multiple weak or unstable models into one highly accurate, stable framework. It achieves this using a dual strategy called Bagging and Feature Randomness.
 If you simply built 500 trees on the exact same dataset, they would all choose the exact same questions and give you identical answers. To create a true "forest," every single tree must be intentionally forced to see the world a little differently.    
 
@@ -195,8 +198,10 @@ learning?"](fig/random_forest.png){alt="Flow Diagram for determining supvervised
 **Step 1: Bootstrapping (Row Randomness)**
 
 Imagine you have a master clinical trial dataset of 1,000 patients. Before building Tree #1, the algorithm takes a random sample of 1,000 patients with replacement (meaning the same patient can be picked more than once, and some patients won't be picked at all).
+
 - Tree 1 gets an altered variation of the dataset.
 - Tree 2 gets a completely different random shuffle.
+
 This data-shuffling technique is called Bootstrapping. It ensures that no single outlier patient can skew the entire forest, because that outlier will only appear in a fraction of the trees.
 
 **Step 2: Random Subsets of Features (Column Randomness)**
@@ -204,126 +209,102 @@ This data-shuffling technique is called Bootstrapping. It ensures that no single
 This is where the magic happens. In a standard decision tree, the algorithm searches through every single variable in the dataset to find the absolute best question to ask.
 In a Random Forest, at every single branch split, the tree is intentionally blinded. It is only allowed to choose from a random subset of features (typically the square root of the total number of features available).
 Why this is crucial:
-Imagine you have a dataset predicting cardiac risk, and Troponin Level is an incredibly dominant variable.
-If you don't restrict the features, every single tree will pick Troponin Level as its very first question at the top of the tree. The trees will all look highly similar.
-By forcing feature randomness, some trees will be blocked from seeing Troponin entirely. They are forced to build logic using secondary predictors, like Blood Pressure, Family History, or ECG Segment Shifts.
-This uncovers hidden multi-variable interactions that a single dominant variable would normally overshadow.
+
+- Imagine you have a dataset predicting cardiac risk, and Troponin Level is an incredibly dominant variable.
+- If you don't restrict the features, every single tree will pick Troponin Level as its very first question at the top of the tree. The trees will all look highly similar.
+- By forcing feature randomness, some trees will be blocked from seeing Troponin entirely. They are forced to build logic using secondary predictors, like Blood Pressure, Family History, or ECG Segment Shifts.
+- This uncovers hidden multi-variable interactions that a single dominant variable would normally overshadow.
 
 **Step 3: Aggregation (The Majority Vote)**
 
 Once the forest is grown (usually consisting of 100 to 500 deep, unpruned trees), a new patient arrives in the clinic. The patient's data is run down every single tree in the forest simultaneously.
+
 - For Classification (e.g., Sepsis vs. No Sepsis): If 400 trees vote "Sepsis Risk" and 100 trees vote "Low Risk," the final output of the forest is Sepsis Risk (by an 80% majority vote).
 - For Regression (e.g., Predicting length of hospital stay): The forest averages the outputs. If Tree 1 says 3 days, Tree 2 says 5 days, and Tree 3 says 4 days, the final prediction is 4 days.
 
-## Deep Learning & Neural Networks (20 Mins)
+## Deep Learning & Neural Networks
+
 ### Core Concept
 
 "Now let’s step away from the checklist. Think of a seasoned attending clinician who walks up to a complex pathology slide, glances at it, and immediately feels uneasy. They might say, 'I can't point to a single checklist item, but based on the thousands of cases I’ve seen over twenty years, this looks suspicious.' That is Deep Learning."
 
 **The Shift: Representation Learning**
+
 Instead of a human hand-selecting the variables, deep learning utilises neural networks to ingest raw data (like an unparsed pathology image or raw audio) and discover the features entirely on its own.
 
 **How Information Flows Through a Network**
+
 Information moves sequentially through distinct structural layers:
+
 - Input Layer: Receives the raw numbers (e.g., raw pixel intensities of a dermatology image).
-- Hidden Layers: The magic happens here. The early layers find incredibly simple patterns like raw edges or sharp contrasts. Middle layers stitch those edges into textures and basic shapes. Late hidden layers combine those shapes into complex structures (e.g., asymmetrical lesion borders or irregular cell nuclei).
+- Hidden Layers: The magic happens here. The early layers find incredibly simple patterns like raw edges or sharp contrasts. 
+- Middle layers stitch those edges into textures and basic shapes. Late hidden layers combine those shapes into complex structures (e.g., asymmetrical lesion borders or irregular cell nuclei).
 - Output Layer: Delivers the final clinical prediction (e.g., "94% probability of Malignant Melanoma").
 
 !["Are we dealing with supervised or unsupervised
-learning?"](fig/hidden_layers.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+learning?"](fig/neural_networks.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-### Model Types Matched to Medical Data (10 Mins)
+### How they learn
+
+At its core, a neural network learns through a process of trial, error, and adjustment. Think of it like a person learning to shoot a basketball: they take a shot, see how far off they were, and adjust their form for the next attempt.
+
+**1. The Guess (Forward Propagation)**
+
+The network is given some input data (for example, an image of a cat). It passes this information through layers of interconnected mathematical "neurons."
+
+Each connection has a weight (which determines how important that connection is) and a bias (an extra offset). The network multiplies the input data by these weights, adds the biases, and makes a prediction—for instance, guessing there is a $60\%$ chance the image is a dog.
+
+**2. Measuring the Error (The Loss Function)**
+
+Next, the network compares its guess to the actual truth (the correct label, which is "cat").
+
+It uses a mathematical formula called a loss function to calculate exactly how wrong it was. A high loss means the guess was terrible; a low loss means it was very close.
+
+**3. Finding the Blame (Backpropagation)**
+
+Once the error is calculated, the network works backward from the output layer to the input layer. It uses calculus (specifically, gradients) to figure out exactly which weights and biases contributed most to the mistake.
+
+In simple terms: It calculates, "If I change this specific weight by a tiny amount, will the error go up or down?"
+
+**4. Making the Adjustment (Gradient Descent)**
+
+Finally, an optimization algorithm (the most common is called Gradient Descent) tweaks the weights and biases in the direction that reduces the error.
+
+The network doesn't change everything all at once. It takes a tiny, controlled step—governed by a setting called the learning rate—to avoid overcorrecting.
+
+### Model Types Matched to Medical Data
+
 **Core Concept**
+
 "Just like you wouldn’t use a stethoscope to check a reflex, we don't use the same AI model architecture for every clinical problem. We match the math structure to the data shape."
 
 **The Healthcare AI Toolkit**
-A. Computer Vision via Convolutional Neural Networks (CNNs)
+
+Computer Vision via Convolutional Neural Networks (CNNs)
 - Best For: Spatial data where the relationship between neighbouring pixels matters (X-rays, MRIs, CT scans, dermatology photos).
 - How it works: It slides small mathematical filters across an image to identify shapes and abnormalities regardless of where they appear on the scan.
 
-## CNNs: how they work
-### The Convolution Layer (Feature Detection)
-This is the core engine of the network. Instead of looking at the entire image at once, a CNN uses small mathematical matrices called filters (or kernels), typically size $3 \times 3$ or $5 \times 5$.
-The network slides this filter across the raw pixel grid one step at a time—a process known as a sliding window operation. At each stop, it performs an element-by-element multiplication between the filter weights and the underlying pixels, summing them up into a single value.
+### Convolutional Neural Networks (CNNs)
+
+- CNNs process data like images by passing a small filter (or kernel) across the input space to detect localized features like edges, textures, and shapes.
+- This process uses shared weights, meaning the same filter is applied across the entire input, vastly reducing the number of parameters compared to fully connected networks.
+- Through pooling layers, CNNs downsample the data to achieve translation invariance, allowing them to recognize an object no matter where it appears in the frame.
+- They build a spatial hierarchy, where early layers detect simple features (lines) and deeper layers combine them into complex concepts (faces or objects).
+- The core inductive bias of a CNN is locality, operating on the strict assumption that neighboring pixels or data points are highly correlated.
 
 !["Are we dealing with supervised or unsupervised
-learning?"](fig/filters.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+learning?"](fig/CNN_work.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-Early Layers: Detect basic low-level features like sharp vertical edges, horizontal lines, or high-contrast borders.
-Deep Layers: As feature maps are passed deeper, subsequent filters combine those raw edges into complex geometries—such as textures, shapes, and eventually distinct structural objects.
+### Transformer Networks
 
-### The Pooling Layer (Downsampling)
-If you pass raw, massive feature maps directly into the next layer, the model becomes computationally bloated and highly sensitive to tiny changes. To fix this, CNNs use Pooling layers to reduce the spatial size of the data.
-The gold standard is Max Pooling. The network places a window (typically $2 \times 2$) over the feature map and selects only the maximum numerical value inside that window, discarding the rest.
-
-!["Are we dealing with supervised or unsupervised
-learning?"](fig/pooling.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
-
-**Why this works:**
-
-Reduces Dimensionality: It shrinks the data footprint by 75%, allowing the model to train faster.
-Spatial Invariance: It makes the model robust. If a key feature shifts by just a pixel or two due to a slightly different camera angle, the maximum value in that local neighbourhood remains the same.
-
-### The Complete Structural Pipeline
-The diagram below outlines the sequential workflow of a typical computer vision task: raw inputs move through alternating blocks of convolutions and pooling before being flattened for the final output.
-### The Fully Connected Layer (Classification)
-By the time the data passes through multiple convolution and pooling layers, the image has been stripped of its raw pixels and translated into highly abstract, condensed feature maps.
-To make a final decision, the model flattens these multi-dimensional maps into a single flat vector of numbers. This vector is fed into a standard, traditional neural network layer (a Fully Connected layer) that maps those features directly to your target categories, outputting a clean probability array via a softmax operation (e.g., [92% Malignant, 8% Benign]).
-
-## Natural Language Processing (Transformers / LLMs)
-- Best For: Sequential, contextual text data (free-text clinical notes, complex discharge summaries, psychiatric intake forms).
-- How it works: It uses an "attention mechanism" to read entire blocks of text simultaneously, understanding how a word at the top of a page alters the meaning of a medication dosage listed at the bottom.
-
-### Transformer models
-
-At their core, Transformer networks are designed to process sequential data (like sentences or genetic codes), but they do something fundamentally different from older models.
-Older models, like Recurrent Neural Networks (RNNs), read sentences the way humans do—word by word, left to right. If a sentence was too long, the model would "forget" what it read at the beginning by the time it reached the end.
-Transformers solve this by looking at an entire document all at once. Instead of reading through a straw, they take a snapshot of the whole text block, mapping out how every single word relates to every other word simultaneously.
-Here are the three structural pillars that make this work.
-
-
-### Positional Encoding: Giving the Model a Clock
-
-Because a Transformer processes all words simultaneously, it loses any natural sense of order. To a raw Transformer, the sentences "The patient had a stroke before surgery" and "The patient had surgery before a stroke" look completely identical.
-To fix this, the network uses Positional Encoding. Before the text is even processed, the model attaches a unique mathematical coordinate (a timestamp) to each word vector. This ensures the network knows exactly where each word sits in the timeline without needing to process them sequentially.
-
-### The Core Engine: Self-Attention
-
-Self-Attention is the mechanism that allows the network to understand context. It calculates a mathematical "relationship score" between every single pair of words in a sentence to determine where it should focus its cognitive weight.
-
-**Consider this clinical sentence:**
-
-"The patient presented with a severe fracture after a fall, so the orthopaedic team surgically stabilised it."
-If you ask a human what "it" refers to, we instantly know it's the fracture, not the patient or the fall. A Transformer figures this out by assigning attention weights:
-[ presented ] ── (Low Attention)  ──┐
-[   patient ] ── (Low Attention)  ──┼──► [ it ]
-[  fracture ] ── (HIGH ATTENTION) ──┘
-
-During training, the model learns that the verb "stabilised" mathematically correlates highly with structural objects like fractures. Therefore, it forms a massive connection link between "it" and "fracture," allowing the model to carry the exact context of the injury across the entire page.
-
-### Multi-Head Attention: Multiple Perspectives
-
-A single sentence contains many layers of meaning: grammatical structure, clinical timelines, drug dosages, and anatomical sites. If a model only has one attention mechanism, it can only focus on one relationship at a time.
-Transformers solve this using Multi-Head Attention. It runs multiple distinct attention mechanisms (heads) completely in parallel:
-
-- Head 1 might focus entirely on tracking pronouns (linking "it" or "she" to the correct noun).
-- Head 2 might focus entirely on mapping anatomical relationships (linking "fracture" to "orthopaedic").
-- Head 3 might focus purely on the timeline of events.
-
-By stacking these heads together, the model builds a rich, multi-dimensional web of comprehension.
-
-### The Data Pipeline (The Encoder Block)
-
-Once the positional data and multi-head attention weights are calculated, the information moves through a standardised structural block known as an Encoder.
+- Transformers process entire sequences simultaneously rather than step-by-step, completely eliminating the need for recurrent loops (like RNNs or LSTMs).
+- They rely on a self-attention mechanism to mathematically score and weight the relationship between every single element in a sequence, regardless of how far apart they are.
+- Because they lack an inherent sense of order, they use positional encodings added to the input embeddings to retain information about the sequence structure.
+- They capture global context dynamically, allowing the network to understand the meaning of a word or pixel based entirely on its surrounding environment.
+- Their architecture scales exceptionally well with massive datasets and compute power, making them the foundational backbone for modern large language and multi-modal models.
 
 !["Are we dealing with supervised or unsupervised
-learning?"](fig/transformers.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
-
-
-As shown in the architecture above, the data flows through two distinct zones inside each block:
-The Self-Attention Layer (Green): Maps out the semantic contextual relationships between words, as described above.
-The Feed-Forward Layer (Blue): A standard neural network layer that processes those contextual representations individually, sharpening the features before passing them to the next block or down to the output decoder.
-Because these layers don't rely on sequential step-by-step processing, data scientists can train them across hundreds of GPUs simultaneously. This massive parallelism is the exact reason modern Large Language Models (LLMs) can ingest entire libraries of medical literature during training.
+learning?"](fig/transformers_work.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
 ## Tabular Models
 
@@ -341,21 +322,13 @@ Tabular data is messy because it is heterogeneous. In a single row for an ICU pa
 ### The Gold Standard: Gradient Boosted Decision Trees (GBDTs)
 While we previously looked at Random Forests (where hundreds of trees vote simultaneously in parallel), the absolute kings of tabular data are Gradient Boosted Decision Trees (popularised by frameworks like XGBoost, LightGBM, and CatBoost).
 Instead of building trees independently, GBDTs build trees sequentially, with each new tree acting as a correction mechanism for the mistakes of the previous ones.
-[ Raw Data ] ──► ( Tree 1 ) ──► Calculates Mistakes (Residuals)
-                                       │
-                    ┌──────────────────┘
-                    ▼
-               ( Tree 2 ) ──► Focuses ONLY on fixing Tree 1's errors
-                                       │
-                    ┌──────────────────┘
-                    ▼
-               ( Tree 3 ) ──► Finetunes the remaining errors
-                                       │
-                                       ▼
-                         [ Final Combined Ensemble ]
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/gradient_boost.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
 ### The Error-Correction Mechanics
 Imagine we are training a model to predict a patient's total length of hospital stay (in days) based on their admission vitals:
+
 - Tree 1 (The Base Guess): Tree 1 looks at the data and makes a crude initial prediction. For Patient A, it predicts a stay of 5 days. However, the patient actually stays for 8 days.
 - Calculate the Residual: The model calculates the error (the residual):
 Actual (8) - Prediction (5) = +3 days 
