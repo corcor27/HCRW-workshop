@@ -230,6 +230,7 @@
 <li><a href="#challenge-a-the-dataset-bias-trap">Challenge A: The Dataset Bias Trap</a></li>
 <li><a href="#challenge-b-the-black-box-explainability-xai">Challenge B: The Black Box &amp; Explainability (XAI)</a></li>
 <li><a href="#challenge-c-data-privacy-sovereign-borders">Challenge C: Data Privacy &amp; Sovereign Borders</a></li>
+<li><a href="#challenge-d-hallucinations-fabricated-evidence">Challenge D: Hallucinations &amp; Fabricated Evidence</a></li>
 <li><a href="#summary-wrap-up-for-the-session">Summary Wrap-Up for the Session</a></li>
 <li><a href="#how-to-build-a-model-the-bare-minimum">How to Build a Model: The Bare Minimum</a></li>
 <li><a href="#wrap-up-next-steps-10-mins">Wrap-Up &amp; Next Steps (10 Mins)</a></li>
@@ -297,7 +298,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Limitations &amp; Creating Your Own Model</h1>
-        <p>Last updated on 2026-07-05 |
+        <p>Last updated on 2026-07-07 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/04-libraries_and_imports.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -537,7 +538,36 @@ adjustments (weight updates) back to the central server. The central
 server blends these updates into a master algorithm that benefits from
 the collective knowledge of multiple hospitals while maintaining
 absolute data confidentiality.</li>
-</ul></section><section><h2 class="section-heading" id="summary-wrap-up-for-the-session">Summary Wrap-Up for the Session<a class="anchor" aria-label="anchor" href="#summary-wrap-up-for-the-session"></a></h2>
+</ul></section><section><h2 class="section-heading" id="challenge-d-hallucinations-fabricated-evidence">Challenge D: Hallucinations &amp; Fabricated Evidence<a class="anchor" aria-label="anchor" href="#challenge-d-hallucinations-fabricated-evidence"></a></h2>
+<hr class="half-width"><p>Large Language Models operate on probabilistic next-token prediction,
+meaning they determine the most statistically likely next word rather
+than querying a factual database. In high-stakes fields like medicine,
+law, or engineering, this architecture leads to
+“hallucinations”—convincing, authoritative-sounding outputs that are
+entirely fabricated or factually incorrect.</p>
+<div class="section level3">
+<h3 id="the-solution-retrieval-augmented-generation-rag">The Solution: Retrieval-Augmented Generation (RAG)<a class="anchor" aria-label="anchor" href="#the-solution-retrieval-augmented-generation-rag"></a></h3>
+<p>To prevent models from relying solely on their static, imperfect
+internal memory, systems utilize Retrieval-Augmented Generation (RAG)
+architectures.</p>
+<p>Rather than forcing the LLM to generate responses entirely from its
+original training weights, a RAG pipeline anchors the model’s generation
+to trusted, verifiable data sources:</p>
+<ul><li>External Knowledge Retrieval: When a user submits a query, the
+system first searches a curated, authoritative database (e.g.,
+peer-reviewed medical journals, internal legal code, or technical
+manuals) for relevant documents.</li>
+<li>Context Embedding: The system extracts the most accurate document
+snippets and injects them directly into the LLM’s prompt window
+alongside the original user question.</li>
+<li>Grounded Generation: The LLM reads the provided reference materials
+and uses them as an open-book source to draft its answer. It is
+explicitly instructed to only use the provided text.</li>
+<li>Source Citation: The final output is generated with direct citations
+linking back to the source documents, allowing human experts to
+cross-reference and verify the model’s claims instantly.</li>
+</ul></div>
+</section><section><h2 class="section-heading" id="summary-wrap-up-for-the-session">Summary Wrap-Up for the Session<a class="anchor" aria-label="anchor" href="#summary-wrap-up-for-the-session"></a></h2>
 <hr class="half-width"><p>Key Takeaway: Ethical healthcare AI requires moving past the simple
 metric of “accuracy.” We must actively inspect our datasets for
 demographic gaps, use XAI tools like SHAP force plots to keep clinical
@@ -677,7 +707,7 @@ differences in equipment, patient demographics, and charting habits
   "url": "https://swcarpentry.github.io/python-novice-inflammation/04-libraries_and_imports.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/04-libraries_and_imports.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-07-05",
+  "dateModified": "2026-07-07",
   "datePublished": "2026-07-07"
 }
 

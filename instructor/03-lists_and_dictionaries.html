@@ -218,8 +218,19 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#deep-dive-4-clinical-use-cases">Deep Dive: 4 Clinical Use Cases</a></li>
+<li><a href="#case-1-breast-cancer-imaging-computer-vision">Case 1: Breast Cancer Imaging &amp; Computer Vision</a></li>
+<li><a href="#clinical-studies">Clinical studies</a></li>
 <li><a href="#gemini">GEMINI</a></li>
-<li><a href="#group-discussion-builder-the-translation-gap">Group Discussion Builder: The Translation Gap</a></li>
+<li><a href="#masai">MASAI</a></li>
+<li><a href="#case-2-patient-risk-analysis-tabular-prediction">Case 2: Patient Risk Analysis &amp; Tabular Prediction</a></li>
+<li><a href="#evaluating-in-hospital-cardiac-arrest-ihca">Evaluating In-hospital cardiac arrest (IHCA)</a></li>
+<li><a href="#vital-sign-forecasting">Vital Sign Forecasting</a></li>
+<li><a href="#case-3-microbiology-automated-screening">Case 3: Microbiology &amp; Automated Screening</a></li>
+<li><a href="#case-4-sequence-genomic-data-via-transformers">Case 4: Sequence &amp; Genomic Data via Transformers</a></li>
+<li><a href="#perspective-summary-genome-language-models-glms-and-the-transformer-architecture-in-genomics">Perspective Summary: Genome Language Models (gLMs) and the
+Transformer Architecture in Genomics</a></li>
+<li><a href="#perspective-summary-transformer-models-for-multiscale-and-multimodal-genomics">Perspective Summary: Transformer Models for Multiscale and
+Multimodal Genomics</a></li>
 <li><a href="#summary-wrap-up">Summary wrap-up</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -294,7 +305,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>ML/AI in Healthcare Applications</h1>
-        <p>Last updated on 2026-07-05 |
+        <p>Last updated on 2026-07-07 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/03-lists_and_dictionaries.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -348,9 +359,8 @@ research papers detailing the technology’s application and results. Keep
 in mind that this is just a snapshot of the field; we chose these
 specific examples to highlight how ML/AI can handle many different types
 of medical data (e.g images, continuous data and DNA/RNA sequence.</p>
-<div class="section level3">
-<h3 id="case-1-breast-cancer-imaging-computer-vision">Case 1: Breast Cancer Imaging &amp; Computer Vision<a class="anchor" aria-label="anchor" href="#case-1-breast-cancer-imaging-computer-vision"></a></h3>
-<p><strong>Core Concept</strong></p>
+</section><section><h2 class="section-heading" id="case-1-breast-cancer-imaging-computer-vision">Case 1: Breast Cancer Imaging &amp; Computer Vision<a class="anchor" aria-label="anchor" href="#case-1-breast-cancer-imaging-computer-vision"></a></h2>
+<hr class="half-width"><p><strong>Core Concept</strong></p>
 <p>Mammography interpretation is notoriously challenging. A radiologist
 may review over a hundred scans a day, searching for indicators such as
 microcalcifications—tiny calcium deposits that often represent the
@@ -373,8 +383,8 @@ suggest that ML/AI models are flawless; they are subject to their own
 limitations and biases, and unmonitored deployment could lead to
 catastrophic diagnostic errors.</p>
 <p>Therefore, its a trade off.</p>
-<p><strong>ML/AI Features &amp; Mechanics for breats
-imaging</strong></p>
+<div class="section level3">
+<h3 id="mlai-features-mechanics-for-breats-imaging">ML/AI Features &amp; Mechanics for breats imaging<a class="anchor" aria-label="anchor" href="#mlai-features-mechanics-for-breats-imaging"></a></h3>
 <ul><li>Pixel-Level Texture Gradients: The model calculates sudden shifts in
 contrast between adjacent pixels that can highlight subtle masses before
 they form distinct borders.</li>
@@ -387,15 +397,15 @@ set of eyes to catch what human eyes could miss during fatigue
 periods.</li>
 </ul><p><img src="../fig/OMI_benign.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 <p><img src="../fig/OMI-maglignant.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p><strong>Clinical studies</strong></p>
-<p>In this section, we examine two pivotal studies. The first is the
+</div>
+</section><section><h2 class="section-heading" id="clinical-studies">Clinical studies<a class="anchor" aria-label="anchor" href="#clinical-studies"></a></h2>
+<hr class="half-width"><p>In this section, we examine two pivotal studies. The first is the
 GEMINI project (Grampian’s Evaluation of Mia in an Innovative National
 Breast Screening Initiative), which evaluated the integration of the
 ML/AI software ‘Mia’ into the NHS Grampian screening programme. The
 second is the MASAI trial (Mammography Screening with Artificial
 Intelligence) conducted in Sweden, which investigated the impact of
 incorporating ML/AI directly into the mammogram reading workflow.</p>
-</div>
 </section><section><h2 class="section-heading" id="gemini">GEMINI<a class="anchor" aria-label="anchor" href="#gemini"></a></h2>
 <hr class="half-width"><p>The GEMINI study evaluated the prospective integration of an AI
 software tool, ‘Mia’, into the NHS breast screening workflow. Analyzing
@@ -438,9 +448,8 @@ additional clinical arbitration. However, senior readers successfully
 dismissed over half of these AI-generated arbitration flags by reviewing
 historical screenings, thereby maintaining strict clinical standards
 without inflating the final recall rate.</li>
-</ul><div class="section level3">
-<h3 id="masai">MASAI<a class="anchor" aria-label="anchor" href="#masai"></a></h3>
-<p>The MASAI trial (Mammography Screening with Artificial Intelligence),
+</ul></section><section><h2 class="section-heading" id="masai">MASAI<a class="anchor" aria-label="anchor" href="#masai"></a></h2>
+<hr class="half-width"><p>The MASAI trial (Mammography Screening with Artificial Intelligence),
 conducted in Sweden, evaluated the integration of ML/AI into the
 screening workflow with the dual objectives of enhancing diagnostic
 accuracy and reducing screen-reading time. This randomized controlled
@@ -495,7 +504,8 @@ CAD marks were heavily restricted. They were preconfigured to only
 appear on higher-risk scans (scores 8, 9, and 10), which accounted for
 about 30% of all cases and required a localized threshold score over
 42.</li>
-</ul><p><strong>Papers</strong></p>
+</ul><div class="section level3">
+<h3 id="papers">Papers<a class="anchor" aria-label="anchor" href="#papers"></a></h3>
 <p>Lång, K. et al. Artificial intelligence-supported screen reading
 versus standard double reading in the Mammography Screening with
 Artificial Intelligence trial (MASAI): a clinical safety analysis of a
@@ -504,16 +514,29 @@ accuracy study. The Lancet Oncology 24, 936–944 (2023).</p>
 <p>de Vries, C. F. et al. Prospective evaluation of artificial
 intelligence integration into breast cancer screening in multiple
 workflow settings: the GEMINI study. Nat Cancer 7, 484–493 (2026).</p>
+<div id="discussion" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div class="section level3">
-<h3 id="case-2-patient-risk-analysis-tabular-prediction">Case 2: Patient Risk Analysis &amp; Tabular Prediction<a class="anchor" aria-label="anchor" href="#case-2-patient-risk-analysis-tabular-prediction"></a></h3>
-<p><strong>Core Concept</strong></p>
+<span class="callout-header">Discussion</span>
+<div id="discussion" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What do you think of the benefits and drawbacks of ML/AI being used
+in this application.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="case-2-patient-risk-analysis-tabular-prediction">Case 2: Patient Risk Analysis &amp; Tabular Prediction<a class="anchor" aria-label="anchor" href="#case-2-patient-risk-analysis-tabular-prediction"></a></h2>
+<hr class="half-width"><p><strong>Core Concept</strong></p>
 <p>“In an intensive care setting, sepsis doesn’t just hit a patient out
 of nowhere—it drops clues hours in advance. Predictive tabular models
 pull disparate data points straight from the electronic health record to
 flag a crashing patient before clinical decompensation becomes
 obvious.”</p>
-<p><strong>The Features &amp; Mechanics</strong></p>
+<div class="section level3">
+<h3 id="the-features-mechanics">The Features &amp; Mechanics<a class="anchor" aria-label="anchor" href="#the-features-mechanics"></a></h3>
 <ul><li>Vital Sign Trend Cross-Matching: Rather than setting off an alarm
 for a single isolated parameter, the model looks for complex
 multi-system trends over time. For instance, it flags when a subtle
@@ -526,8 +549,9 @@ lactate level increases.</li>
 against static risk factors, including age, chronic comorbidities, and
 recent surgical history, to output an updated risk score.</li>
 </ul><p><img src="../fig/EHR_pred.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p><strong>Evaluating In-hospital cardiac arrest (IHCA)</strong></p>
-<p>While early detection of clinical deterioration significantly
+</div>
+</section><section><h2 class="section-heading" id="evaluating-in-hospital-cardiac-arrest-ihca">Evaluating In-hospital cardiac arrest (IHCA)<a class="anchor" aria-label="anchor" href="#evaluating-in-hospital-cardiac-arrest-ihca"></a></h2>
+<hr class="half-width"><p>While early detection of clinical deterioration significantly
 improves patient outcomes, traditional screening criteria rely primarily
 on static, “on-the-spot” vital sign measurements. This retrospective
 study investigated whether incorporating longitudinal trend values over
@@ -557,8 +581,8 @@ right before the event (AUC of 0.93, <span class="math inline">\(95\%\text{ CI: 
 rate (RR) was added to the static baseline model, the predictive
 accuracy successfully rose to an AUC of 0.92 (<span class="math inline">\(95\%\text{ CI: } 0.87\text{–}0.97\)</span>),
 closely matching the accuracy of near-event data.</li>
-</ul><p><strong>Vital Sign Forecasting</strong></p>
-<p>The core hypothesis is that jointly modeling these correlated
+</ul></section><section><h2 class="section-heading" id="vital-sign-forecasting">Vital Sign Forecasting<a class="anchor" aria-label="anchor" href="#vital-sign-forecasting"></a></h2>
+<hr class="half-width"><p>The core hypothesis is that jointly modeling these correlated
 physiological variables enhances prediction accuracy, particularly for
 highly sparse variables with large amounts of missing data. The
 framework was validated using two distinct environments: the public
@@ -589,15 +613,27 @@ trajectories in the ICU. Sci Rep 15, 14996 (2025).</p>
 on the prediction of serious events in hospitalized patients -a
 retrospective observational study. Resuscitation Plus 18, 100628
 (2024).</p>
+<div id="discussion-1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div class="section level3">
-<h3 id="case-3-microbiology-automated-screening">Case 3: Microbiology &amp; Automated Screening<a class="anchor" aria-label="anchor" href="#case-3-microbiology-automated-screening"></a></h3>
-<p><strong>Core Concept</strong></p>
+<span class="callout-header">Discussion</span>
+<div id="discussion-1" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What do you think happens to ML/AI model, if it is been sent
+conflicting information?</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="case-3-microbiology-automated-screening">Case 3: Microbiology &amp; Automated Screening<a class="anchor" aria-label="anchor" href="#case-3-microbiology-automated-screening"></a></h2>
+<hr class="half-width"><p><strong>Core Concept</strong></p>
 <p>Consider the sheer volume of negative agar plates a microbiology lab
 processes daily. Automated screening allows machine learning models to
 take over this routine triage, freeing pathology lab scientists to focus
 their expertise entirely on complex, atypical growth patterns.</p>
-<p><strong>Features &amp; Mechanics</strong></p>
+<div class="section level3">
+<h3 id="features-mechanics">Features &amp; Mechanics<a class="anchor" aria-label="anchor" href="#features-mechanics"></a></h3>
 <ul><li>Color Segmentation: The model isolates specific hue ranges to
 distinguish bacterial types or hemolytic reactions against various agar
 backgrounds.</li>
@@ -689,22 +725,36 @@ collection of imaging-based phenotypes alongside high-resolution genomic
 data. By bridging the gap between high-throughput isolation and
 precision genomics, this platform offers a highly scalable pipeline to
 accelerate emerging microbiome and therapeutic studies.</p>
-<p><strong>Papers</strong></p>
+</div>
+<div class="section level3">
+<h3 id="papers-1">Papers<a class="anchor" aria-label="anchor" href="#papers-1"></a></h3>
 <p>Cherkaoui, A. et al. Evolving microbiology laboratories: mastering
 automated culture-based processes and molecular assays, an institutional
 experience. Front. Cell. Infect. Microbiol. 16, (2026).</p>
 <p>Huang, Y. et al. High-throughput microbial culturomics using
 automation and machine learning. Nat Biotechnol 41, 1424–1433
 (2023).</p>
+<div id="discussion-2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div class="section level3">
-<h3 id="case-4-sequence-genomic-data-via-transformers">Case 4: Sequence &amp; Genomic Data via Transformers<a class="anchor" aria-label="anchor" href="#case-4-sequence-genomic-data-via-transformers"></a></h3>
-<p><strong>Core Concept</strong></p>
+<span class="callout-header">Discussion</span>
+<div id="discussion-2" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What form is your data in? what does a computer see?</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="case-4-sequence-genomic-data-via-transformers">Case 4: Sequence &amp; Genomic Data via Transformers<a class="anchor" aria-label="anchor" href="#case-4-sequence-genomic-data-via-transformers"></a></h2>
+<hr class="half-width"><p><strong>Core Concept</strong></p>
 <p>“We’ve all heard how Large Language Models analyze sentences to guess
 the next word. In genomics, we apply that exact same logic. We treat
 human DNA bases—A, T, C, and G—as letters, and long gene sequences as
 paragraphs to catch mutations that cause rare diseases.”</p>
-<p><strong>The Features &amp; Mechanics</strong></p>
+<div class="section level3">
+<h3 id="the-features-mechanics-1">The Features &amp; Mechanics<a class="anchor" aria-label="anchor" href="#the-features-mechanics-1"></a></h3>
 <ul><li>Long-Range Dependency Tracking: Traditional tools can only look at
 small genetic sections at a time. Transformer architectures use
 self-attention to link a base mutation at one end of a chromosome
@@ -714,10 +764,9 @@ sequence shifts interact to change final 3D protein structures,
 predicting whether a variant will disrupt normal cell function.</li>
 </ul><p><img src="../fig/sequence.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
-<div class="section level3">
-<h3 id="perspective-summary-genome-language-models-glms-and-the-transformer-architecture-in-genomics">Perspective Summary: Genome Language Models (gLMs) and the
-Transformer Architecture in Genomics<a class="anchor" aria-label="anchor" href="#perspective-summary-genome-language-models-glms-and-the-transformer-architecture-in-genomics"></a></h3>
-<p>Drawing a direct structural analogy between human natural language
+</section><section><h2 class="section-heading" id="perspective-summary-genome-language-models-glms-and-the-transformer-architecture-in-genomics">Perspective Summary: Genome Language Models (gLMs) and the
+Transformer Architecture in Genomics<a class="anchor" aria-label="anchor" href="#perspective-summary-genome-language-models-glms-and-the-transformer-architecture-in-genomics"></a></h2>
+<hr class="half-width"><p>Drawing a direct structural analogy between human natural language
 and the biological code of the genome, researchers are increasingly
 adapting Transformer deep learning architectures to build Genome
 Language Models (gLMs). This review maps how these foundational models
@@ -747,11 +796,9 @@ both computer scientists and computational biologists, detailing current
 trends and looking toward next-generation architectures designed to
 scale beyond standard Transformers for comprehensive genomic
 modeling.</p>
-</div>
-<div class="section level3">
-<h3 id="perspective-summary-transformer-models-for-multiscale-and-multimodal-genomics">Perspective Summary: Transformer Models for Multiscale and
-Multimodal Genomics<a class="anchor" aria-label="anchor" href="#perspective-summary-transformer-models-for-multiscale-and-multimodal-genomics"></a></h3>
-<p>Transformer-based architectures are rapidly emerging as foundational
+</section><section><h2 class="section-heading" id="perspective-summary-transformer-models-for-multiscale-and-multimodal-genomics">Perspective Summary: Transformer Models for Multiscale and
+Multimodal Genomics<a class="anchor" aria-label="anchor" href="#perspective-summary-transformer-models-for-multiscale-and-multimodal-genomics"></a></h2>
+<hr class="half-width"><p>Transformer-based architectures are rapidly emerging as foundational
 tools for integrating and analyzing complex biological data. This
 Perspective traces their evolution from simple, single-modality
 (unimodal) systems to massive, multimodal foundation models capable of
@@ -782,20 +829,40 @@ the design of a modular “Super Transformer.” This next-generation
 architecture would leverage cross-attention mechanisms to seamlessly
 integrate highly diverse, heterogeneous biological modalities, serving
 as a roadmap for the future of computational genomics.</p>
-<p><strong>Papers</strong></p>
+<div class="section level3">
+<h3 id="papers-2">Papers<a class="anchor" aria-label="anchor" href="#papers-2"></a></h3>
 <p>Consens, M. E. et al. Transformers and genome language models. Nat
 Mach Intell 7, 346–362 (2025).</p>
 <p>Khan, S. A. et al. Multimodal foundation transformer models for
 multiscale genomics. Nat Methods 23, 299–311 (2026).</p>
+<div id="discussion-3" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-</section><section><h2 class="section-heading" id="group-discussion-builder-the-translation-gap">Group Discussion Builder: The Translation Gap<a class="anchor" aria-label="anchor" href="#group-discussion-builder-the-translation-gap"></a></h2>
-<hr class="half-width"><p><strong>The Core Question to Present</strong> “What do you think is
-currently holding back these incredibly powerful models from being used
-in every single hospital tomorrow?”</p>
-<p><strong>Facilitator Framework &amp; Navigation Prompts</strong> If
-the audience hesitates or focuses solely on a single aspect, use the
-structured guidance categories below to steer the conversation:</p>
+<span class="callout-header">Discussion</span>
+<div id="discussion-3" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What form is your data in? what does a computer see?</p>
+</div>
+</div>
+</div>
+<div id="group-discussion-builder-the-translation-gap" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="group-discussion-builder-the-translation-gap" class="callout-inner">
+<h3 class="callout-title">Group Discussion Builder: The Translation
+Gap</h3>
+<div class="callout-content">
+<p>“What do you think is currently holding back these incredibly
+powerful models from being used in every single hospital tomorrow?”</p>
+</div>
+</div>
+</div>
 <p><img src="../fig/the_translation_gap.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
 <div class="section level3">
 <h3 id="technical-barriers-data-silos-interoperability">Technical Barriers (Data Silos &amp; Interoperability)<a class="anchor" aria-label="anchor" href="#technical-barriers-data-silos-interoperability"></a></h3>
 <ul><li><p>The Problem: Hospital systems rarely talk to each other
@@ -909,7 +976,7 @@ diseases.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/03-lists_and_dictionaries.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/03-lists_and_dictionaries.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-07-05",
+  "dateModified": "2026-07-07",
   "datePublished": "2026-07-07"
 }
 
