@@ -92,7 +92,7 @@ learning?"](fig/traditional_ML_table.png){alt="Flow Diagram for determining supv
 Logistic regression starts out exactly like standard linear regression (the classic line of best fit). It assigns a specific weight (or importance) to each of your clinical inputs.
 Let’s say we want to predict the risk of a patient being readmitted to the hospital based on two features: Age and Number of Prior Admissions. The model builds an equation that looks like this:
 
-$Log- Odds-Value = \beta_0+ (\beta_1.Age) + ( \beta_2. Prior-admissions)$
+Log-Odds-Value $= \beta_0+ (\beta_1.Age) + ( \beta_2. Prior-admissions)$
 
 - $\beta_0$ is the baseline starting point (the intercept).
 - $\beta_1$ and $\beta_2$ are the weights the model learns during training. If prior admissions are a massive risk factor, $\beta_2$ will be a large positive number.
@@ -127,6 +127,10 @@ learning?"](fig/flow_prediction.png){alt="Flow Diagram for determining supvervis
 **Clinical Nuance**
 
 In medicine, we rarely stick to the default 0.5 threshold. If we are screening for a deadly disease, we want to catch everyone. We might lower the threshold to 0.2 (20%). This makes the model highly sensitive, flagging patients even if there is only a 20% chance they are sick, ensuring we don't miss a critical diagnosis.
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/logistic_regression.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
 
 ## Decision Trees
 At its core, a Decision Tree works exactly like a  flowchart. It breaks down a complex database of patients into smaller, cleaner groups by asking a series of yes-or-no questions based on the data.
