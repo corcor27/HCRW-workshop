@@ -21,7 +21,7 @@ exercises: 0
 
 ##  What a Computer Sees
 
-### Core Concept
+**Core Concept**
 
 To understand how a computer interprets medical data, we must contrast it with the perspective of a 
 medical professional. For instance, when a radiologist analyzes an X-ray, they rely on clinical experience 
@@ -32,11 +32,12 @@ they process data strictly as arrays of binary code. The core challenge, therefo
 these complex medical concepts into a structured format that a machine can interpret and learn from.
 
 
-### Medical Data Forms \& Mathematical Realities
+## Medical Data Forms \& Mathematical Realities
 
 To begin, we will examine how computers interpret and process various data modalities.
 
-#### Images (Spatial Grids)
+
+### Images (Spatial Grids)
 
 When a radiologist views a chest X-ray, they interpret a continuous landscape of varying brightness. These grayscale gradients tell a physiological story: dense structures like bone block X-rays and appear bright white, air-filled lungs allow rays to pass through and appear dark, and soft tissues occupy the gray spaces in between. Humans effortlessly synthesize these shades into an understanding of anatomical structures and potential pathology.
 
@@ -47,9 +48,8 @@ Therefore, where a human sees a lung nodule, the computer simply registers a loc
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/image_explained.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-Note: This image has been normalised
 
-#### Text & EHR (Tokenisation & Vectors)
+### Text & EHR (Tokenisation & Vectors)
 
 A significant portion of medical data consists of textual information, such as clinical notes and metadata descriptions. The challenge is that computers cannot inherently understand text. While we could theoretically encode words alphabetically (e.g., assigning a=1, b=2, so "acute" becomes $[1, 3, 21, 20, 5]$), this approach fails in practice. Most machine learning models require input data to be of a fixed length, and this method creates variable-length vectors. Furthermore, it provides the machine with zero semantic understanding of the words.
 
@@ -58,7 +58,7 @@ To solve this, Natural Language Processing (NLP) uses tokenization alongside vec
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/EHR.jpeg){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-#### Signals (Frequencies Over Time)
+### Signals (Frequencies Over Time)
 
 Continuous bioelectrical signals, such as Electrocardiograms (ECGs) and Electroencephalograms (EEGs), originate as analog waveforms reflecting the heart's electrical conduction or the brain's postsynaptic potentials. To process these signals computationally, they must undergo analog-to-digital conversion (ADC). This process samples the continuous wave at uniform intervals—often thousands of times per second (measured in Hertz) capturing rapid fluctuations in amplitude and frequency.
 
@@ -66,6 +66,14 @@ However, a computer possesses no innate understanding of a "waveform" or its phy
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/ECG.jpeg){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+What form is your data in? what does a computer see?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Traditional Machine Learning
 
@@ -186,6 +194,9 @@ To keep a tree accurate and generalizable, data scientists use two primary techn
 - Pre-Pruning (Setting Max Depth): Limiting how tall the tree can grow. For example, telling the algorithm: "You are only allowed to ask a maximum of 4 nested questions."
 - Post-Pruning: Letting the tree grow completely wild, and then cutting away branches that provide very little statistical value.
 
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/decision_trees_sum.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
 ## Random Forest 
 If an individual Decision Tree is like asking a single doctor for an opinion, a Random Forest is like gathering a panel of 500 diverse specialists, letting them look at different parts of the patient's record, and taking a majority vote.
 It is designed specifically to fix the biggest flaw of individual decision trees: their extreme instability and tendency to memorise noise (overfit).
@@ -225,6 +236,17 @@ Once the forest is grown (usually consisting of 100 to 500 deep, unpruned trees)
 
 - For Classification (e.g., Sepsis vs. No Sepsis): If 400 trees vote "Sepsis Risk" and 100 trees vote "Low Risk," the final output of the forest is Sepsis Risk (by an 80% majority vote).
 - For Regression (e.g., Predicting length of hospital stay): The forest averages the outputs. If Tree 1 says 3 days, Tree 2 says 5 days, and Tree 3 says 4 days, the final prediction is 4 days.
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/random_forest_sum.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+What do you think is the benefits/disadvantages of tranditional machine learning?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Deep Learning & Neural Networks
 
@@ -310,6 +332,14 @@ learning?"](fig/CNN_work.png){alt="Flow Diagram for determining supvervised vs u
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/transformers_work.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+What do you think is the benefits/disadvantages of deep learning?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Tabular Models
 
 Best For: Standard spreadsheet-style data (vitals logs, comprehensive metabolic panels, demographic registries).
@@ -355,12 +385,24 @@ learning?"](fig/tableau_table.png){alt="Flow Diagram for determining supvervised
 
 The Modern Exception (Tabular Transformers): In recent years, architectures like TabNet and FT-Transformer have brought self-attention mechanisms to tables, treating each column header like a token in a sentence. While powerful for massive datasets with hundreds of millions of rows, GBDTs remain the pragmatic benchmark for typical hospital-scale databases.
 
-## Summary & Interactive Q&A (10 Mins)
+
+## Summary 
+
 Key Takeaway: Traditional ML requires human-guided checklists (Feature Engineering), whereas Deep Learning develops internal intuition (Representation Learning) by parsing data through deep layers of artificial neurons. Choosing the right tool depends entirely on whether your patient data looks like a table, a picture, or a paragraph.
 
-### Group Discussion Builder (10 mins) 
+### Comparative Summary Table between Traditional ML and Deep Learning
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/comparison_ML_AI.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Group Discussion Builder
 - Prompt: "If Traditional ML requires humans to pick the features, and Deep Learning finds them automatically, which one do you think clinicians trust more right now, and why?" 
-- The Goal: Prompt the realisation that Traditional ML is often preferred because it is interpretable (a decision tree shows its work), whereas Deep Learning can feel like an untrustworthy "black box." 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
