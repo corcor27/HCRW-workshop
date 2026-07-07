@@ -573,9 +573,7 @@ medicine.</li>
 <section><h2 class="section-heading" id="what-a-computer-sees">What a Computer Sees<a class="anchor" aria-label="anchor" href="#what-a-computer-sees"></a>
 </h2>
 <hr class="half-width">
-<div class="section level3">
-<h3 id="core-concept">Core Concept<a class="anchor" aria-label="anchor" href="#core-concept"></a>
-</h3>
+<p><strong>Core Concept</strong></p>
 <p>To understand how a computer interprets medical data, we must
 contrast it with the perspective of a medical professional. For
 instance, when a radiologist analyzes an X-ray, they rely on clinical
@@ -587,15 +585,14 @@ computers are entirely blind to these clinical contexts; they process
 data strictly as arrays of binary code. The core challenge, therefore,
 lies in translating these complex medical concepts into a structured
 format that a machine can interpret and learn from.</p>
-</div>
-<div class="section level3">
-<h3 id="medical-data-forms-mathematical-realities">Medical Data Forms &amp; Mathematical Realities<a class="anchor" aria-label="anchor" href="#medical-data-forms-mathematical-realities"></a>
-</h3>
+</section><section><h2 class="section-heading" id="medical-data-forms-mathematical-realities">Medical Data Forms &amp; Mathematical Realities<a class="anchor" aria-label="anchor" href="#medical-data-forms-mathematical-realities"></a>
+</h2>
+<hr class="half-width">
 <p>To begin, we will examine how computers interpret and process various
 data modalities.</p>
-<div class="section level4">
-<h4 id="images-spatial-grids">Images (Spatial Grids)<a class="anchor" aria-label="anchor" href="#images-spatial-grids"></a>
-</h4>
+<div class="section level3">
+<h3 id="images-spatial-grids">Images (Spatial Grids)<a class="anchor" aria-label="anchor" href="#images-spatial-grids"></a>
+</h3>
 <p>When a radiologist views a chest X-ray, they interpret a continuous
 landscape of varying brightness. These grayscale gradients tell a
 physiological story: dense structures like bone block X-rays and appear
@@ -616,11 +613,10 @@ lower numbers surrounding it. The challenge of computer vision in
 radiology is training algorithms to recognize these mathematical
 patterns and map them to clinical realities.</p>
 <p><img src="../fig/image_explained.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p>Note: This image has been normalised</p>
 </div>
-<div class="section level4">
-<h4 id="text-ehr-tokenisation-vectors">Text &amp; EHR (Tokenisation &amp; Vectors)<a class="anchor" aria-label="anchor" href="#text-ehr-tokenisation-vectors"></a>
-</h4>
+<div class="section level3">
+<h3 id="text-ehr-tokenisation-vectors">Text &amp; EHR (Tokenisation &amp; Vectors)<a class="anchor" aria-label="anchor" href="#text-ehr-tokenisation-vectors"></a>
+</h3>
 <p>A significant portion of medical data consists of textual
 information, such as clinical notes and metadata descriptions. The
 challenge is that computers cannot inherently understand text. While we
@@ -638,9 +634,9 @@ space, these vectors group similar medical concepts close together,
 allowing the machine to grasp the relationships between words.</p>
 <p><img src="../fig/EHR.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
-<div class="section level4">
-<h4 id="signals-frequencies-over-time">Signals (Frequencies Over Time)<a class="anchor" aria-label="anchor" href="#signals-frequencies-over-time"></a>
-</h4>
+<div class="section level3">
+<h3 id="signals-frequencies-over-time">Signals (Frequencies Over Time)<a class="anchor" aria-label="anchor" href="#signals-frequencies-over-time"></a>
+</h3>
 <p>Continuous bioelectrical signals, such as Electrocardiograms (ECGs)
 and Electroencephalograms (EEGs), originate as analog waveforms
 reflecting the heart’s electrical conduction or the brain’s postsynaptic
@@ -657,13 +653,24 @@ can reconstruct the underlying physiological features—such as an R-peak
 in an ECG or an alpha wave in an EEG solely from this raw, sequential
 numerical data.</p>
 <p><img src="../fig/ECG.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="discussion" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="discussion" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What form is your data in? what does a computer see?</p>
+</div>
+</div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="traditional-machine-learning">Traditional Machine Learning<a class="anchor" aria-label="anchor" href="#traditional-machine-learning"></a>
 </h2>
 <hr class="half-width">
 <div class="section level3">
-<h3 id="core-concept-1">Core Concept<a class="anchor" aria-label="anchor" href="#core-concept-1"></a>
+<h3 id="core-concept">Core Concept<a class="anchor" aria-label="anchor" href="#core-concept"></a>
 </h3>
 <p>You are likely familiar with deep learning, the driving force behind
 most current AI research. While powerful, it can be incredibly complex
@@ -826,7 +833,9 @@ grow. For example, telling the algorithm: “You are only allowed to ask a
 maximum of 4 nested questions.”</li>
 <li>Post-Pruning: Letting the tree grow completely wild, and then
 cutting away branches that provide very little statistical value.</li>
-</ul></section><section><h2 class="section-heading" id="random-forest">Random Forest<a class="anchor" aria-label="anchor" href="#random-forest"></a>
+</ul>
+<p><img src="../fig/decision_trees_sum.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</section><section><h2 class="section-heading" id="random-forest">Random Forest<a class="anchor" aria-label="anchor" href="#random-forest"></a>
 </h2>
 <hr class="half-width">
 <p>If an individual Decision Tree is like asking a single doctor for an
@@ -889,11 +898,26 @@ forest is Sepsis Risk (by an 80% majority vote).</li>
 <li>For Regression (e.g., Predicting length of hospital stay): The
 forest averages the outputs. If Tree 1 says 3 days, Tree 2 says 5 days,
 and Tree 3 says 4 days, the final prediction is 4 days.</li>
-</ul></section><section><h2 class="section-heading" id="deep-learning-neural-networks">Deep Learning &amp; Neural Networks<a class="anchor" aria-label="anchor" href="#deep-learning-neural-networks"></a>
+</ul>
+<p><img src="../fig/random_forest_sum.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="discussion-1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="discussion-1" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What do you think is the benefits/disadvantages of tranditional
+machine learning?</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="deep-learning-neural-networks">Deep Learning &amp; Neural Networks<a class="anchor" aria-label="anchor" href="#deep-learning-neural-networks"></a>
 </h2>
 <hr class="half-width">
 <div class="section level3">
-<h3 id="core-concept-2">Core Concept<a class="anchor" aria-label="anchor" href="#core-concept-2"></a>
+<h3 id="core-concept-1">Core Concept<a class="anchor" aria-label="anchor" href="#core-concept-1"></a>
 </h3>
 <p>“Now let’s step away from the checklist. Think of a seasoned
 attending clinician who walks up to a complex pathology slide, glances
@@ -1014,6 +1038,18 @@ and compute power, making them the foundational backbone for modern
 large language and multi-modal models.</li>
 </ul>
 <p><img src="../fig/transformers_work.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="discussion-2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="discussion-2" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>What do you think is the benefits/disadvantages of deep learning?</p>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="tabular-models">Tabular Models<a class="anchor" aria-label="anchor" href="#tabular-models"></a>
 </h2>
@@ -1096,7 +1132,7 @@ sentence. While powerful for massive datasets with hundreds of millions
 of rows, GBDTs remain the pragmatic benchmark for typical hospital-scale
 databases.</p>
 </div>
-</section><section><h2 class="section-heading" id="summary-interactive-qa-10-mins">Summary &amp; Interactive Q&amp;A (10 Mins)<a class="anchor" aria-label="anchor" href="#summary-interactive-qa-10-mins"></a>
+</section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <hr class="half-width">
 <p>Key Takeaway: Traditional ML requires human-guided checklists
@@ -1105,16 +1141,26 @@ databases.</p>
 artificial neurons. Choosing the right tool depends entirely on whether
 your patient data looks like a table, a picture, or a paragraph.</p>
 <div class="section level3">
-<h3 id="group-discussion-builder-10-mins">Group Discussion Builder (10 mins)<a class="anchor" aria-label="anchor" href="#group-discussion-builder-10-mins"></a>
+<h3 id="comparative-summary-table-between-traditional-ml-and-deep-learning">Comparative Summary Table between Traditional ML and Deep
+Learning<a class="anchor" aria-label="anchor" href="#comparative-summary-table-between-traditional-ml-and-deep-learning"></a>
 </h3>
+<p><img src="../fig/comparison_ML_AI.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="group-discussion-builder" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="group-discussion-builder" class="callout-inner">
+<h3 class="callout-title">Group Discussion Builder</h3>
+<div class="callout-content">
 <ul>
 <li>Prompt: “If Traditional ML requires humans to pick the features, and
 Deep Learning finds them automatically, which one do you think
 clinicians trust more right now, and why?”</li>
-<li>The Goal: Prompt the realisation that Traditional ML is often
-preferred because it is interpretable (a decision tree shows its work),
-whereas Deep Learning can feel like an untrustworthy “black box.”</li>
 </ul>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
