@@ -26,7 +26,7 @@ Next, we will look at how ML/AI is applied in clinical settings. Deploying exper
 this, we have broken the section down into four distinct case studies. Each case study features two research papers detailing the technology's application and results. Keep in mind that this is just a snapshot of the field; we chose these 
 specific examples to highlight how ML/AI can handle many different types of medical data (e.g images, continuous data and DNA/RNA sequence. 
 
-### Case 1: Breast Cancer Imaging & Computer Vision
+## Case 1: Breast Cancer Imaging & Computer Vision
 
 **Core Concept**
 
@@ -38,7 +38,7 @@ Machine learning and AI offer valuable clinical assistance in this domain due to
 
 Therefore, its a trade off.
 
-**ML/AI Features & Mechanics for breats imaging**
+### ML/AI Features & Mechanics for breats imaging
 
 - Pixel-Level Texture Gradients: The model calculates sudden shifts in contrast between adjacent pixels that can highlight subtle masses before they form distinct borders.
 - Edge Sharpening: It traces micro-margins of structural changes, evaluating whether an asymmetry matches benign tissue variations or malignant architectures.
@@ -51,7 +51,7 @@ learning?"](fig/OMI_benign.png){alt="Flow Diagram for determining supvervised vs
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/OMI-maglignant.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-**Clinical studies**
+## Clinical studies
 
 In this section, we examine two pivotal studies. The first is the GEMINI project (Grampian’s Evaluation of Mia in an Innovative National Breast Screening Initiative), 
 which evaluated the integration of the ML/AI software 'Mia' into the NHS Grampian screening programme. The second is the MASAI trial (Mammography Screening with Artificial 
@@ -71,7 +71,7 @@ Additional findings:
 - Workflow Trade-offs and Arbitration: Different workflow configurations introduced distinct sensitivity and specificity trade-offs. Certain setups yielded a high volume of cases flagged for additional clinical arbitration. However, senior readers successfully dismissed over half of these AI-generated arbitration flags by reviewing historical screenings, thereby maintaining strict clinical standards without inflating the final recall rate.
 
 
-### MASAI
+## MASAI
 
 The MASAI trial (Mammography Screening with Artificial Intelligence), conducted in Sweden, evaluated the integration of ML/AI into the screening workflow with the dual objectives of enhancing diagnostic accuracy and reducing screen-reading time. This randomized controlled trial enrolled approximately 80,000 women aged 40–80 across four screening sites, allocating participants in a 1:1 ratio to either an AI-supported screening workflow or the standard human double-reading protocol.
 
@@ -96,21 +96,27 @@ The technical setup of the AI system worked as follows:
 - Clutter Control: To prevent an overwhelming number of visual alerts from distracting the radiologists or causing unnecessary false alarms, CAD marks were heavily restricted. They were preconfigured to only appear on higher-risk scans (scores 8, 9, and 10), which accounted for about 30% of all cases and required a localized threshold score over 42.
 
 
-**Papers**
+### Papers
 
 Lång, K. et al. Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI): a clinical safety analysis of a randomised, controlled, non-inferiority, single-blinded, screening accuracy study. The Lancet Oncology 24, 936–944 (2023).
 
 de Vries, C. F. et al. Prospective evaluation of artificial intelligence integration into breast cancer screening in multiple workflow settings: the GEMINI study. Nat Cancer 7, 484–493 (2026).
 
+:::::::::::::::::::::::::::::::::::::::: challenge
 
+### Discussion
 
-### Case 2: Patient Risk Analysis & Tabular Prediction
+What do you think of the benefits and drawbacks of ML/AI being used in this application.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Case 2: Patient Risk Analysis & Tabular Prediction
 
 **Core Concept**
 
 "In an intensive care setting, sepsis doesn't just hit a patient out of nowhere—it drops clues hours in advance. Predictive tabular models pull disparate data points straight from the electronic health record to flag a crashing patient before clinical decompensation becomes obvious."
 
-**The Features & Mechanics**
+### The Features & Mechanics
 
 - Vital Sign Trend Cross-Matching: Rather than setting off an alarm for a single isolated parameter, the model looks for complex multi-system trends over time. For instance, it flags when a subtle heart rate elevation occurs simultaneously with a downward drift in blood pressure.
 - Lab Value Concurrency: It ingests real-time lab updates, tracking indicators like steady white blood cell (WBC) count climbs or unexpected lactate level increases.
@@ -119,7 +125,7 @@ de Vries, C. F. et al. Prospective evaluation of artificial intelligence integra
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/EHR_pred.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-**Evaluating In-hospital cardiac arrest (IHCA)**
+## Evaluating In-hospital cardiac arrest (IHCA)
 
 While early detection of clinical deterioration significantly improves patient outcomes, traditional screening criteria rely primarily on static, "on-the-spot" vital sign measurements. This retrospective study investigated whether incorporating longitudinal trend values over time improves the prediction of severe adverse events (such as unexpected cardiac arrest or unplanned ICU admission) among hospitalized patients.
 
@@ -134,7 +140,7 @@ The study analyzed data from a cohort of 24,509 inpatients, comparing 54 patient
 - Predictive Performance: Using static baseline measurements of SBP, HR, and RR yielded an AUC of 0.85 ($95\%\text{ CI: } 0.79\text{–}0.92$), which was significantly lower than the predictive power of measurements taken right before the event (AUC of 0.93, $95\%\text{ CI: } 0.88\text{–}0.97$).
 - The Value of Trends: When the dynamic delta/trend of the respiratory rate (RR) was added to the static baseline model, the predictive accuracy successfully rose to an AUC of 0.92 ($95\%\text{ CI: } 0.87\text{–}0.97$), closely matching the accuracy of near-event data.
 
-**Vital Sign Forecasting**
+## Vital Sign Forecasting
 
 The core hypothesis is that jointly modeling these correlated physiological variables enhances prediction accuracy, particularly for highly sparse variables with large amounts of missing data. The framework was validated using two distinct environments: the public MIMIC dataset and an independent institutional dataset. Additionally, the authors conducted a case study applying the pipeline to forecast blood pressure dynamics in response to actual and counterfactual (hypothetical) vasopressor administrations.
 
@@ -151,13 +157,21 @@ He, R. & Chiang, J. N. Simultaneous forecasting of vital sign trajectories in th
 
 Tanii, R. et al. Impact of dynamic parameter of trends in vital signs on the prediction of serious events in hospitalized patients -a retrospective observational study. Resuscitation Plus 18, 100628 (2024).
 
-### Case 3: Microbiology & Automated Screening
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+What do you think happens to ML/AI model, if it is been sent conflicting information?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Case 3: Microbiology & Automated Screening
 
 **Core Concept**
 
 Consider the sheer volume of negative agar plates a microbiology lab processes daily. Automated screening allows machine learning models to take over this routine triage, freeing pathology lab scientists to focus their expertise entirely on complex, atypical growth patterns.
 
-**Features & Mechanics**
+### Features & Mechanics
 
 - Color Segmentation: The model isolates specific hue ranges to distinguish bacterial types or hemolytic reactions against various agar backgrounds.
 - Colony Architecture Mapping: The system evaluates geometric attributes—such as circularity, elevation, and border characteristics—to precisely classify sample morphology.
@@ -210,19 +224,27 @@ The platform was deployed on fecal samples from 20 human donors, yielding severa
 
 This automated culturomics framework successfully systemizes the collection of imaging-based phenotypes alongside high-resolution genomic data. By bridging the gap between high-throughput isolation and precision genomics, this platform offers a highly scalable pipeline to accelerate emerging microbiome and therapeutic studies.
 
-**Papers**
+### Papers
 
 Cherkaoui, A. et al. Evolving microbiology laboratories: mastering automated culture-based processes and molecular assays, an institutional experience. Front. Cell. Infect. Microbiol. 16, (2026).
 
 Huang, Y. et al. High-throughput microbial culturomics using automation and machine learning. Nat Biotechnol 41, 1424–1433 (2023).
 
-### Case 4: Sequence & Genomic Data via Transformers
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+What form is your data in? what does a computer see?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Case 4: Sequence & Genomic Data via Transformers
 
 **Core Concept**
 
 "We've all heard how Large Language Models analyze sentences to guess the next word. In genomics, we apply that exact same logic. We treat human DNA bases—A, T, C, and G—as letters, and long gene sequences as paragraphs to catch mutations that cause rare diseases."
 
-**The Features & Mechanics**
+### The Features & Mechanics
 
 - Long-Range Dependency Tracking: Traditional tools can only look at small genetic sections at a time. Transformer architectures use self-attention to link a base mutation at one end of a chromosome directly to structural changes at the far end.
 - Protein Folding Alterations: The model analyzes how these far-apart sequence shifts interact to change final 3D protein structures, predicting whether a variant will disrupt normal cell function.
@@ -230,7 +252,7 @@ Huang, Y. et al. High-throughput microbial culturomics using automation and mach
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/sequence.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-### Perspective Summary: Genome Language Models (gLMs) and the Transformer Architecture in Genomics
+## Perspective Summary: Genome Language Models (gLMs) and the Transformer Architecture in Genomics
 
 Drawing a direct structural analogy between human natural language and the biological code of the genome, researchers are increasingly adapting Transformer deep learning architectures to build Genome Language Models (gLMs). This review maps how these foundational models are shifting paradigms in computational biology.
 
@@ -244,7 +266,7 @@ Drawing a direct structural analogy between human natural language and the biolo
 While the Transformer architecture excels at capturing long-range contextual relationships within genetic data, it faces distinct challenges, such as quadratic computational scaling with sequence length ($O(N^2)$ context windows). The review evaluates these architectural constraints along with the systemic limitations of current gLMs (e.g., handling non-coding regions and structural context).
 Ultimately, the material serves as a roadmap for both computer scientists and computational biologists, detailing current trends and looking toward next-generation architectures designed to scale beyond standard Transformers for comprehensive genomic modeling.
 
-### Perspective Summary: Transformer Models for Multiscale and Multimodal Genomics
+## Perspective Summary: Transformer Models for Multiscale and Multimodal Genomics
 
 Transformer-based architectures are rapidly emerging as foundational tools for integrating and analyzing complex biological data. This Perspective traces their evolution from simple, single-modality (unimodal) systems to massive, multimodal foundation models capable of jointly processing genomic sequences, single-cell transcriptomics, and spatial data.
 
@@ -263,19 +285,27 @@ Scaling transformers for biological data introduces unique hurdles, particularly
 
 To encourage wider adoption among researchers, the paper provides practical, code-based primers utilizing open-source implementations and public datasets. Finally, looking toward the future, the authors propose the design of a modular "Super Transformer." This next-generation architecture would leverage cross-attention mechanisms to seamlessly integrate highly diverse, heterogeneous biological modalities, serving as a roadmap for the future of computational genomics.
 
-**Papers**
+### Papers
 
 Consens, M. E. et al. Transformers and genome language models. Nat Mach Intell 7, 346–362 (2025).
 
 Khan, S. A. et al. Multimodal foundation transformer models for multiscale genomics. Nat Methods 23, 299–311 (2026).
 
-## Group Discussion Builder: The Translation Gap
+:::::::::::::::::::::::::::::::::::::::: challenge
 
-**The Core Question to Present**
+### Discussion
+
+What form is your data in? what does a computer see?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Group Discussion Builder: The Translation Gap
+
 "What do you think is currently holding back these incredibly powerful models from being used in every single hospital tomorrow?"
 
-**Facilitator Framework & Navigation Prompts**
-If the audience hesitates or focuses solely on a single aspect, use the structured guidance categories below to steer the conversation:
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/the_translation_gap.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
