@@ -34,12 +34,42 @@ For example:
 The magic and the massive frustration of AI in healthcare happens right in the middle. Our goal today isn't to make clinicians write code, nor is it to turn data scientists into medical doctors. 
 Our goal is to learn how to translate a complex medical reality into a structured data problem, and then translate that model’s output back into something safe and useful at the patient's bedside.
 
-"We will do this by exploring how these algorithms work, some case studies and exploring the draws backs and how to implemented these models.
+**We will do this by exploring how these algorithms work, some case studies and exploring the draws backs and how to implemented these models.**
+
+![](fig/stickman_meme.png){width=30%}
+
+## Presenters
+
+### Professor Reyer Zwiggelaar
+
+Professor Zwiggelaar has nearly 30 years of research experience working at the intersection of computer science and health data, with a specific focus on computer-aided diagnosis. Over his career, he has published more than 300 full papers across journals and high-quality conferences, and he serves as an Associate Editor for Pattern Recognition and the IEEE Journal of Biomedical and Health Informatics. Additionally, he has a strong track record in academic mentorship, having guided 25 PhD students to completion, with five currently under his supervision, three awaiting their viva, and having served as an external examiner for 30 PhD candidates.
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/reyer.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+### Cory Thomas
+
+Cory Thomas has worked as a Research Software Engineer (RSE) for the past three years and has his PhD  in computer vision for breast cancer research. He has also contributed to projects involving large language models for historical archives, as well as medical applications such as cleft palate analysis. In addition, Cory has two years of industry experience as an AI developer.
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/cory.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+Let's kick things off with some quick introductions! Tell us your name and what brings you to the world of AI and machine learning?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## RoadMap
 
+Here is a rough look at what we hope to cover today. It's a packed schedule, so there's no pressure to rush through it all. We fully expect we might need an additional session to wrap things up. Please ask questions as we go if anything is unclear, as we really want to take this at a relaxed pace. 
+
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/roadmap.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/ML_meme.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
     
 ## Why Now?
 
@@ -57,13 +87,18 @@ The Three Drivers of the Healthcare AI Explosion
 **Cheap, Cloud-Scale Compute Power:**
 
 - Training a deep learning neural network requires billions of mathematical calculations per second. The rise of specialized hardware (like GPUs) and cloud computing means a model that would have taken a university supercomputer weeks to train ten years ago can now be trained in a few hours for the cost of a few cups of coffee.
-        
+
+
+!["Are we dealing with supervised or unsupervised
+learning?"](fig/benifits_AI.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
 ## Group Discussion Builder
 
-**Question**
+:::::::::::::::::::::::::::::::::::::::: challenge
 
 - What ML/AI tools are you already aware of in healthcare, and what is your immediate gut reaction to them optimism, skepticism, or anxiety?
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

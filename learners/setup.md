@@ -1,5 +1,5 @@
 ---
-title: Setup
+title: HCRW - Workshop
 ---
 
 !["Are we dealing with supervised or unsupervised
