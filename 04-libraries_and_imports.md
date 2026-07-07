@@ -135,6 +135,22 @@ Rather than forcing healthcare networks to pool private patient data into a vuln
 - Local On-Site Training: The model trains locally on each hospital's local data servers. No patient charts, names, or identifiers ever leave the building.
 - Global Aggregation: The sites send only their mathematical model adjustments (weight updates) back to the central server. The central server blends these updates into a master algorithm that benefits from the collective knowledge of multiple hospitals while maintaining absolute data confidentiality.
 
+## Challenge D: Hallucinations & Fabricated Evidence
+
+Large Language Models operate on probabilistic next-token prediction, meaning they determine the most statistically likely next word rather than querying a factual database. In high-stakes fields like medicine, law, or engineering, this architecture leads to "hallucinations"—convincing, authoritative-sounding outputs that are entirely fabricated or factually incorrect.
+
+### The Solution: Retrieval-Augmented Generation (RAG)
+
+To prevent models from relying solely on their static, imperfect internal memory, systems utilize Retrieval-Augmented Generation (RAG) architectures.
+
+Rather than forcing the LLM to generate responses entirely from its original training weights, a RAG pipeline anchors the model's generation to trusted, verifiable data sources:
+
+- External Knowledge Retrieval: When a user submits a query, the system first searches a curated, authoritative database (e.g., peer-reviewed medical journals, internal legal code, or technical manuals) for relevant documents.
+- Context Embedding: The system extracts the most accurate document snippets and injects them directly into the LLM's prompt window alongside the original user question.
+- Grounded Generation: The LLM reads the provided reference materials and uses them as an open-book source to draft its answer. It is explicitly instructed to only use the provided text.
+- Source Citation: The final output is generated with direct citations linking back to the source documents, allowing human experts to cross-reference and verify the model's claims instantly.
+    
+    
 ## Summary Wrap-Up for the Session
 Key Takeaway: Ethical healthcare AI requires moving past the simple metric of "accuracy." We must actively inspect our datasets for demographic gaps, use XAI tools like SHAP force plots to keep clinical logic transparent, and utilize decentralized frameworks like federated learning to respect sovereign data walls.
 
