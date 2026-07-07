@@ -400,13 +400,61 @@ nor is it to turn data scientists into medical doctors. Our goal is to
 learn how to translate a complex medical reality into a structured data
 problem, and then translate that model’s output back into something safe
 and useful at the patient’s bedside.</p>
-<p>“We will do this by exploring how these algorithms work, some case
-studies and exploring the draws backs and how to implemented these
-models.</p>
+<p><strong>We will do this by exploring how these algorithms work, some
+case studies and exploring the draws backs and how to implemented these
+models.</strong></p>
+<figure><img src="../fig/stickman_meme.png" style="width:30.0%" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="presenters">Presenters<a class="anchor" aria-label="anchor" href="#presenters"></a>
+</h2>
+<hr class="half-width">
+<div class="section level3">
+<h3 id="professor-reyer-zwiggelaar">Professor Reyer Zwiggelaar<a class="anchor" aria-label="anchor" href="#professor-reyer-zwiggelaar"></a>
+</h3>
+<p>Professor Zwiggelaar has nearly 30 years of research experience
+working at the intersection of computer science and health data, with a
+specific focus on computer-aided diagnosis. Over his career, he has
+published more than 300 full papers across journals and high-quality
+conferences, and he serves as an Associate Editor for Pattern
+Recognition and the IEEE Journal of Biomedical and Health Informatics.
+Additionally, he has a strong track record in academic mentorship,
+having guided 25 PhD students to completion, with five currently under
+his supervision, three awaiting their viva, and having served as an
+external examiner for 30 PhD candidates.</p>
+<p><img src="../fig/reyer.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
+<div class="section level3">
+<h3 id="cory-thomas">Cory Thomas<a class="anchor" aria-label="anchor" href="#cory-thomas"></a>
+</h3>
+<p>Cory Thomas has worked as a Research Software Engineer (RSE) for the
+past three years and has his PhD in computer vision for breast cancer
+research. He has also contributed to projects involving large language
+models for historical archives, as well as medical applications such as
+cleft palate analysis. In addition, Cory has two years of industry
+experience as an AI developer.</p>
+<p><img src="../fig/cory.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="discussion1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>Let’s kick things off with some quick introductions! Tell us your
+name and what brings you to the world of AI and machine learning?</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="roadmap">RoadMap<a class="anchor" aria-label="anchor" href="#roadmap"></a>
 </h2>
 <hr class="half-width">
+<p>Here is a rough look at what we hope to cover today. It’s a packed
+schedule, so there’s no pressure to rush through it all. We fully expect
+we might need an additional session to wrap things up. Please ask
+questions as we go if anything is unclear, as we really want to take
+this at a relaxed pace.</p>
 <p><img src="../fig/roadmap.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p><img src="../fig/ML_meme.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </section><section><h2 class="section-heading" id="why-now">Why Now?<a class="anchor" aria-label="anchor" href="#why-now"></a>
 </h2>
 <hr class="half-width">
@@ -438,15 +486,27 @@ mathematical calculations per second. The rise of specialized hardware
 (like GPUs) and cloud computing means a model that would have taken a
 university supercomputer weeks to train ten years ago can now be trained
 in a few hours for the cost of a few cups of coffee.</li>
-</ul></section><section><h2 class="section-heading" id="group-discussion-builder">Group Discussion Builder<a class="anchor" aria-label="anchor" href="#group-discussion-builder"></a>
+</ul>
+<p><img src="../fig/benifits_AI.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</section><section><h2 class="section-heading" id="group-discussion-builder">Group Discussion Builder<a class="anchor" aria-label="anchor" href="#group-discussion-builder"></a>
 </h2>
 <hr class="half-width">
-<p><strong>Question</strong></p>
+<div id="discussion2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
 <ul>
 <li>What ML/AI tools are you already aware of in healthcare, and what is
 your immediate gut reaction to them optimism, skepticism, or
 anxiety?</li>
 </ul>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -468,7 +528,7 @@ understand the math, but clinicians understand the patient.</li>
 </div>
 </section></section><section id="aio-02-variables_and_basic_data_types"><p>Content from <a href="02-variables_and_basic_data_types.html">How ML/AI Works—A Foundation</a></p>
 <hr>
-<p>Last updated on 2026-07-05 |
+<p>Last updated on 2026-07-07 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/02-variables_and_basic_data_types.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 75 minutes</p>
@@ -646,8 +706,8 @@ regression (the classic line of best fit). It assigns a specific weight
 predict the risk of a patient being readmitted to the hospital based on
 two features: Age and Number of Prior Admissions. The model builds an
 equation that looks like this:</p>
-<p><span class="math inline">\(Log- Odds-Value = \beta_0+ (\beta_1.Age)
-+ ( \beta_2. Prior-admissions)\)</span></p>
+<p>Log-Odds-Value <span class="math inline">\(= \beta_0+ (\beta_1.Age) +
+( \beta_2. Prior-admissions)\)</span></p>
 <ul>
 <li>
 <span class="math inline">\(\beta_0\)</span> is the baseline
@@ -691,6 +751,7 @@ screening for a deadly disease, we want to catch everyone. We might
 lower the threshold to 0.2 (20%). This makes the model highly sensitive,
 flagging patients even if there is only a 20% chance they are sick,
 ensuring we don’t miss a critical diagnosis.</p>
+<p><img src="../fig/logistic_regression.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
 </section><section><h2 class="section-heading" id="decision-trees">Decision Trees<a class="anchor" aria-label="anchor" href="#decision-trees"></a>
 </h2>
