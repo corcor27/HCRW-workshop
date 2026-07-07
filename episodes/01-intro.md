@@ -24,7 +24,7 @@ exercises: 0
 ## Welcome 
 
 Welcome, everyone, to today’s workshop. Whether your background is in medicine, data science, administration, or research, you are in the right teams meeting. 
-So the core expectation of today is that this will be a bilingual space. As we all have a different set of experiences and have varying prospective when it comes to what we expect from ML/AI 
+we are all at different stages in our AI/ML journey. As we all have a different set of experiences and have varying prospective when it comes to what we expect from ML/AI 
 For example:
 
 - If you are a clinician, you speak the language of patient care, workflows, and clinical utility. 
