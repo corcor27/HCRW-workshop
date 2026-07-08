@@ -298,7 +298,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Limitations &amp; Creating Your Own Model</h1>
-        <p>Last updated on 2026-07-07 |
+        <p>Last updated on 2026-07-08 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/04-libraries_and_imports.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -413,6 +413,24 @@ model unknowingly trains on corrupted or inaccurate data, it learns
 incorrect relationships and patterns, fundamentally undermining its
 real-world performance.</li>
 </ul><p><img src="../fig/grabage_in.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<div id="discussion" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="discussion" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>When an AI model is trained on “garbage data” (like blurry images,
+missing records, or unfair biases), it doesn’t crash or show an error
+message—it confidently builds a highly polished, dangerous model.</p>
+<p>Since real-world medical data is almost always messy and imperfect,
+how should developers decide when a dataset is “clean enough” to safely
+train a medical AI, and what rules should be in place to catch these
+hidden data flaws before they harm a patient?</p>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="failure-mode-2-model-brittleness-the-generalization-gap">Failure Mode 2: Model Brittleness &amp; The Generalization Gap<a class="anchor" aria-label="anchor" href="#failure-mode-2-model-brittleness-the-generalization-gap"></a></h3>
@@ -446,7 +464,25 @@ contains high noise and lower contrast, the model’s performance breaks
 down completely. It continuously flags healthy patients as having severe
 pneumonia simply because it confuses the older machine’s background
 noise with the markers of a critical ICU case.</li>
-</ul></div>
+</ul><div id="discussion-1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="discussion-1" class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>A medical AI trained at a high-tech hospital might cheat by learning
+to recognize the crisp quality of the expensive scanning machines rather
+than the actual disease—causing it to completely fail when sent to a
+rural clinic with older equipment.</p>
+<p>How can we prevent AI from taking these lazy “shortcuts” during
+training, and what steps should a small clinic take to test a new AI
+tool before trusting it with real patients?</p>
+</div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="core-concept-the-high-stakes-of-clinical-software">Core Concept: The High Stakes of Clinical Software<a class="anchor" aria-label="anchor" href="#core-concept-the-high-stakes-of-clinical-software"></a></h3>
 <p>If a music streaming app has a software bug, you get a bad song
@@ -709,8 +745,8 @@ differences in equipment, patient demographics, and charting habits
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/04-libraries_and_imports.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/04-libraries_and_imports.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-07-07",
-  "datePublished": "2026-07-07"
+  "dateModified": "2026-07-08",
+  "datePublished": "2026-07-08"
 }
 
   </script><script>
