@@ -50,6 +50,16 @@ Below are examples of what can be considered "bad" or problematic data:
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/grabage_in.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+When an AI model is trained on "garbage data" (like blurry images, missing records, or unfair biases), it doesn't crash or show an error message—it confidently builds a highly polished, dangerous model.
+
+Since real-world medical data is almost always messy and imperfect, how should developers decide when a dataset is "clean enough" to safely train a medical AI, and what rules should be in place to catch these hidden data flaws before they harm a patient?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Failure Mode 2: Model Brittleness & The Generalization Gap
 
 An AI model's performance can drop sharply when moving between hospital environments. This drop is known as Dataset Shift or The Generalization Gap.
@@ -69,6 +79,16 @@ Consider an AI model built to spot pneumonia on chest radiographs:
 - The Shortcut: The model notices that the highest-quality scans almost always belong to stable patients, while low-quality, high-noise scans taken by portable bedside units belong to critically ill patients in the ICU. The model covertly learns to classify "portable machine noise" as an indicator of severe lung disease.
 - The Deployment Site (Rural Clinic): The model is deployed to a community clinic that relies entirely on an older, portable X-ray unit for all patients due to space constraints.
 - The Crash: Because every single image coming out of the rural clinic contains high noise and lower contrast, the model's performance breaks down completely. It continuously flags healthy patients as having severe pneumonia simply because it confuses the older machine's background noise with the markers of a critical ICU case.
+
+:::::::::::::::::::::::::::::::::::::::: challenge
+
+### Discussion
+
+A medical AI trained at a high-tech hospital might cheat by learning to recognize the crisp quality of the expensive scanning machines rather than the actual disease—causing it to completely fail when sent to a rural clinic with older equipment.
+
+How can we prevent AI from taking these lazy "shortcuts" during training, and what steps should a small clinic take to test a new AI tool before trusting it with real patients?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Core Concept: The High Stakes of Clinical Software
 
