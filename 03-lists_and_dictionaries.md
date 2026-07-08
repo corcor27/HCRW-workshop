@@ -106,7 +106,9 @@ de Vries, C. F. et al. Prospective evaluation of artificial intelligence integra
 
 ### Discussion
 
-What do you think of the benefits and drawbacks of ML/AI being used in this application.
+Medical AI can read mammograms perfectly consistently without ever getting tired, but changing a machine's software or hardware can suddenly throw off the AI's accuracy and cause it to flag too many healthy patients.
+
+Since hospitals constantly update their scanning equipment and software, how can medical teams ensure an AI remains safe and reliable over time—and who should make the final call when a computer vision model highlights a "hidden" risk that a human doctor cannot see?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -161,7 +163,9 @@ Tanii, R. et al. Impact of dynamic parameter of trends in vital signs on the pre
 
 ### Discussion
 
-What do you think happens to ML/AI model, if it is been sent conflicting information?
+Instead of waiting for a single vital sign (like blood pressure) to crash, these new AI models look at subtle, overlapping trends over time to predict a medical emergency hours before it happens.
+
+While this early warning could save lives, how might a hospital balance these automated AI alerts so that doctors and nurses don't suffer from "alarm fatigue" and start ignoring the system entirely?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -222,7 +226,7 @@ The platform was deployed on fecal samples from 20 human donors, yielding severa
 
 **Conclusion & Impact**
 
-This automated culturomics framework successfully systemizes the collection of imaging-based phenotypes alongside high-resolution genomic data. By bridging the gap between high-throughput isolation and precision genomics, this platform offers a highly scalable pipeline to accelerate emerging microbiome and therapeutic studies.
+This automated culturomics framework successfully systemics the collection of imaging-based phenotypes alongside high-resolution genomic data. By bridging the gap between high-throughput isolation and precision genomics, this platform offers a highly scalable pipeline to accelerate emerging microbiome and therapeutic studies.
 
 ### Papers
 
@@ -234,7 +238,9 @@ Huang, Y. et al. High-throughput microbial culturomics using automation and mach
 
 ### Discussion
 
-What form is your data in? what does a computer see?
+Automated lab screening can automatically spot and sort out thousands of healthy, normal petri dishes so that human scientists don't have to look at them.
+
+While this frees up human experts to focus on complex, dangerous, or rare bacteria, what do you think are the biggest risks or challenges of letting an AI make the initial decision on who is "healthy" and who is "sick"?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -295,7 +301,9 @@ Khan, S. A. et al. Multimodal foundation transformer models for multiscale genom
 
 ### Discussion
 
-What form is your data in? what does a computer see?
+Transformers are great at reading DNA like a language, but they require a massive amount of computer power to process long genetic sequences.
+
+How can we change or improve these AI models so they can handle massive amounts of biological data
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
