@@ -184,7 +184,7 @@ Consider the sheer volume of negative agar plates a microbiology lab processes d
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/micro_automated.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-### Study Summary: Integration of Total Laboratory Automation (TLA) and AI
+### Integration of Total Laboratory Automation (TLA) and AI
 
 Total Laboratory Automation (TLA) modernizes traditional culture-based workflows by integrating robotic specimen processing, automated conveyor tracks, smart incubators, and high-resolution digital imaging. This ecosystem automates the entire lifecycle of a sample, from initial specimen setup to plate reading.
 
@@ -205,7 +205,7 @@ Recent advancements in machine learning—specifically convolutional neural netw
 - Standardization: Eliminates human subjectivity and inter-observer variability in plate reading.
 - Limitations & Future Directions: While TLA and AI optimize diagnostics by blending phenotypic and molecular methods, broader clinical adoption remains constrained by high costs and technical rigidities. To address this, the review emphasizes the necessity of molecular diagnostic stewardship—ensuring that these powerful, automated molecular tools are utilized selectively to maintain clinical relevance, prevent over-testing, and preserve cost-effectiveness.
 
-### Study Summary: An Open-Source Robotic Culturomics Platform for High-Throughput Strain Isolation
+### An Open-Source Robotic Culturomics Platform for High-Throughput Strain Isolation
 
 In microbiome research, cultivating pure bacterial cultures is vital for mechanistic and experimental validation. However, traditional isolation methods remain highly labor-intensive, difficult to scale, and incapable of connecting visual phenotypes (colony appearance) with underlying genotypes (genomic data) prior to physical isolation.
 
@@ -258,7 +258,7 @@ While this frees up human experts to focus on complex, dangerous, or rare bacter
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/sequence.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-## Perspective Summary: Genome Language Models (gLMs) and the Transformer Architecture in Genomics
+## Genome Language Models (gLMs) and the Transformer Architecture in Genomics
 
 Drawing a direct structural analogy between human natural language and the biological code of the genome, researchers are increasingly adapting Transformer deep learning architectures to build Genome Language Models (gLMs). This review maps how these foundational models are shifting paradigms in computational biology.
 
@@ -272,7 +272,7 @@ Drawing a direct structural analogy between human natural language and the biolo
 While the Transformer architecture excels at capturing long-range contextual relationships within genetic data, it faces distinct challenges, such as quadratic computational scaling with sequence length ($O(N^2)$ context windows). The review evaluates these architectural constraints along with the systemic limitations of current gLMs (e.g., handling non-coding regions and structural context).
 Ultimately, the material serves as a roadmap for both computer scientists and computational biologists, detailing current trends and looking toward next-generation architectures designed to scale beyond standard Transformers for comprehensive genomic modeling.
 
-## Perspective Summary: Transformer Models for Multiscale and Multimodal Genomics
+## Transformer Models for Multiscale and Multimodal Genomics
 
 Transformer-based architectures are rapidly emerging as foundational tools for integrating and analyzing complex biological data. This Perspective traces their evolution from simple, single-modality (unimodal) systems to massive, multimodal foundation models capable of jointly processing genomic sequences, single-cell transcriptomics, and spatial data.
 

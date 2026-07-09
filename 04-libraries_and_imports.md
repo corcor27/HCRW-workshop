@@ -73,7 +73,7 @@ learning?"](fig/xray_example.png){alt="Flow Diagram for determining supvervised 
 
 **A Real-World Diagnostic Failure Case Study**
 
-Consider an AI model built to spot pneumonia on chest radiographs:
+Consider an AI model built to spot pneumonia on chest X-rays:
 
 - The Training Site (London Academic Center): The model is trained on thousands of scans from top-tier digital imaging suites. In these suites, stable, ambulatory patients stand up for clean, crisp posterior-anterior (PA) views.
 - The Shortcut: The model notices that the highest-quality scans almost always belong to stable patients, while low-quality, high-noise scans taken by portable bedside units belong to critically ill patients in the ICU. The model covertly learns to classify "portable machine noise" as an indicator of severe lung disease.
