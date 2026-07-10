@@ -298,7 +298,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>How ML/AI Works—A Foundation</h1>
-        <p>Last updated on 2026-07-07 |
+        <p>Last updated on 2026-07-10 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/02-variables_and_basic_data_types.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -541,7 +541,14 @@ it scans every single variable in your dataset (Age, Blood Pressure,
 Troponin levels, etc.) and tries out every possible split to find the
 one that reduces chaos the most.</p>
 <p>The mathematical engine driving this is usually Gini Impurity or
-Information Gain (Entropy).</p>
+Information Gain (IG) (Entropy).</p>
+<p><span class="math inline">\(IG = E(parent) - \sum w_i
+E(child_i)\)</span></p>
+<p>where E is the</p>
+<p><span class="math inline">\(Entropy = \sum - p_i
+log(p_i)\)</span>,</p>
+<p>and <span class="math inline">\(p_i\)</span> = probability of class
+i</p>
 <p><strong>A Conceptual Example: Predicting Heart Attacks</strong></p>
 <p>Imagine a dataset of 100 patients. 50 had a heart attack (+) and 50
 did not (-). The dataset is currently 50/50, completely “impure.” The
@@ -949,7 +956,7 @@ texture on a pathology slide without being told what to look for).</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/02-variables_and_basic_data_types.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/02-variables_and_basic_data_types.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-07-07",
+  "dateModified": "2026-07-10",
   "datePublished": "2026-07-10"
 }
 
