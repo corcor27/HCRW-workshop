@@ -127,7 +127,8 @@ Since hospitals constantly update their scanning equipment and software, how can
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/EHR_pred.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-## Evaluating In-hospital cardiac arrest (IHCA)
+
+## Vital Sign Forecasting
 
 While early detection of clinical deterioration significantly improves patient outcomes, traditional screening criteria rely primarily on static, "on-the-spot" vital sign measurements. This retrospective study investigated whether incorporating longitudinal trend values over time improves the prediction of severe adverse events (such as unexpected cardiac arrest or unplanned ICU admission) among hospitalized patients.
 
@@ -142,7 +143,7 @@ The study analyzed data from a cohort of 24,509 inpatients, comparing 54 patient
 - Predictive Performance: Using static baseline measurements of SBP, HR, and RR yielded an AUC of 0.85 ($95\%\text{ CI: } 0.79\text{–}0.92$), which was significantly lower than the predictive power of measurements taken right before the event (AUC of 0.93, $95\%\text{ CI: } 0.88\text{–}0.97$).
 - The Value of Trends: When the dynamic delta/trend of the respiratory rate (RR) was added to the static baseline model, the predictive accuracy successfully rose to an AUC of 0.92 ($95\%\text{ CI: } 0.87\text{–}0.97$), closely matching the accuracy of near-event data.
 
-## Vital Sign Forecasting
+## Evaluating In-hospital cardiac arrest (IHCA)
 
 The core hypothesis is that jointly modeling these correlated physiological variables enhances prediction accuracy, particularly for highly sparse variables with large amounts of missing data. The framework was validated using two distinct environments: the public MIMIC dataset and an independent institutional dataset. Additionally, the authors conducted a case study applying the pipeline to forecast blood pressure dynamics in response to actual and counterfactual (hypothetical) vasopressor administrations.
 
@@ -155,9 +156,9 @@ The core hypothesis is that jointly modeling these correlated physiological vari
 
 **Papers**
 
-He, R. & Chiang, J. N. Simultaneous forecasting of vital sign trajectories in the ICU. Sci Rep 15, 14996 (2025).
-
 Tanii, R. et al. Impact of dynamic parameter of trends in vital signs on the prediction of serious events in hospitalized patients -a retrospective observational study. Resuscitation Plus 18, 100628 (2024).
+
+He, R. & Chiang, J. N. Simultaneous forecasting of vital sign trajectories in the ICU. Sci Rep 15, 14996 (2025).
 
 :::::::::::::::::::::::::::::::::::::::: challenge
 
