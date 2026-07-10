@@ -278,7 +278,7 @@ Information moves sequentially through distinct structural layers:
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/neural_networks.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-![](fig/MLP_NN.png){}.
+
 
 ### How they learn
 
