@@ -185,7 +185,7 @@ Consider the sheer volume of negative agar plates a microbiology lab processes d
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/micro_automated.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
 
-### Integration of Total Laboratory Automation (TLA) and AI
+## Integration of Total Laboratory Automation (TLA) and AI
 
 Total Laboratory Automation (TLA) modernizes traditional culture-based workflows by integrating robotic specimen processing, automated conveyor tracks, smart incubators, and high-resolution digital imaging. This ecosystem automates the entire lifecycle of a sample, from initial specimen setup to plate reading.
 
@@ -206,7 +206,7 @@ Recent advancements in machine learning—specifically convolutional neural netw
 - Standardization: Eliminates human subjectivity and inter-observer variability in plate reading.
 - Limitations & Future Directions: While TLA and AI optimize diagnostics by blending phenotypic and molecular methods, broader clinical adoption remains constrained by high costs and technical rigidities. To address this, the review emphasizes the necessity of molecular diagnostic stewardship—ensuring that these powerful, automated molecular tools are utilized selectively to maintain clinical relevance, prevent over-testing, and preserve cost-effectiveness.
 
-### An Open-Source Robotic Culturomics Platform for High-Throughput Strain Isolation
+## An Open-Source Robotic Culturomics Platform for High-Throughput Strain Isolation
 
 In microbiome research, cultivating pure bacterial cultures is vital for mechanistic and experimental validation. However, traditional isolation methods remain highly labor-intensive, difficult to scale, and incapable of connecting visual phenotypes (colony appearance) with underlying genotypes (genomic data) prior to physical isolation.
 
