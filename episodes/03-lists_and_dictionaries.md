@@ -233,7 +233,6 @@ This automated culturomics framework successfully systemics the collection of im
 
 Cherkaoui, A. et al. Evolving microbiology laboratories: mastering automated culture-based processes and molecular assays, an institutional experience. Front. Cell. Infect. Microbiol. 16, (2026).
 
-
 Huang, Y. et al. High-throughput microbial culturomics using automation and machine learning. Nat Biotechnol 41, 1424–1433 (2023).
 
 :::::::::::::::::::::::::::::::::::::::: challenge
