@@ -163,7 +163,15 @@ A human clinician builds a flowchart based on guidelines (like ACLS protocols). 
 
 The model's goal is to create pure leaf nodes—meaning nodes where almost 100% of the patients inside share the same outcome. To do this, it scans every single variable in your dataset (Age, Blood Pressure, Troponin levels, etc.) and tries out every possible split to find the one that reduces chaos the most.
 
-The mathematical engine driving this is usually Gini Impurity or Information Gain (Entropy).
+The mathematical engine driving this is usually Gini Impurity or Information Gain (IG) (Entropy).
+
+$IG = E(parent) - \sum w_i E(child_i)$
+
+where E is the 
+
+$Entropy = \sum - p_i log(p_i)$, 
+
+and $p_i$ = probability of class i
 
 **A Conceptual Example: Predicting Heart Attacks**
 
@@ -269,6 +277,8 @@ Information moves sequentially through distinct structural layers:
 
 !["Are we dealing with supervised or unsupervised
 learning?"](fig/neural_networks.png){alt="Flow Diagram for determining supvervised vs unsupervised"}.
+
+
 
 ### How they learn
 
