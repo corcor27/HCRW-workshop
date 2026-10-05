@@ -555,7 +555,8 @@ they do not understand clinical causality. Without explainability tools,
 a model can achieve near-perfect diagnostic metrics by exploiting
 unintended artifacts, background noise, or metadata in the image rather
 than learning genuine pathology.</p>
-<p>Spurious Correlations in Radiological Imaging</p>
+<div class="section level3">
+<h3 id="spurious-correlations-in-radiological-imaging">Spurious Correlations in Radiological Imaging<a class="anchor" aria-label="anchor" href="#spurious-correlations-in-radiological-imaging"></a></h3>
 <p>Consider a convolutional neural network trained to detect
 pneumothorax (collapsed lung) on chest X-rays:</p>
 <ul><li>The Artifact Trap: Patients with acute pneumothorax in hospitals
@@ -569,7 +570,8 @@ identify the plastic tube or triage tag. When evaluated on standard test
 metrics, its performance appears exceptional. However, when deployed on
 a early-stage patient without a chest tube, the model fails to detect
 the condition—mistaking a treatment marker for the disease itself.</li>
-</ul><div class="section level3">
+</ul></div>
+<div class="section level3">
 <h3 id="saliency-maps-explainable-ai-xai-methods">Saliency Maps &amp; Explainable AI (XAI) Methods<a class="anchor" aria-label="anchor" href="#saliency-maps-explainable-ai-xai-methods"></a></h3>
 <p>To open the black box, researchers and clinicians utilize Explainable
 AI (XAI) techniques, such as Grad-CAM (Gradient-weighted Class
