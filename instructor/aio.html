@@ -40,8 +40,11 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="swc-logo" alt="Software Carpentry" src="../assets/images/software-logo.svg">
-</div>
+        <a href="index.html">
+        <img id="swc-logo" alt="Software Carpentry" src="../assets/images/software-logo.svg"></a>
+
+
+      </div>
     </div>
     <div class="selector-container">
       <menu class="theme-selector" id="theme-selector-menu">
@@ -87,8 +90,9 @@
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="Software Carpentry" src="../assets/images/software-logo-sm.svg">
-</div>
+      <a href="index.html">
+      <img class="small-logo" alt="Software Carpentry" src="../assets/images/software-logo-sm.svg"></a>
+    </div>
     <div class="lesson-title-md">
       Introduction to machine learning and artificial intelligence
     </div>
@@ -137,7 +141,7 @@
       </fieldset>
     </form>
     -->
-    <a id="search-button" class="btn btn-primary" href="../instructor/aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+    <a id="search-button-nav" class="btn btn-primary" href="../instructor/aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div>
 <!--/div.container-fluid -->
 </nav><div class="container">
@@ -149,6 +153,9 @@
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
+          <div class="row mobile-row" id="theme-row-mobile">
+            <a id="search-button-sidebar" class="btn btn-primary" href="../instructor/aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+          </div>
           <div class="row mobile-row" id="theme-row-mobile">
             <menu class="col theme-selector" id="theme-selector-sidebar">
 <li class="nav-item dropdown theme-button-list" id="theme-button-list-sidebar">
@@ -197,6 +204,7 @@
 <!--/div.accordion-item-->
                 </div>
 <!--/div.accordion-flush-->
+
               </div>
 <!--div.sidenav-view-selector -->
             </div>
@@ -281,6 +289,34 @@
             </div>
 
             <hr class="half-width">
+<div class="accordion accordion-flush" id="accordion-links-toggle">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading-links-toggle">
+                  <button class="accordion-button collapsed" id="links" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-links-toggle" aria-expanded="false" aria-controls="flush-collapse-links-toggle">
+                    LINKS
+                  </button>
+                </h2>
+                <div id="flush-collapse-links-toggle" class="accordion-collapse show collapse" data-bs-parent="#accordion-links-toggle">
+                    <div class="accordion-body">
+                        <ul>
+<li>
+                            <a href="../instructor/key-points.html">Key Points</a>
+                            </li>
+                            <li>
+                            <a href="../instructor/instructor-notes.html">Instructor Notes</a>
+                            </li>
+                            <li>
+                            <a href="../instructor/images.html">Extract All Images</a>
+                            </li>
+                        </ul>
+</div>
+                </div>
+                </div>
+<!--/div.accordion-item-->
+            </div>
+<!--/div.accordion-flush-->
+
+            <hr class="half-width">
 <div class="accordion accordion-flush lesson-resources" id="accordion-resources-toggle">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading-resources-toggle">
@@ -291,16 +327,7 @@
                 <div id="flush-collapse-resources-toggle" class="accordion-collapse collapse" data-bs-parent="#accordion-resources-toggle">
                   <div class="accordion-body">
                     <ul>
-<li>
-                        <a href="../instructor/key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="../instructor/instructor-notes.html">Instructor Notes</a>
-                      </li>
-                      <li>
-                        <a href="../instructor/images.html">Extract All Images</a>
-                      </li>
-                      <li><a href="additional_material.html">Additional material</a></li>
+<li><a href="additional_material.html">Additional material</a></li>
 <li><a href="extra_exercises.html">Additional Exercises</a></li>
 <hr>
 <li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
@@ -431,11 +458,11 @@ models for historical archives, as well as medical applications such as
 cleft palate analysis. In addition, Cory has two years of industry
 experience as an AI developer.</p>
 <p><img src="../fig/cory.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="discussion1" class="callout discussion">
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div class="callout-inner">
 <h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
@@ -491,11 +518,11 @@ in a few hours for the cost of a few cups of coffee.</li>
 </section><section><h2 class="section-heading" id="group-discussion-builder">Group Discussion Builder<a class="anchor" aria-label="anchor" href="#group-discussion-builder"></a>
 </h2>
 <hr class="half-width">
-<div id="discussion2" class="callout discussion">
+<div id="challenge2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div class="callout-inner">
 <h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
@@ -653,11 +680,11 @@ can reconstruct the underlying physiological features—such as an R-peak
 in an ECG or an alpha wave in an EEG solely from this raw, sequential
 numerical data.</p>
 <p><img src="../fig/ECG.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="discussion" class="callout discussion">
+<div id="discussion" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -907,11 +934,11 @@ forest averages the outputs. If Tree 1 says 3 days, Tree 2 says 5 days,
 and Tree 3 says 4 days, the final prediction is 4 days.</li>
 </ul>
 <p><img src="../fig/random_forest_sum.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="discussion-1" class="callout discussion">
+<div id="discussion-1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-1" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1045,11 +1072,11 @@ and compute power, making them the foundational backbone for modern
 large language and multi-modal models.</li>
 </ul>
 <p><img src="../fig/transformers_work.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="discussion-2" class="callout discussion">
+<div id="discussion-2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-2" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1152,11 +1179,11 @@ your patient data looks like a table, a picture, or a paragraph.</p>
 Learning<a class="anchor" aria-label="anchor" href="#comparative-summary-table-between-traditional-ml-and-deep-learning"></a>
 </h3>
 <p><img src="../fig/comparison_ML_AI.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="group-discussion-builder" class="callout discussion">
+<div id="group-discussion-builder" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="group-discussion-builder" class="callout-inner">
 <h3 class="callout-title">Group Discussion Builder</h3>
 <div class="callout-content">
@@ -1417,11 +1444,11 @@ accuracy study. The Lancet Oncology 24, 936–944 (2023).</p>
 <p>de Vries, C. F. et al. Prospective evaluation of artificial
 intelligence integration into breast cancer screening in multiple
 workflow settings: the GEMINI study. Nat Cancer 7, 484–493 (2026).</p>
-<div id="discussion" class="callout discussion">
+<div id="discussion" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1534,11 +1561,11 @@ retrospective observational study. Resuscitation Plus 18, 100628
 (2024).</p>
 <p>He, R. &amp; Chiang, J. N. Simultaneous forecasting of vital sign
 trajectories in the ICU. Sci Rep 15, 14996 (2025).</p>
-<div id="discussion-1" class="callout discussion">
+<div id="discussion-1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-1" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1671,11 +1698,11 @@ experience. Front. Cell. Infect. Microbiol. 16, (2026).</p>
 <p>Huang, Y. et al. High-throughput microbial culturomics using
 automation and machine learning. Nat Biotechnol 41, 1424–1433
 (2023).</p>
-<div id="discussion-2" class="callout discussion">
+<div id="discussion-2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-2" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1791,11 +1818,11 @@ as a roadmap for the future of computational genomics.</p>
 Mach Intell 7, 346–362 (2025).</p>
 <p>Khan, S. A. et al. Multimodal foundation transformer models for
 multiscale genomics. Nat Methods 23, 299–311 (2026).</p>
-<div id="discussion-3" class="callout discussion">
+<div id="discussion-3" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-3" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -1807,11 +1834,11 @@ massive amounts of biological data</p>
 </div>
 </div>
 </div>
-<div id="group-discussion-builder-the-translation-gap" class="callout discussion">
+<div id="group-discussion-builder-the-translation-gap" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="group-discussion-builder-the-translation-gap" class="callout-inner">
 <h3 class="callout-title">Group Discussion Builder: The Translation
 Gap</h3>
@@ -1885,7 +1912,7 @@ diseases.</li>
 </div>
 </section></section><section id="aio-04-libraries_and_imports"><p>Content from <a href="04-libraries_and_imports.html">Limitations &amp; Creating Your Own Model</a></p>
 <hr>
-<p>Last updated on 2026-07-09 |
+<p>Last updated on 2026-10-05 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/04-libraries_and_imports.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -2004,11 +2031,11 @@ incorrect relationships and patterns, fundamentally undermining its
 real-world performance.</li>
 </ul>
 <p><img src="../fig/grabage_in.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<div id="discussion" class="callout discussion">
+<div id="discussion" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -2057,11 +2084,11 @@ down completely. It continuously flags healthy patients as having severe
 pneumonia simply because it confuses the older machine’s background
 noise with the markers of a critical ICU case.</li>
 </ul>
-<div id="discussion-1" class="callout discussion">
+<div id="discussion-1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="discussion-1" class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
@@ -2116,42 +2143,60 @@ minority patient groups.</li>
 </section><section><h2 class="section-heading" id="challenge-b-the-black-box-explainability-xai">Challenge B: The Black Box &amp; Explainability (XAI)<a class="anchor" aria-label="anchor" href="#challenge-b-the-black-box-explainability-xai"></a>
 </h2>
 <hr class="half-width">
-<p>Deep learning models operate by routing inputs through millions of
-abstract mathematical connections. This yields a Black Box problem: an
-input goes in, an output comes out, but the exact clinical logic remains
-completely invisible.</p>
-<p><strong>Moving Past the Black Box with SHAP &amp; LIME</strong></p>
-<p>Physicians have an ethical and legal duty of care. You cannot
-prescribe a aggressive treatment protocol or send a patient to emergency
-surgery simply because a model generated a high risk score. You need to
-know why. Medicine solves this using Explainable AI (XAI) frameworks.
-The two industry standards are:</p>
+<p>When a doctor prescribes a medication or orders a surgical
+intervention, they can articulate their clinical reasoning. They
+evaluate symptoms, lab values, and underlying physiological mechanisms.
+Deep learning models, however, operate on thousands of abstract
+statistical features across millions of parameters. They deliver
+high-accuracy outputs without revealing how they arrived at a
+conclusion—a problem commonly known as the “Black Box.”</p>
+<p>In clinical care, an unexplainable prediction—no matter how
+statistically accurate on paper—creates critical safety hazards,
+obscures algorithmic failure modes, and makes true informed consent
+nearly impossible. The Shortcuts of Deep Learning</p>
+<p>Deep neural networks excel at optimizing for a target objective, but
+they do not understand clinical causality. Without explainability tools,
+a model can achieve near-perfect diagnostic metrics by exploiting
+unintended artifacts, background noise, or metadata in the image rather
+than learning genuine pathology.</p>
+<p>Spurious Correlations in Radiological Imaging</p>
+<p>Consider a convolutional neural network trained to detect
+pneumothorax (collapsed lung) on chest X-rays:</p>
 <ul>
-<li>SHAP (SHapley Additive exPlanations): Uses cooperative game theory
-to calculate the exact structural contribution of each medical feature
-to the final prediction.</li>
-<li>LIME (Local Interpretable Model-agnostic Explanations): Purposely
-perturbs the data around a single patient to see which variables cause
-the prediction to flip.</li>
+<li>The Artifact Trap: Patients with acute pneumothorax in hospitals
+frequently receive immediate treatment via a chest tube insertion. In
+training datasets, chest X-rays of patients with pneumothorax often
+contain visible chest drain tubes or specific alignment markers used in
+emergency triage rooms.</li>
+<li>The Clinical Consequence: Rather than learning the subtle visceral
+pleural edge or lung tissue density changes, the model learns to
+identify the plastic tube or triage tag. When evaluated on standard test
+metrics, its performance appears exceptional. However, when deployed on
+a early-stage patient without a chest tube, the model fails to detect
+the condition—mistaking a treatment marker for the disease itself.</li>
 </ul>
-<p><strong>Reading a SHAP Force Plot</strong></p>
-<p>When integrated into an Electronic Health Record (EHR), an XAI tool
-transforms a blind risk percentage into an actionable diagnostic
-map.</p>
-<p><img src="../fig/EHR_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p>As shown in the force plot visualization above, the model reveals its
-internal decision-making path for individual patients:</p>
+<div class="section level3">
+<h3 id="saliency-maps-explainable-ai-xai-methods">Saliency Maps &amp; Explainable AI (XAI) Methods<a class="anchor" aria-label="anchor" href="#saliency-maps-explainable-ai-xai-methods"></a>
+</h3>
+<p>To open the black box, researchers and clinicians utilize Explainable
+AI (XAI) techniques, such as Grad-CAM (Gradient-weighted Class
+Activation Mapping), Integrated Gradients, and SHAP (SHapley Additive
+exPlanations). These frameworks highlight which regions of an input
+image or feature vector contributed most heavily to the model’s
+output.</p>
+<p>While XAI helps catch spurious correlations, it introduces its own
+set of clinical challenges:</p>
 <ul>
-<li>The Baseline Value: The system starts at a standard population risk
-baseline.</li>
-<li>The Dynamic Vectors: Clinical variables act as directional forces.
-Red bars push the patient’s score higher toward a critical alert
-threshold, while blue bars pull the prediction down toward safety.</li>
-<li>Clinical Verification: A clinician can quickly review the chart and
-see that a high risk score was driven specifically by a high respiratory
-rate (RR = 23.0) paired with a compromised oxygenation status (PaO2 =
-53.0), allowing them to clinically validate the AI’s warning.</li>
-</ul></section><section><h2 class="section-heading" id="challenge-c-data-privacy-sovereign-borders">Challenge C: Data Privacy &amp; Sovereign Borders<a class="anchor" aria-label="anchor" href="#challenge-c-data-privacy-sovereign-borders"></a>
+<li>Visual Reassurance vs. Ground Truth: Heatmaps show where the model
+was “looking,” but they do not prove logical reasoning. A saliency map
+highlighting a lung region does not guarantee the model evaluated the
+correct tissue structure.</li>
+<li>Automation Bias: If a highlighted region vaguely overlaps with an
+abnormality, clinicians may prematurely trust a flawed AI output,
+overriding their own clinical judgment.</li>
+</ul>
+</div>
+</section><section><h2 class="section-heading" id="challenge-c-data-privacy-sovereign-borders">Challenge C: Data Privacy &amp; Sovereign Borders<a class="anchor" aria-label="anchor" href="#challenge-c-data-privacy-sovereign-borders"></a>
 </h2>
 <hr class="half-width">
 <p>Tech giants scale their businesses by collecting massive consumer
@@ -2215,6 +2260,7 @@ explicitly instructed to only use the provided text.</li>
 linking back to the source documents, allowing human experts to
 cross-reference and verify the model’s claims instantly.</li>
 </ul>
+<p><img src="../fig/Hallucinations_Fabricated_Evidence.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
 </section><section><h2 class="section-heading" id="summary-wrap-up-for-the-session">Summary Wrap-Up for the Session<a class="anchor" aria-label="anchor" href="#summary-wrap-up-for-the-session"></a>
 </h2>
@@ -2336,7 +2382,7 @@ differences in equipment, patient demographics, and charting habits
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.3)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -2359,8 +2405,8 @@ differences in equipment, patient demographics, and charting habits
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/aio.html",
   "dateCreated": "2014-11-25",
-  "dateModified": "2026-08-25",
-  "datePublished": "2026-08-25"
+  "dateModified": "2026-10-05",
+  "datePublished": "2026-10-05"
 }
 
   </script><script>
@@ -2369,7 +2415,7 @@ differences in equipment, patient demographics, and charting habits
           var _paq = window._paq = window._paq || [];
           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
           _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
+          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.hpc-carpentry.github.io","*.hpc-carpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
           _paq.push(["setDoNotTrack", true]);
           _paq.push(["disableCookies"]);
           _paq.push(["trackPageView"]);
