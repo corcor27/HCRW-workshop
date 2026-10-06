@@ -1912,7 +1912,7 @@ diseases.</li>
 </div>
 </section></section><section id="aio-04-libraries_and_imports"><p>Content from <a href="04-libraries_and_imports.html">Limitations &amp; Creating Your Own Model</a></p>
 <hr>
-<p>Last updated on 2026-10-05 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/corcor27/HCRW-workshop/edit/main/episodes/04-libraries_and_imports.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -2000,35 +2000,40 @@ considered it.</p>
 <p>Below are examples of what can be considered “bad” or problematic
 data:</p>
 <ul>
-<li>Significant Biases and Underrepresented Minority Groups: Machine
-learning models mirror the data they are fed, meaning they inherently
-absorb any biases present in the dataset. If a specific class or group
-is underrepresented, the model may fail to predict it entirely, or it
-might default to predicting only the majority class. Think of a model
-like a river: if the river forks, the water naturally follows the path
-of least resistance. Similarly, a model will take the easiest path to
-minimize error, requiring deliberate intervention and adjustment to
-ensure it performs fairly and accurately.</li>
-<li>Poor Quality Images: While clinical data often avoids this issue due
-to strict standardization protocols, it can still occur. If a model is
-trained on highly blurry images where the target object is barely
-visible, it will struggle to generalize. You cannot expect a model
-trained on degraded data to function correctly when tested on clean,
-high-resolution images.</li>
-<li>Missing Values: Missing data poses a significant challenge because
-the reason for the absence matters. A blank space could represent
-crucial context (e.g., a intentional omission), or it could simply mean
-a piece of equipment failed to record the data. Treating these two
-scenarios the same can lead to severe consequences during training.
-Furthermore, missing fields are sometimes improperly filled with zeros.
-Because a value of zero carries its own specific meaning, any data
-imputation must be handled with the correct context-aware
-methodology.</li>
-<li>Incorrect Data: While similar to missing values, incorrect data
-presents a distinct hazard—especially when it goes undetected. If a
-model unknowingly trains on corrupted or inaccurate data, it learns
-incorrect relationships and patterns, fundamentally undermining its
-real-world performance.</li>
+<li>
+<strong>Significant Biases and Underrepresented Minority
+Groups</strong>: Machine learning models mirror the data they are fed,
+meaning they inherently absorb any biases present in the dataset. If a
+specific class or group is underrepresented, the model may fail to
+predict it entirely, or it might default to predicting only the majority
+class. Think of a model like a river: if the river forks, the water
+naturally follows the path of least resistance. Similarly, a model will
+take the easiest path to minimize error, requiring deliberate
+intervention and adjustment to ensure it performs fairly and
+accurately.</li>
+<li>
+<strong>Poor Quality Images</strong>: While clinical data often
+avoids this issue due to strict standardization protocols, it can still
+occur. If a model is trained on highly blurry images where the target
+object is barely visible, it will struggle to generalize. You cannot
+expect a model trained on degraded data to function correctly when
+tested on clean, high-resolution images.</li>
+<li>
+<strong>Missing Values</strong>: Missing data poses a significant
+challenge because the reason for the absence matters. A blank space
+could represent crucial context (e.g., a intentional omission), or it
+could simply mean a piece of equipment failed to record the data.
+Treating these two scenarios the same can lead to severe consequences
+during training. Furthermore, missing fields are sometimes improperly
+filled with zeros. Because a value of zero carries its own specific
+meaning, any data imputation must be handled with the correct
+context-aware methodology.</li>
+<li>
+<strong>Incorrect Data</strong>: While similar to missing values,
+incorrect data presents a distinct hazard—especially when it goes
+undetected. If a model unknowingly trains on corrupted or inaccurate
+data, it learns incorrect relationships and patterns, fundamentally
+undermining its real-world performance.</li>
 </ul>
 <p><img src="../fig/grabage_in.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 <div id="discussion" class="callout challenge">
@@ -2063,26 +2068,34 @@ maximize its accuracy score. It learns to recognize the specific
 signatures of that hospital’s hardware, scan markers, or patient
 protocols rather than the actual medical pathology.</p>
 <p><img src="../fig/xray_example.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p><strong>A Real-World Diagnostic Failure Case Study</strong></p>
+</div>
+<div class="section level3">
+<h3 id="a-real-world-diagnostic-failure-case-study">A Real-World Diagnostic Failure Case Study<a class="anchor" aria-label="anchor" href="#a-real-world-diagnostic-failure-case-study"></a>
+</h3>
 <p>Consider an AI model built to spot pneumonia on chest X-rays:</p>
 <ul>
-<li>The Training Site (London Academic Center): The model is trained on
-thousands of scans from top-tier digital imaging suites. In these
-suites, stable, ambulatory patients stand up for clean, crisp
-posterior-anterior (PA) views.</li>
-<li>The Shortcut: The model notices that the highest-quality scans
-almost always belong to stable patients, while low-quality, high-noise
-scans taken by portable bedside units belong to critically ill patients
-in the ICU. The model covertly learns to classify “portable machine
-noise” as an indicator of severe lung disease.</li>
-<li>The Deployment Site (Rural Clinic): The model is deployed to a
-community clinic that relies entirely on an older, portable X-ray unit
-for all patients due to space constraints.</li>
-<li>The Crash: Because every single image coming out of the rural clinic
-contains high noise and lower contrast, the model’s performance breaks
-down completely. It continuously flags healthy patients as having severe
-pneumonia simply because it confuses the older machine’s background
-noise with the markers of a critical ICU case.</li>
+<li>
+<strong>The Training Site (London Academic Center)</strong>: The
+model is trained on thousands of scans from top-tier digital imaging
+suites. In these suites, stable, ambulatory patients stand up for clean,
+crisp posterior-anterior (PA) views.</li>
+<li>
+<strong>The Shortcut</strong>: The model notices that the
+highest-quality scans almost always belong to stable patients, while
+low-quality, high-noise scans taken by portable bedside units belong to
+critically ill patients in the ICU. The model covertly learns to
+classify “portable machine noise” as an indicator of severe lung
+disease.</li>
+<li>
+<strong>The Deployment Site (Rural Clinic)</strong>: The model is
+deployed to a community clinic that relies entirely on an older,
+portable X-ray unit for all patients due to space constraints.</li>
+<li>
+<strong>The Crash</strong>: Because every single image coming out of
+the rural clinic contains high noise and lower contrast, the model’s
+performance breaks down completely. It continuously flags healthy
+patients as having severe pneumonia simply because it confuses the older
+machine’s background noise with the markers of a critical ICU case.</li>
 </ul>
 <div id="discussion-1" class="callout challenge">
 <div class="callout-square">
@@ -2122,24 +2135,29 @@ strictest data laws on earth.</p>
 If the data used to train an AI model reflects societal or systemic gaps
 in healthcare access, the model will codify and supercharge those
 disparities under the guise of objective mathematics.</p>
-<p><strong>The Fitzpatrick Scale Disparity in Dermatology</strong></p>
+<div class="section level3">
+<h3 id="the-fitzpatrick-scale-disparity-in-dermatology">The Fitzpatrick Scale Disparity in Dermatology<a class="anchor" aria-label="anchor" href="#the-fitzpatrick-scale-disparity-in-dermatology"></a>
+</h3>
 <p>In medical computer vision, skin cancer screening tools rely heavily
 on image pattern recognition. A historical problem is that major
 open-source dermatology training repositories (like the ISIC archive)
 have historically consisted of images taken from individuals with
 lighter skin tones.</p>
 <ul>
-<li>The Systemic Drop: When an algorithm trained primarily on
-Fitzpatrick Types 1–3 (lighter skin) is asked to evaluate a lesion on
-Fitzpatrick Types 5–6 (darker skin), its diagnostic accuracy drops
-precipitously.</li>
-<li>The Clinical Consequence: The model fails to recognize the edge
-boundaries, color variations, or texture changes of a malignant melanoma
-against a darker background melanin index. This leads directly to higher
-false-negative rates and delayed, late-stage cancer diagnoses for
-minority patient groups.</li>
+<li>
+<strong>The Systemic Drop</strong>: When an algorithm trained
+primarily on Fitzpatrick Types 1–3 (lighter skin) is asked to evaluate a
+lesion on Fitzpatrick Types 5–6 (darker skin), its diagnostic accuracy
+drops precipitously.</li>
+<li>
+<strong>The Clinical Consequence</strong>: The model fails to
+recognize the edge boundaries, color variations, or texture changes of a
+malignant melanoma against a darker background melanin index. This leads
+directly to higher false-negative rates and delayed, late-stage cancer
+diagnoses for minority patient groups.</li>
 </ul>
 <p><img src="../fig/skin_cancer.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+</div>
 </section><section><h2 class="section-heading" id="challenge-b-the-black-box-explainability-xai">Challenge B: The Black Box &amp; Explainability (XAI)<a class="anchor" aria-label="anchor" href="#challenge-b-the-black-box-explainability-xai"></a>
 </h2>
 <hr class="half-width">
@@ -2165,17 +2183,20 @@ than learning genuine pathology.</p>
 <p>Consider a convolutional neural network trained to detect
 pneumothorax (collapsed lung) on chest X-rays:</p>
 <ul>
-<li>The Artifact Trap: Patients with acute pneumothorax in hospitals
-frequently receive immediate treatment via a chest tube insertion. In
-training datasets, chest X-rays of patients with pneumothorax often
-contain visible chest drain tubes or specific alignment markers used in
-emergency triage rooms.</li>
-<li>The Clinical Consequence: Rather than learning the subtle visceral
-pleural edge or lung tissue density changes, the model learns to
-identify the plastic tube or triage tag. When evaluated on standard test
-metrics, its performance appears exceptional. However, when deployed on
-a early-stage patient without a chest tube, the model fails to detect
-the condition—mistaking a treatment marker for the disease itself.</li>
+<li>
+<strong>The Artifact Trap</strong>: Patients with acute pneumothorax
+in hospitals frequently receive immediate treatment via a chest tube
+insertion. In training datasets, chest X-rays of patients with
+pneumothorax often contain visible chest drain tubes or specific
+alignment markers used in emergency triage rooms.</li>
+<li>
+<strong>The Clinical Consequence</strong>: Rather than learning the
+subtle visceral pleural edge or lung tissue density changes, the model
+learns to identify the plastic tube or triage tag. When evaluated on
+standard test metrics, its performance appears exceptional. However,
+when deployed on a early-stage patient without a chest tube, the model
+fails to detect the condition—mistaking a treatment marker for the
+disease itself.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -2190,13 +2211,15 @@ output.</p>
 <p>While XAI helps catch spurious correlations, it introduces its own
 set of clinical challenges:</p>
 <ul>
-<li>Visual Reassurance vs. Ground Truth: Heatmaps show where the model
-was “looking,” but they do not prove logical reasoning. A saliency map
-highlighting a lung region does not guarantee the model evaluated the
-correct tissue structure.</li>
-<li>Automation Bias: If a highlighted region vaguely overlaps with an
-abnormality, clinicians may prematurely trust a flawed AI output,
-overriding their own clinical judgment.</li>
+<li>
+<strong>Visual Reassurance vs. Ground Truth</strong>: Heatmaps show
+where the model was “looking,” but they do not prove logical reasoning.
+A saliency map highlighting a lung region does not guarantee the model
+evaluated the correct tissue structure.</li>
+<li>
+<strong>Automation Bias</strong>: If a highlighted region vaguely
+overlaps with an abnormality, clinicians may prematurely trust a flawed
+AI output, overriding their own clinical judgment.</li>
 </ul>
 <p><img src="../fig/explainability.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
@@ -2209,7 +2232,9 @@ frameworks like HIPAA (Health Insurance Portability and Accountability
 Act) and GDPR (General Data Protection Regulation) make this central
 gathering approach an operational and legal impossibility.</p>
 <p><img src="../fig/data_privacy.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<p><strong>The Solution: Federated Learning</strong></p>
+<div class="section level3">
+<h3 id="the-solution-federated-learning">The Solution: Federated Learning**<a class="anchor" aria-label="anchor" href="#the-solution-federated-learning"></a>
+</h3>
 <p>To train powerful models without moving highly confidential patient
 files across institutional boundaries, medical networks utilize
 Federated Learning architectures.</p>
@@ -2218,20 +2243,27 @@ Federated Learning architectures.</p>
 into a vulnerable central repository, federated learning flips the
 pipeline completely:</p>
 <ul>
-<li>Local Preservation: The raw data stays safely behind local firewall
-networks at individual facilities (e.g., individual hospitals, research
-centers, or universities).</li>
-<li>Model Dissemination: A blank, unconfigured neural network model is
-sent out from a central federated server to each individual site.</li>
-<li>Local On-Site Training: The model trains locally on each hospital’s
-local data servers. No patient charts, names, or identifiers ever leave
-the building.</li>
-<li>Global Aggregation: The sites send only their mathematical model
-adjustments (weight updates) back to the central server. The central
-server blends these updates into a master algorithm that benefits from
-the collective knowledge of multiple hospitals while maintaining
-absolute data confidentiality.</li>
-</ul></section><section><h2 class="section-heading" id="challenge-d-hallucinations-fabricated-evidence">Challenge D: Hallucinations &amp; Fabricated Evidence<a class="anchor" aria-label="anchor" href="#challenge-d-hallucinations-fabricated-evidence"></a>
+<li>
+<strong>Local Preservation</strong>: The raw data stays safely
+behind local firewall networks at individual facilities (e.g.,
+individual hospitals, research centers, or universities).</li>
+<li>
+<strong>Model Dissemination</strong>: A blank, unconfigured neural
+network model is sent out from a central federated server to each
+individual site.</li>
+<li>
+<strong>Local On-Site Training</strong>: The model trains locally on
+each hospital’s local data servers. No patient charts, names, or
+identifiers ever leave the building.</li>
+<li>
+<strong>Global Aggregation</strong>: The sites send only their
+mathematical model adjustments (weight updates) back to the central
+server. The central server blends these updates into a master algorithm
+that benefits from the collective knowledge of multiple hospitals while
+maintaining absolute data confidentiality.</li>
+</ul>
+</div>
+</section><section><h2 class="section-heading" id="challenge-d-hallucinations-fabricated-evidence">Challenge D: Hallucinations &amp; Fabricated Evidence<a class="anchor" aria-label="anchor" href="#challenge-d-hallucinations-fabricated-evidence"></a>
 </h2>
 <hr class="half-width">
 <p>Large Language Models operate on probabilistic next-token prediction,
@@ -2250,19 +2282,23 @@ architectures.</p>
 original training weights, a RAG pipeline anchors the model’s generation
 to trusted, verifiable data sources:</p>
 <ul>
-<li>External Knowledge Retrieval: When a user submits a query, the
-system first searches a curated, authoritative database (e.g.,
-peer-reviewed medical journals, internal legal code, or technical
+<li>
+<strong>External Knowledge Retrieval</strong>: When a user submits a
+query, the system first searches a curated, authoritative database
+(e.g., peer-reviewed medical journals, internal legal code, or technical
 manuals) for relevant documents.</li>
-<li>Context Embedding: The system extracts the most accurate document
-snippets and injects them directly into the LLM’s prompt window
-alongside the original user question.</li>
-<li>Grounded Generation: The LLM reads the provided reference materials
-and uses them as an open-book source to draft its answer. It is
-explicitly instructed to only use the provided text.</li>
-<li>Source Citation: The final output is generated with direct citations
-linking back to the source documents, allowing human experts to
-cross-reference and verify the model’s claims instantly.</li>
+<li>
+<strong>Context Embedding</strong>: The system extracts the most
+accurate document snippets and injects them directly into the LLM’s
+prompt window alongside the original user question.</li>
+<li>
+<strong>Grounded Generation</strong>: The LLM reads the provided
+reference materials and uses them as an open-book source to draft its
+answer. It is explicitly instructed to only use the provided text.</li>
+<li>
+<strong>Source Citation</strong>: The final output is generated with
+direct citations linking back to the source documents, allowing human
+experts to cross-reference and verify the model’s claims instantly.</li>
 </ul>
 <p><img src="../fig/Hallucinations_Fabricated_Evidence.jpeg" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
 </div>
@@ -2302,13 +2338,17 @@ text, Hugging Face standardizes pre-trained transformer blocks.</p>
 <p>Raw features must be mathematically transformed into optimized
 tensors to ensure gradient stability and network convergence:</p>
 <ul>
-<li>Standardization: Translates data to a mean of 0 and a standard
-deviation of 1, preserving outlier relative positioning.</li>
-<li>Min-Max Scaling: Compresses arrays into a rigid <span class="math inline">\([0, 1]\)</span> boundary, which is essential for
-uniform structures like image pixel matrices.</li>
-<li>Embedding Layers: Replace memory-intensive one-hot encoding by
-mapping high-cardinality discrete categories into dense, low-dimensional
-continuous vector spaces.</li>
+<li>
+<strong>Standardization</strong>: Translates data to a mean of 0 and
+a standard deviation of 1, preserving outlier relative positioning.</li>
+<li>
+<strong>Min-Max Scaling</strong>: Compresses arrays into a rigid
+<span class="math inline">\([0, 1]\)</span> boundary, which is essential
+for uniform structures like image pixel matrices.</li>
+<li>
+<strong>Embedding Layers</strong>: Replace memory-intensive one-hot
+encoding by mapping high-cardinality discrete categories into dense,
+low-dimensional continuous vector spaces.</li>
 </ul>
 </div>
 <div class="section level3">
